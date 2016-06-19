@@ -1,0 +1,103 @@
+{
+  "name": "megalitos",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "tipoMegalito": {
+      "type": "string",
+      "required": true
+    },
+    "estacionMegalitica": {
+      "type": "string"
+    },
+    "localizacion": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string",
+      "required": true
+    },
+    "descubrimiento": {
+      "type": "string"
+    },
+    "observaciones": {
+      "type": "string"
+    },
+    "bibliografia": {
+      "type": "string"
+    },
+    "vortice": {
+      "type": "string"
+    },
+    "giroVortice": {
+      "type": "string"
+    },
+    "profundidadAgua": {
+      "type": "string"
+    },
+    "caudalAgua": {
+      "type": "string"
+    },
+    "testor": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "comentarios": {
+      "type": "hasMany",
+      "model": "comentarios",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "lugares": {
+      "type": "hasOne",
+      "model": "lugares",
+      "foreignKey": ""
+    },
+    "coordenadas": {
+      "type": "hasOne",
+      "model": "coordenadas",
+      "foreignKey": ""
+    },
+    "imagenes": {
+      "type": "hasMany",
+      "model": "imagenes",
+      "foreignKey": ""
+    }
+  },
+  "acls": [{
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }],
+  "methods": {}
+}

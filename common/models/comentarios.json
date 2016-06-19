@@ -1,0 +1,38 @@
+{
+  "name": "comentarios",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "puntuacion": {
+      "type": "number",
+      "required": true,
+      "default": "5"
+    },
+    "comentario": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "megalitos": {
+      "type": "belongsTo",
+      "model": "megalitos",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

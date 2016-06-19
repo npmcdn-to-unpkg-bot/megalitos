@@ -1,0 +1,18 @@
+
+<div class="col-md-4 nopaddingEtiquetas">
+    <div class="sidebar " id="sidebar">
+        <div class="widget Label" data-version="1" id="Label1">
+            <h2>Etiquetas</h2>
+            <div class="widget-content list-label-widget-content">
+                <ul>
+                    <li ng-repeat="(key,count) in lugares ">
+                        <a dir="ltr" href="#/megalitos/comunidad/{{key}}">
+                                               {{key}}
+                                                </a>
+                        <span dir="ltr">{{"( "+count+" )"}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

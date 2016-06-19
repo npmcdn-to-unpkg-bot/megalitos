@@ -1,0 +1,36 @@
+<ul class="nav navbar-nav ">
+    <li class="dropdown">
+        <a href="" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"> </i> Login</a>
+        <ul id="login-dp" class="dropdown-menu">
+            <li>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="sign-up">
+                            <form name="loginForm">
+                                <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+                                    <label>Email</label>
+                                    <input type="text" name="email" class="form-control" ng-model="user.email" required> </input>
+                                    <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">El username del user es requrido</p>
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                                    <label>Contraseña</label>
+                                    <input type="password" name="password" class="form-control" ng-model="user.password" required> </input>
+                                    <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">El username del user es requrido</p>
+                                    <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                    <div class="help-block text-right"><a href="#/sign-up">Registrate</a></div>
+                                </div>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> keep me logged-in
+                            </label>
+                        </div>
+                        <button ng-disabled="loginForm.$invalid" type="submit" class="btn btn-primary" ng-click="login()">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,28 @@
+{
+  "name": "coordenadas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "lat": {
+      "type": "string",
+      "required": true
+    },
+    "lng": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "megalitos": {
+      "type": "belongsTo",
+      "model": "megalitos",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

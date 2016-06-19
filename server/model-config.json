@@ -5,36 +5,88 @@
       "loopback/server/models",
       "../common/models",
       "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
     ]
   },
-  "User": {
+  "accessToken": {
     "dataSource": "db",
     "public": false
   },
-  "AccessToken": {
+  "userCredential": {
+    "dataSource": "db",
+    "public": false
+  },
+  "userIdentity": {
     "dataSource": "db",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": false
   },
-  "Email": {
-    "dataSource": "emailDs"
+  "container": {
+    "dataSource": "storage",
+    "public": true
   },
   "user": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": true,
     "options": {
       "emailVerificationRequired": true
     }
+  },
+  "megalitos": {
+    "dataSource": "MongoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "comentarios": {
+    "dataSource": "MongoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "lugares": {
+    "dataSource": "MongoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "coordenadas": {
+    "dataSource": "MongoDB",
+    "public": true
+  },
+  "imagenes": {
+    "dataSource": "MongoDB",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "myEmailDataSource",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "role": {
+    "dataSource": "MongoDB",
+    "public": true
+  },
+  "roleMapping": {
+    "dataSource": "MongoDB",
+    "public": true
   }
 }

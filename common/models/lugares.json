@@ -1,0 +1,33 @@
+{
+  "name": "lugares",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "comunidad": {
+      "type": "string",
+      "required": true
+    },
+    "provincia": {
+      "type": "string",
+      "required": true
+    },
+    "pueblo": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "megalitos": {
+      "type": "belongsTo",
+      "model": "megalitos",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,43 @@
+<div class="full ">
+    <div class="col-md-12 " id="outer-wrapper">
+        <div class="col-md-8 nopaddingLeft nopaddingRight">
+            <div class="sign-up">
+                <div class="form" id="main-home">
+                    <h1>Registrate</h1>
+                    <a href="/#/avatar"><img class="center-block thumbnail" ng-src="/api/containers/profile/download/candelabro.jpg" />
+                    </a>
+                    <form id="main-home" name="userForm ">
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                            <label>Usuario</label>
+                            <input type="text" name="username" class="form-control" ng-model="user.username" required> </input>
+                            <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">El username del user es requrido</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+                            <label>Contraseña</label>
+                            <input type="password" name="password" class="form-control" ng-model="user.password" required> </input>
+                            <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">El username del user es requrido</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.passwordRepeat.$invalid && !userForm.passwordRepeat.$pristine }">
+                            <label>Repetir Contraseña</label>
+                            <input type="password" name="passwordRepeat" class="form-control" ng-model="user.passwordRepeat" required> </input>
+                            <p ng-show="userForm.passwordRepeat.$invalid && !userForm.passwordRepeat.$pristine" class="help-block">El username del user es requrido</p>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" ng-model="user.email" required> </input>
+                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">El username del user es requrido</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Acerca de ti</label>
+                            <textarea auto-grow type="text" name="aboutYourself" class="form-control " ng-model="user.aboutYourself">
+                            </textarea>
+                        </div>
+                        <button ng-click="register()">create</button>
+                        <p class="message">Already registered? <a href="/#/sign-up">Sign In</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <users-etiquetas></users-etiquetas>
+    </div>
+</div>

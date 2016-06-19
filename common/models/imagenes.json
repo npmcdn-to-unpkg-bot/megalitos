@@ -1,0 +1,24 @@
+{
+  "name": "imagenes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "imagenes": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "megalitos": {
+      "type": "belongsTo",
+      "model": "megalitos",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

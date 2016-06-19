@@ -1,0 +1,31 @@
+<div class="full ">
+    <div class="col-md-12 " id="outer-wrapper">
+        <div class="col-md-8 nopaddingLeft nopaddingRight">
+            <!-- Blog Post -->
+            <form id="main-home" name="avatarForm">
+                <div class="row" nv-file-drop="" uploader="uploader">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xxs-12">
+                        <div class="img-responsive">
+                            <h3>Select files</h3>
+                            <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
+                        </div>
+                    </div>
+                    <div ng-repeat="item in uploader.queue">
+                        <br/>
+                        <strong>{{ item.file.name }}</strong>
+                        <div class="cropArea img-responsive center-block">
+                            <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
+                        </div>
+                        <div>Cropped Image:</div>
+                        <div><img class="img-thumbnail center-block" ng-src="{{item.croppedImage}}" /></div>
+                    </div>
+                    <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 " ng-repeat="file in files"><img class="img-thumbnail center-block" ng-src="/api/containers/profile/download/{{file.name}}" /></div>
+                    <button ng-disabled="avatarForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-primary" ng-click="submitForm ($event)">guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+        <megalitos-etiquetas></megalitos-etiquetas>
+    </div>
+</div>
+<hr>
+</div>

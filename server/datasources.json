@@ -3,8 +3,23 @@
     "name": "db",
     "connector": "memory"
   },
-  "emailDs": {
-    "name": "emailDs",
+  "MongoDB": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "megalitosDB",
+    "password": "",
+    "name": "MongoDB",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/storage"
+  },
+   "myEmailDataSource": {
+    "name": "myEmailDataSource",
     "connector": "mail",
     "transports": [
       {
@@ -16,8 +31,8 @@
           "rejectUnauthorized": false
         },
         "auth": {
-          "user": "email@address.com",
-          "pass": "password"
+          "user": "megalitosinfo@gmail.com",
+          "pass": "6wOjOdE2"
         }
       }
     ]

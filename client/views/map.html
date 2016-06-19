@@ -1,0 +1,10 @@
+<div class="full ">
+    <div id="map_canvas">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+            <ui-gmap-window show="map.window.show" coords="map.window.model" options="map.window.options" closeClick="map.window.closeClick()" templateUrl="'/views/maps-window.html'" templateParameter="map.window">
+            </ui-gmap-window>
+            <ui-gmap-markers models="megalitosMarkers" coords="'self'" events="map.markersEvents" icon="'icon'" click="onMarkerClicked()" options="'options'">
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
+</div>

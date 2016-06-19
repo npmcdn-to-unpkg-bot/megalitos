@@ -1,0 +1,266 @@
+[{
+        "comunidad": "ANDALUCÍA",
+        "provincias": [{
+            "codigo":"almeria",
+            "provincia": "ALMERÍA"
+        }, {
+            "codigo":"cadiz",
+            "provincia": "CÁDIZ"
+
+        }, {
+            "codigo":"cordoba",
+            "provincia": "CÓRDOBA"
+
+        }, {
+            "codigo":"granada",
+            "provincia": "GRANADA"
+
+        }, {
+            "codigo":"huelva",
+            "provincia": "HUELVA"
+
+        }, {
+            "codigo":"jaen",
+            "provincia": "JAÉN"
+
+        }, {
+            "codigo":"malaga",
+            "provincia": "MÁLAGA"
+
+        }, {
+            "codigo":"sevilla",
+            "provincia": "SEVILLA"
+
+        }]
+
+    }, {
+        "comunidad": "ARAGÓN",
+        "provincias": [{
+            "codigo":"huesca",
+            "provincia": "HUESCA"
+        }, {
+            "codigo":"teruel",
+            "provincia": "TERUEL"
+
+        }, {
+            "codigo":"zaragoza",
+            "provincia": "ZARAGOZA"
+
+        }]
+
+    }, {
+        "comunidad": "ASTURIAS",
+        "provincias": [{
+            "codigo":"asturias",
+            "provincia": "ASTURIAS"
+
+        }]
+
+    }, {
+        "comunidad": "BALEARES",
+        "provincias": [{
+            "codigo":"baleares",
+            "provincia": "BALEARES"
+        }]
+
+    }, {
+        "comunidad": "CANARIAS",
+        "provincias": [{
+            "codigo":"las-palmas",
+            "provincia": "LAS PALMAS"
+        }, {
+            "codigo":"sc-tenerife",
+            "provincia": "SC.TENERIFE"
+
+        }]
+
+    }, {
+        "comunidad": "CANTABRIA",
+        "provincias": [{
+            "codigo":"cantabria",
+            "provincia": "CANTABRIA"
+        }]
+
+    }, {
+        "comunidad": "CASTILLA-LAMANCHA",
+        "provincias": [{
+            "codigo":"albacete",
+            "provincia": "ALBACETE"
+        }, {
+            "codigo":"ciudad-real",
+            "provincia": "CIUDAD REAL"
+
+        }, {
+            "codigo":"cuenca",
+            "provincia": "CUENCA"
+
+        }, {
+            "codigo":"guadalajara",
+            "provincia": "GUADALAJARA"
+
+        }, {
+            "codigo":"toledo",
+            "provincia": "TOLEDO"
+
+        }]
+
+    }, {
+        "comunidad": "CASTILLA Y LEÓN",
+        "provincias": [{
+            "codigo":"avila",
+            "provincia": "ÁVILA"
+        }, {
+            "codigo":"burgos",
+            "provincia": "BURGOS"
+
+        }, {
+            "codigo":"leon",
+            "provincia": "LEÓN"
+
+        }, {
+            "codigo":"palencia",
+            "provincia": "PALENCIA"
+
+        }, {
+            "codigo":"salamanca",
+            "provincia": "SALAMANCA"
+
+        }, {
+            "codigo":"segovia",
+            "provincia": "SEGOVIA"
+
+        }, {
+            "codigo":"soria",
+            "provincia": "SORIA"
+
+        }, {
+            "codigo":"valladolid",
+            "provincia": "VALLADOLID"
+
+        }, {
+            "codigo":"zamora",
+            "provincia": "ZAMORA"
+
+        }]
+
+    }, {
+        "comunidad": "CATALUÑA",
+        "provincias": [{
+            "codigo":"barcelona",
+            "provincia": "BARCELONA"
+        }, {
+            "codigo":"girona",
+            "provincia": "GIRONA"
+
+        }, {
+            "codigo":"lleida",
+            "provincia": "LLEIDA"
+
+        }, {
+            "codigo":"tarragona",
+            "provincia": "TARRAGONA"
+
+        }]
+
+    }, {
+        "comunidad": "CEUTA Y MELILLA",
+        "provincias": [{
+            "codigo":"ceuta",
+            "provincia": "CEUTA"
+        }, {
+            "codigo":"melilla",
+            "provincia": "MELILLA"
+
+        }]
+
+    }, {
+        "comunidad": "EXTREMADURA",
+        "provincias": [{
+            "codigo":"badajoz",
+            "provincia": "BADAJOZ"
+        }, {
+            "codigo":"caceres",
+            "provincia": "CÁCERES"
+
+        }]
+
+    }, {
+        "comunidad": "GALICIA",
+        "provincias": [{
+            "codigo":"a-coruna",
+            "provincia": "A CORUÑA"
+        }, {
+            "codigo":"lugo",
+            "provincia": "LUGO"
+
+        }, {
+            "codigo":"ourense",
+            "provincia": "OURENSE"
+
+        }, {
+            "codigo":"pontevedra",
+            "provincia": "PONTEVEDRA"
+
+        }]
+
+    }, {
+        "comunidad": "LA RIOJA",
+        "provincias": [{
+            "codigo":"la-rioja",
+            "provincia": "LA RIOJA"
+        }]
+
+    }, {
+        "comunidad": "MADRID",
+        "provincias": [{
+            "codigo":"madrid",
+            "provincia": "MADRID"
+        }]
+
+    }, {
+        "comunidad": "MURCIA",
+        "provincias": [{
+            "codigo":"murcia",
+            "provincia": "MURCIA"
+        }]
+
+    }, {
+        "comunidad": "NAVARRA",
+        "provincias": [{
+            "codigo":"navarra",
+            "provincia": "NAVARRA"
+        }]
+
+    }, {
+        "comunidad": "PAÍS VASCO",
+        "provincias": [{
+            "codigo":"alava",
+            "provincia": "ÁLAVA"
+        }, {
+            "codigo":"guipuzcoa",
+            "provincia": "GUIPÚZCOA"
+
+        }, {
+            "codigo":"vizcaya",
+            "provincia": "VIZCAYA"
+
+        }]
+
+    }, {
+        "comunidad": "VALENCIA",
+        "provincias": [{
+            "codigo":"alicante",
+            "provincia": "ALICANTE"
+        }, {
+            "codigo":"castellon",
+            "provincia": "CASTELLÓN"
+
+        }, {
+            "codigo":"valencia",
+            "provincia": "VALENCIA"
+
+        }]
+
+    }
+
+]

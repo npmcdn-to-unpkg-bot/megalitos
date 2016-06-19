@@ -1,0 +1,54 @@
+<div class="col-md-8 nopaddingLeft nopaddingRight">
+    <div id="main-home" ng-repeat="megalito in megalitos">
+        <!-- Date/Time -->
+        <p><span class="glyphicon glyphicon-time"></span> {{megalito.createdAt | amCalendar:referenceTime:formats|capitalize }}</ </p>
+            <div class="post hentry uncustomized-post-template">
+                <a name="4748758417125243990"></a>
+                <h3 class="post-title entry-title">
+                        <a href="">{{megalito.nombre}}</a>
+                        </h3>
+                <div class="post-header-line-1"></div>
+                <div class="post-body" ng-init="getImages(megalito.id)">
+                    <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img ng-src="/api/containers/img/download/{{images[$index].imagenes[0].name}}" width="180px" height="130px"></span>
+                        <div>
+                            {{megalito.descripcion}}</div>
+                    </div>
+                    <div class="readmore">
+                        <a href="#/megalitos/{{megalito.id}}">Read More</a>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="post-footer">
+                    <div class="postlabels">
+                        Etiquetas:
+                        <a href="" rel="tag">Arte rupestre</a> »
+                        <a href="" rel="tag">Vestigios del pasado: Italia</a>
+                    </div>
+                    <div class="postauthor">
+                        Publicado por
+                        <span class="fn">Misterios con Xana</span>
+                        <span class="p-comment">
+                                <a class="comment-link" href="" onclick="">1 comentarios</a>
+                                </span>
+                    </div>
+                    <div class="post-footer-line post-footer-line-1">
+                        <span class="post-backlinks post-comment-link">
+                                <a class="comment-link" href="">Enlaces a esta entrada</a>
+                                </span>
+                        <span class="post-icons">
+                                <span class="item-action">
+                                <a href="" title="Enviar entrada por correo electrónico">
+                                <img alt="" class="icon-action" src="">
+                                </a>
+                                </span>
+                        <span class="item-control blog-admin pid-1262228900">
+                                <a href="" title="Editar entrada">
+                                <img alt="" class="icon-action" height="18" src="" width="18">
+                                </a>
+                                </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
