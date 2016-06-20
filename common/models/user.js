@@ -62,45 +62,24 @@ module.exports = function(User) {
             if (ctx.isNewInstance) {
                 // Create the container
                 var mkdirp = require('mkdirp');
-                var userDir=ctx.instance.id.toString();
+                var userDir = ctx.instance.id.toString();
                 mkdirp(path.join(__dirname, '../../server/storage', userDir), function(err) {
-                    mkdirp(path.join(__dirname, '../../server/storage/'+userDir, 'img'), function(err) {
+                    mkdirp(path.join(__dirname, '../../server/storage/' + userDir, 'profile'), function(err) {
 
                     });
-                    mkdirp(path.join(__dirname, '../../server/storage/'+userDir, 'profile'), function(err) {
 
-                    });
-                    
                 });
-
                 Role.findOne({
-                        name: 'admin'
+                        name: 'usuario'
                     },
                     function(err, adminRole) {
-                        if (!adminRole) {
-                            //create the admin role
-                            Role.create({
-                                name: 'admin'
-                            }, function(err, role) {
-                                if (err) cb(err);
-                                //make admin
-                                role.principals.create({
-                                    principalType: RoleMapping.USER,
-                                    principalId: ctx.instance.id
-                                }, function(err, principal) {
-                                    if (err) throw (err);
-                                });
-                            });
+                        adminRole.principals.create({
+                            principalType: RoleMapping.USER,
+                            principalId: ctx.instance.id
+                        }, function(err, principal) {
+                            if (err) throw (err);
+                        });
 
-                        } else {
-                            adminRole.principals.create({
-                                principalType: RoleMapping.USER,
-                                principalId: ctx.instance.id
-                            }, function(err, principal) {
-                                if (err) throw (err);
-                            });
-
-                        }
                     });
 
             }

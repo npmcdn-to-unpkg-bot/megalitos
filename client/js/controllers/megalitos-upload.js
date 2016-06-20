@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .controller('MegalitosUploadController', ['$scope', '$http', '$q', 'Megalitos', 'FileUploader', 'Lugares', 'Coordenadas', 'Imagenes',
-        function($scope, $http, $q, Megalitos, FileUploader, Lugares, Coordenadas, Imagenes) {
+    .controller('MegalitosUploadController', ['$scope', 'MegalitosService', '$http', '$q', 'FileUploader',
+        function($scope, MegalitosService, $http, $q, FileUploader) {
             // create a uploader with options
             $scope.imagenes = [];
 
@@ -80,65 +80,49 @@ angular
                 };
 
                 function createMegalito() {
-                    Megalitos
-                        .create({
-                            nombre: $scope.megalito.nombre,
-                            tipoMegalito: $scope.megalito.tipoMegalito,
-                            estacionMegalitica: $scope.megalito.estacionMegalitica,
-                            localizacion: $scope.megalito.localizacion,
-                            descripcion: $scope.megalito.descripcion,
-                            descubrimiento: $scope.megalito.descubrimiento,
-                            observaciones: $scope.megalito.observaciones,
-                            bibliografia: $scope.megalito.bibliografia
+                    MegalitosService.createMegalito($scope.megalito.nombre, $scope.megalito.tipoMegalito, $scope.megalito.estacionMegalitica, $scope.megalito.localizacion,
+                        $scope.megalito.descripcion, $scope.megalito.descubrimiento, $scope.megalito.observaciones, $scope.megalito.bibliografia)
 
-                        })
+                    .then(function(megalito) {
+                        console.log(megalito);
+                            MegalitosService.createLugares($scope.megalito.selectedComunidades.comunidad,
+                                $scope.megalito.selectedProvincias.provincia, $scope.megalito.selectedPueblos.pueblo, megalito.id)
 
-                    .$promise
-                        .then(function(megalito) {
-                            Megalitos.lugares.create({ id: megalito.id }, {
-                                    comunidad: $scope.megalito.selectedComunidades.comunidad,
-                                    provincia: $scope.megalito.selectedProvincias.provincia,
-                                    pueblo: $scope.megalito.selectedPueblos.pueblo
-                                })
-                                .$promise
-                                .then(function(lugares) {
-                                        console.log(lugares);
-                                        Megalitos.coordenadas.create({ id: megalito.id }, {
-                                                lat: $scope.megalito.lat,
-                                                lng: $scope.megalito.lng
-                                            })
-                                            .$promise
-                                            .then(function(coordenadas) {
-                                                    console.log(coordenadas);
-                                                    Megalitos.imagenes.create({ id: megalito.id }, {
-                                                            imagenes: $scope.imagenes
-                                                        })
-                                                        .$promise
-                                                        .then(function(imagenes) {
-                                                                console.log(imagenes);
-                                                            },
-                                                            function(reason) {
-                                                                //reason imagenes
-                                                                console.log(reason);
-                                                                //borrar megalito lugares coordenadas e imagenes
-                                                            });
+                            .then(function(lugares) {
+                                    MegalitosService.createCoordenadas($scope.megalito.lat, $scope.megalito.lng, megalito.id)
+
+                                    .then(function(coordenadas) {
+                                            MegalitosService.createImagenes($scope.imagenes, megalito.id)
+
+                                            .then(function(imagenes) {
+
                                                 },
                                                 function(reason) {
-                                                    //reason coordenadas
+                                                    //reason imagenes
                                                     console.log(reason);
-                                                    //borrar megalito lugares y coordenadas
+                                                    //borrar megalito lugares coordenadas e imagenes
                                                 });
 
-                                    },
-                                    function(reason) {
-                                        //reason lugares
-                                        console.log(reason);
-                                        //borrar megalito y lugares
-                                    });
+
+                                        },
+                                        function(reason) {
+                                            console.log(reason);
+                                            //borrar megalito lugares y coordenadas
+                                        });
 
 
-                            $state.go('megalitos');
-                        }, function(reason) {
+                                },
+                                function(reason) {
+                                    //reason lugares
+                                    console.log(reason);
+                                    //borrar megalito y lugares
+                                });
+
+
+
+
+                        },
+                        function(reason) {
                             //reson megalitos
                             console.log(reason);
                         });

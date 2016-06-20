@@ -1,10 +1,9 @@
 angular
     .module('app')
-    .controller('MegalitosComunidadController', ['$scope', '$http', 'User', '$cookies', 'Megalitos', 'amMoment', 'Imagenes', 'Lugares', '$stateParams', function($scope,
-        
-        $http, User, cookies, Megalitos, amMoment, Imagenes, Lugares, $stateParams) {
-        console.log($stateParams);
-        $scope.megalitos=[];
+    .controller('MegalitosComunidadController', ['$scope', 'MegalitosService', 'amMoment', 'Imagenes', 'Lugares', '$stateParams', function($scope,
+
+        MegalitosService, amMoment, $stateParams) {
+        $scope.megalitos = [];
 
         //console.log(cookies);
         //userId = cookies.userId.split(':')[1].split('.')[0];
@@ -12,48 +11,46 @@ angular
         //$scope.userId=userId;
         //console.log($scope.token);
         //megalito guztiak ez, aldatzeko
-        Lugares
-            .find({
-                filter: {
-                    where: {
-                        comunidad: $stateParams.comunidad
-                    }
-                }
-            })
-            .$promise
-            .then(function(lugares) {
-                //$scope.lugares = lugares;
-                //recorrer todos los megalitos de un lugar
-                lugares.forEach(function(lugar) {
 
-                    Megalitos.findById({ id: lugar.megalitosId })
-                        .$promise
-                        .then(function(megalito) {
-                            $scope.megalitos.push(megalito);
-                        });
+
+        MegalitosService.getLugaresComunidad($stateParams.comunidad)
+            .then(function(lugares) {
+                    lugares.forEach(function(lugar) {
+                        MegalitosService.getMegalito(lugar.megalitosId)
+                            .then(function(megalito) {
+                                    $scope.megalitos.push(megalito);
+                                },
+                                function(reason) {
+                                    //reason megalito
+                                    console.log(reason);
+
+                                });
+
+
+
+                    });
+                },
+                function(reason) {
+                    //reason lugares
+                    console.log(reason);
 
                 });
 
 
-            });
-
         $scope.images = [];
         $scope.getImages = function(id) {
-            Imagenes.find({
-                    filter: {
-                        where: {
-                            megalitosId: id
-                        }
-                    }
-                }).$promise
+            MegalitosService.getImagesMegalito(id)
                 .then(function(images) {
                         $scope.images.push(images[0]);
                     },
                     function(reason) {
+                        //reason images
                         console.log(reason);
+
                     });
 
 
         };
+
 
     }]);

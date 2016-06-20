@@ -1,39 +1,44 @@
 angular
     .module('app')
-    .controller('MapController', ['$scope', 'User', '$cookies', 'Megalitos', 'amMoment', 'Imagenes', 'Coordenadas', 'Lugares', '$stateParams', 'Lightbox', function($scope,
-        User, cookies, Megalitos, amMoment, Imagenes, Coordenadas, Lugares, $stateParams, Lightbox) {
-        Coordenadas.find().$promise
+    .controller('MapController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
+        amMoment, $stateParams, Lightbox) {
+
+        MegalitosService.getAllCoordenadas()
             .then(function(coordenadas) {
                     $scope.coordenadas = coordenadas;
                     $scope.megalito = [];
                     $scope.images = [];
                     $scope.coordenadas.forEach(function(coordenada) {
-                        Megalitos.findById({ id: coordenada.megalitosId }).$promise
+                        MegalitosService.getMegalito(coordenada.megalitosId)
                             .then(function(megalito) {
                                     $scope.megalito.push(megalito);
                                 },
                                 function(reason) {
+                                    //reason megalito
                                     console.log(reason);
+
                                 });
-                        Imagenes.find({
-                                filter: {
-                                    where: {
-                                        megalitosId: coordenada.megalitosId
-                                    }
-                                }
-                            }).$promise
+
+                        MegalitosService.getImagesMegalito(coordenada.megalitosId)
                             .then(function(images) {
                                     $scope.images.push(images[0]);
                                 },
                                 function(reason) {
+                                    //reason images
                                     console.log(reason);
+
                                 });
+
                     });
                     $scope.drawMap();
+
                 },
                 function(reason) {
+                    //reason megalitos
                     console.log(reason);
+
                 });
+
         $scope.map = {
             center: {
                 latitude: 40.418889,
@@ -75,7 +80,7 @@ angular
                 icon: 'img/' + $scope.megalito[i].tipoMegalito + '.png',
                 title: $scope.megalito[i].nombre,
                 images: $scope.images[i].imagenes[0].name,
-                megalitoId:coordenada.megalitosId,
+                megalitoId: coordenada.megalitosId,
                 options: { labelClass: 'marker_labels', labelAnchor: '22 45', labelContent: $scope.megalito[i].nombre }
 
             };

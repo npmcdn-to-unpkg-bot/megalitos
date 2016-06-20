@@ -1,13 +1,12 @@
 angular
     .module('app')
-    .controller('EtiquetasController', ['$scope', 'Lugares','$filter', function($scope,
-        Lugares,$filter) {
-        $scope.countMegalitos=[];
-        Lugares
-            .find()
-            .$promise
+    .controller('EtiquetasController', ['$scope', 'MegalitosService','$filter', function($scope,
+        MegalitosService,$filter) {
+            MegalitosService.getAllLugares()
             .then(function(lugares) {
-                 $scope.lugares = $filter('countBy')(lugares,'comunidad');
+                $scope.lugares = $filter('countBy')(lugares, 'comunidad');
+            }, function(reason) {
+                console.log(reason);
             });
 
     }]);

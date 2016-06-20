@@ -55,7 +55,7 @@ angular
             })
             .state('map', {
                 url: '/map',
-                authenticate: true,
+                
                 resolve: {
                     intro: function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -74,6 +74,7 @@ angular
             })
             .state('megalitos-upload', {
                 url: '/megalitos-upload',
+                authenticate: true,
                 resolve: {
                     intro: function($ocLazyLoad) {
                         return $ocLazyLoad.load({

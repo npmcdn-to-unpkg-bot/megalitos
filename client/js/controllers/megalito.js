@@ -1,49 +1,45 @@
 angular
     .module('app')
-    .controller('MegalitoController', ['$scope', 'User', '$cookies', 'Megalitos', 'amMoment', 'Imagenes', 'Coordenadas', 'Lugares', '$stateParams', 'Lightbox', function($scope,
-        User, cookies, Megalitos, amMoment, Imagenes, Coordenadas, Lugares, $stateParams, Lightbox) {
+    .controller('MegalitoController', ['$scope',  'MegalitosService', 'amMoment','$stateParams', 'Lightbox', function($scope,
+        MegalitosService, amMoment,$stateParams, Lightbox) {
         $scope.images = [];
         $scope.properties = [];
-        $scope.megalito = Megalitos.findById({ id: $stateParams.megalitoId });
-        Imagenes.find({
-                filter: {
-                    where: {
-                        megalitosId: $stateParams.megalitoId
-                    }
-                }
-            }).$promise
-            .then(function(images) {
-                    $scope.images.push(images[0]);
-                },
-                function(reason) {
-                    console.log(reason);
-                });
-        Coordenadas.find({
-                filter: {
-                    where: {
-                        megalitosId: $stateParams.megalitoId
-                    }
-                }
-            }).$promise
-            .then(function(coordenadas) {
-                    $scope.coordenadas = coordenadas[0];
-                },
-                function(reason) {
-                    console.log(reason);
-                });
-        Lugares.find({
-                filter: {
-                    where: {
-                        megalitosId: $stateParams.megalitoId
-                    }
-                }
-            }).$promise
-            .then(function(lugar) {
-                    $scope.lugar = lugar[0];
-                },
-                function(reason) {
-                    console.log(reason);
-                });
+        MegalitosService.getMegalito($stateParams.megalitoId)
+        .then(function(megalito) {
+                $scope.megalito = megalito;
+            },
+            function(reason) {
+                //reason megalito
+                console.log(reason);
+
+            });
+        MegalitosService.getLugaresMegalito($stateParams.megalitoId)
+        .then(function(lugar) {
+                $scope.lugar = lugar[0];
+            },
+            function(reason) {
+                //reason lugares
+                console.log(reason);
+
+            });
+        MegalitosService.getCoordenadasMegalito($stateParams.megalitoId)
+        .then(function(coordenadas) {
+                $scope.coordenadas = coordenadas[0];
+            },
+            function(reason) {
+                //reason coordenadas
+                console.log(reason);
+
+            });
+        MegalitosService.getImagesMegalito($stateParams.megalitoId)
+        .then(function(images) {
+                $scope.images.push(images[0]);
+            },
+            function(reason) {
+                //reason images
+                console.log(reason);
+
+            });
 
 
         $scope.openLightboxModal = function() {
