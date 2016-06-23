@@ -56,6 +56,25 @@ angular.module('app')
                 });
             }
         };
+    }).directive('sidebar', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/nav/sidebar.html',
+           
+
+
+        };
+    }).directive('topNavigation', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/nav/top-navigation.html',
+             controller:'SidebarCtrl'
+            
+
+
+        };
     }).directive('logIn', function() {
 
         return {
@@ -86,6 +105,7 @@ angular.module('app')
         return {
             restrict: 'E',
             templateUrl: 'views/megalitos-post.html'
+            
 
 
         };
@@ -93,42 +113,17 @@ angular.module('app')
 
         return {
             restrict: 'E',
-            templateUrl: 'views/megalito-post.html'
+            templateUrl: 'views/megalito-post.html',
+             controller: 'MegalitoController'
 
 
         };
-    }).directive('coments', function() {
+    }).directive('comments', function() {
 
         return {
             restrict: 'E',
-            templateUrl: 'views/coments.html',
-        };
-    }).directive('megalitos', function() {
-
-        return {
-            restrict: 'E',
-            templateUrl: 'views/megalitos.html',
-            controller: 'MegalitosController'
-
-
-        };
-    }).directive('megalito', function() {
-
-        return {
-            restrict: 'E',
-            templateUrl: 'views/megalito.html',
-            controller: 'MegalitoController'
-
-
-        };
-    }).directive('megalitosComunidad', function() {
-
-        return {
-            restrict: 'E',
-            templateUrl: 'views/megalitos-comunidad.html',
-            controller: 'MegalitosComunidadController'
-
-
+            templateUrl: 'views/comments.html',
+            controller: 'CommentsController'
         };
     })
     .directive('map', function() {

@@ -2,7 +2,6 @@ angular
     .module('app')
     .controller('AuthLoginController', ['$scope', '$rootScope', '$http', 'User', '$cookies', 'AuthService', '$state',
         function($scope, $rootScope, $http, User, $cookies, AuthService, $state) {
-
             $scope.loginAuto = function() {
                 console.log("beti");
                 if (window.localStorage.getItem("key")) {

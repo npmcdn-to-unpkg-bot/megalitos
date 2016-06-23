@@ -1,24 +1,31 @@
 /*Image cropped*/
+
 .cropArea {
     background: #E4E4E4;
     overflow: hidden;
-    width:500px;
-    height:350px;
+    width: 500px;
+    height: 350px;
 }
+
 form .progress {
     line-height: 15px;
 }
+
 .progress {
     display: inline-block;
     width: 100px;
     border: 3px groove #CCC;
 }
+
 .progress div {
     font-size: smaller;
     background: orange;
     width: 0;
 }
+
+
 /* Image cropped fin*/
+
 
 /* Sign up erdikoa*/
 
@@ -54,7 +61,8 @@ form .progress {
     width: 100%;
 }
 
-.sign-up .form input, .sign-up .form textarea {
+.sign-up .form input,
+.sign-up .form textarea {
     outline: 0;
     background: #f2f2f2;
     width: 100%;
@@ -153,11 +161,20 @@ form .progress {
 
 /* Login Menu Fin*/
 
+
+/* Maps*/
+
 .angular-google-map-container {
-    height: 645px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-html,
+
+/* Maps Fin*/
+
+
+/*html,
 body {
     height: 100%;
     font-family: verdana, arial, sans-serif;
@@ -179,7 +196,7 @@ a:hover {
 
 hr {
     border-color: #dedede;
-}
+}*/
 
 .wrapper,
 .row {
@@ -219,6 +236,7 @@ hr {
     right: 0;
     top: 0;
     background-color: #444444;
+    height: auto;
     /*
     background-image:url('/assets/example/bg_suburb.jpg');
     background-size:cover;
@@ -247,7 +265,7 @@ hr {
 
 .navbar-blue .dropdown-menu li a {
     /*color: #2A4888;*/
-    color:white;
+    color: white;
 }
 
 .navbar-blue .dropdown-menu li > a {
@@ -324,11 +342,12 @@ hr {
 
 /* bootstrap overrides */
 
-h1,
-h2,
+
+/*h2,
 h3 {
     font-weight: 800;
 }
+*/
 
 .navbar-toggle,
 .close {
@@ -454,7 +473,8 @@ small.text-muted {
     padding-right: 0;
 }
 
-body {
+
+/*body {
     padding-top: 70px;
     background: #222 url(http://lh3.ggpht.com/_7Y9pl24WpQY/TFrgJZcPW9I/AAAAAAAAEa0/7VQWGwmXGGs/background_thumb%5B1%5D.png) repeat scroll left top;
     color: #000;
@@ -478,6 +498,7 @@ a:hover {
 a img {
     border-width: 0m
 }
+*/
 
 .blank {
     clear: both
@@ -505,7 +526,6 @@ h2.date-header {
 }
 
 .post h3 {
-    background: url(http://1.bp.blogspot.com/-b3mdqQajPH8/TxMRFF7NCNI/AAAAAAAACNk/sSaAR7JFLyc/s1600/post-header_bg.png) repeat-x center bottom;
     font-size: 22px;
     font-family: "Open Sans", verdana, arial, georgia;
     font-weight: 700;
@@ -525,7 +545,6 @@ h2.date-header {
 }
 
 .post-body {
-    background: url(http://1.bp.blogspot.com/-b3mdqQajPH8/TxMRFF7NCNI/AAAAAAAACNk/sSaAR7JFLyc/s1600/post-header_bg.png) repeat-x center bottom;
     line-height: 1.5em;
     text-align: left;
     font-size: 13px;
@@ -616,7 +635,7 @@ h2.date-header {
 }
 
 .sidebar .widget {
-    background: #FEFEFE;
+    background: #eee;
     border: 2px outset #bbb;
     color: #000;
     margin: 15px 0px 15px 0;
@@ -632,7 +651,7 @@ h2.date-header {
 }
 
 .sidebar h2 {
-    background: url(http://1.bp.blogspot.com/-b3mdqQajPH8/TxMRFF7NCNI/AAAAAAAACNk/sSaAR7JFLyc/s1600/post-header_bg.png) repeat-x left bottom;
+    /* background: url(http://1.bp.blogspot.com/-b3mdqQajPH8/TxMRFF7NCNI/AAAAAAAACNk/sSaAR7JFLyc/s1600/post-header_bg.png) repeat-x left botto#; */
     font-size: 18px;
     color: #000;
     font-family: "Open Sans", verdana, arial, georgia;
@@ -644,10 +663,10 @@ h2.date-header {
     margin: 0;
 }
 
-#main-home {
-    background: #FEFEFE;
+.main-home {
+    background: #eee;
     border: 2px outset #bbb;
-     line-height: 20px;
+    line-height: 20px;
     color: #000;
     margin: 15px;
     padding: 15px;
@@ -666,314 +685,395 @@ h2.date-header {
 
 /*comentarios*/
 
-
-/*
-input,
-textarea {
-  -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
-  cursor: text;
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-  border: none;
+@import url(//fonts.googleapis.com/css?family=Ubuntu:300,400,700);
+button.love,
+button.reply {
+    background: scroll transparent none 0 0 repeat;
+    border: 0 none #000;
+    outline: 0 none #000;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    text-transform: inherit;
+    line-height: inherit;
+    vertical-align: top;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
 }
 
-a,
-button,
-[type="button"],
-[type="checkbox"],
-[type="radio"],
-[for] {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  cursor: pointer;
+button.love,
+button.reply,
+button.love,
+button.reply:before,
+button.love,
+button.reply:after {
+    box-sizing: border-box;
 }
 
-input[disabled],
-select[disabled],
-textarea[disabled],
-button[disabled] {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  cursor: not-allowed;
-}
-.coments ul {
-  padding-left: 80px;
-  list-style: none;
-}
-.coments ul li {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-.coments ul li:not(:first-child) {
-  margin-top: 20px;
-}
-.coments ul li:before {
-  content: "";
-  border-width: 10px 10px 10px 0;
-  border-style: solid;
-  border-color: transparent #fff;
-  position: absolute;
-  top: 10px;
-  left: -10px;
-}
-.coments ul li header {
-  border-bottom: 1px solid #e5e5e5;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-.coments ul li header * {
-  display: block;
-}
-.coments ul li header h1 {
-  padding-left: 20px;
-  font-weight: normal;
-  line-height: 40px;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-.coments ul li header h1 a {
-  text-decoration: none;
-  display: inline-block;
-}
-.coments ul li header h1.author, ul li header h1.author * {
-  color: #9a3;
-}
-.coments ul li header h1.author:after {
-  content: "Author";
-  margin: 10px 0 10px 10px;
-  padding: 0 5px;
-  background: #9a3;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 10px;
-  font-weight: normal;
-  text-transform: uppercase;
-  line-height: 20px;
-  position: absolute;
-}
-.coments ul li header button {
-  padding: 10px;
-}
-.coments ul li header button svg {
-  width: 20px;
-  height: 20px;
-}
-.coments ul li header button svg * {
-  fill: #999;
-}
-.coments ul li header button:hover svg * {
-  fill: #666;
-}
-.coments ul li header button.loved svg * {
-  fill: #f66;
-}
-.coments ul li header img {
-  width: 60px;
-  height: 60px;
-  background: #fff;
-  border: 4px solid #fff;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 0;
-  left: -80px;
-}
-.coments ul li article {
-  padding: 20px;
-  white-space: pre-line;
-  overflow-x: hidden;
-}
-.coments ul li article .reply {
-  color: #9a3;
-}
-.coments ul li article strong {
-  font-weight: 500;
-}
-.coments ul li article em {
-  font-style: italic;
-}
-.coments ul li article a {
-  text-decoration: underline;
-}
-.coments ul li article a:hover {
-  text-decoration: none;
-}
-.coments ul li article code {
-  font-family: "Source Code Pro", monospace;
+.comments {
+    padding-top: 30px;
 }
 
-form {
-  margin-top: 20px;
-  padding: 20px 20px 20px 100px;
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  position: relative;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.comments ul {
+    padding-left: 80px;
+    list-style: none;
 }
-form:before {
-  content: "";
-  border-width: 10px 10px 10px 0;
-  border-style: solid;
-  border-color: transparent rgba(229, 229, 229, 0.5);
-  position: absolute;
-  top: 30px;
-  left: 90px;
+
+.comments ul li {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
-form input,
-form textarea {
-  padding: 9px 20px;
-  width: 100%;
-  background: rgba(229, 229, 229, 0.5);
-  display: block;
+
+.comments ul li:not(:first-child) {
+    margin-top: 20px;
 }
-form input:not(:first-child),
-form textarea:not(:first-child) {
-  margin-top: 2px;
+
+.comments ul li:before {
+    content: "";
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #fff;
+    position: absolute;
+    top: 10px;
+    left: -10px;
 }
-form input[type='email'],
-form textarea[type='email'] {
-  width: 50%;
-  border-right: 1px solid #fff;
+
+.comments ul li header {
+    border-bottom: 1px solid #e5e5e5;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
-form input[type='url'],
-form textarea[type='url'] {
-  width: 50%;
-  border-left: 1px solid #fff;
+
+.comments ul li header * {
+    display: block;
 }
-form input::-webkit-input-placeholder,
-form textarea::-webkit-input-placeholder {
-  color: #666;
+
+.comments ul li header h4 {
+    margin-top: 0px;
+    padding-left: 20px;
+    font-weight: normal;
+    line-height: 40px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-form input::-moz-placeholder,
-form textarea::-moz-placeholder {
-  color: #666;
+
+.comments ul li header p span {
+    text-decoration: none;
+    display: inline-block;
 }
-form input:-ms-input-placeholder,
-form textarea:-ms-input-placeholder {
-  color: #666;
+
+.comments ul li header p {
+    font-size: 10px;
+    padding-left: 20px;
+    line-height: 60px;
+    position: absolute;
+    line-height: 80px;
+    margin: 0 0 0px;
+    left: 0;
+    top: 100px overflow: hidden;
+    text-overflow: ellipsis;
 }
-form input::placeholder,
-form textarea::placeholder {
-  color: #666;
+
+
+/*.comments ul li header p {
+        content: none;
+        /*visibility:hidden;*/
+
+
+/* position: absolute;
+        line-height: 0px;
+        left: 0;
+        top: 40px;
+    }
+    .comments ul li header h4 {
+      -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+        
+    }
+    */
+
+.comments ul li header h4.author,
+.comments ul li header h4.author * {
+    color: #9a3;
 }
-form input.ng-dirty.ng-invalid, form input.ng-dirty.ng-invalid::-webkit-input-placeholder,
-form textarea.ng-dirty.ng-invalid,
-form textarea.ng-dirty.ng-invalid::-webkit-input-placeholder {
-  color: #f66;
+
+.comments ul li header h4.author:after {
+    content: "Author";
+    margin: 10px 0 10px 10px;
+    padding: 0 5px;
+    background: #9a3;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 20px;
 }
-form input.ng-dirty.ng-invalid, form input.ng-dirty.ng-invalid::-moz-placeholder,
-form textarea.ng-dirty.ng-invalid,
-form textarea.ng-dirty.ng-invalid::-moz-placeholder {
-  color: #f66;
+
+.comments ul li header button {
+    padding: 10px;
 }
-form input.ng-dirty.ng-invalid, form input.ng-dirty.ng-invalid:-ms-input-placeholder,
-form textarea.ng-dirty.ng-invalid,
-form textarea.ng-dirty.ng-invalid:-ms-input-placeholder {
-  color: #f66;
+
+.comments ul li header button svg {
+    width: 20px;
+    height: 20px;
 }
-form input.ng-dirty.ng-invalid, form input.ng-dirty.ng-invalid::placeholder,
-form textarea.ng-dirty.ng-invalid,
-form textarea.ng-dirty.ng-invalid::placeholder {
-  color: #f66;
+
+.comments ul li header button svg * {
+    fill: #999;
 }
-form textarea {
-  padding: 20px;
-  height: 120px;
-  resize: none;
+
+.comments ul li header button:hover svg * {
+    fill: #666;
 }
-form p {
-  margin-top: 10px;
-  padding: 10px 0;
-  width: 50%;
+
+.comments ul li header button.loved svg * {
+    fill: #f66;
 }
-form p a {
-  text-decoration: underline;
+
+.comments ul li header img {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 4px solid #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: -80px;
 }
-form p a:hover {
-  text-decoration: none;
+
+.comments ul li article {
+    padding: 20px;
+    white-space: pre-line;
+    overflow-x: hidden;
 }
-form button {
-  margin: 10px auto 0;
-  padding: 10px 0;
-  width: 50%;
-  background: #9a3;
-  border-radius: 2px;
-  color: #fff;
-  font-weight: normal;
-  text-align: center;
-  display: block;
+
+.comments ul li article .reply {
+    color: #9a3;
 }
-form img {
-  width: 60px;
-  height: 60px;
-  background: rgba(229, 229, 229, 0.5);
-  border: 4px solid rgba(229, 229, 229, 0.5);
-  border-radius: 2px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+
+.comments ul li article strong {
+    font-weight: 500;
+}
+
+.comments ul li article em {
+    font-style: italic;
+}
+
+.comments ul li article a {
+    text-decoration: underline;
+}
+
+.comments ul li article a:hover {
+    text-decoration: none;
+}
+
+.comments ul li article code {
+    font-family: "Source Code Pro", monospace;
+}
+
+.comments form {
+    margin-top: 20px;
+    padding: 20px 20px 20px 100px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.comments form:before {
+    content: "";
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent rgba(229, 229, 229, 0.5);
+    position: absolute;
+    top: 30px;
+    left: 90px;
+}
+
+.comments form input,
+.comments form textarea {
+    padding: 9px 20px;
+    width: 100%;
+    background: rgba(229, 229, 229, 0.5);
+    display: block;
+}
+
+.comments form input:not(:first-child),
+.comments form textarea:not(:first-child) {
+    margin-top: 2px;
+}
+
+.comments form input[type='email'],
+.comments form textarea[type='email'] {
+    width: 50%;
+    border-right: 1px solid #fff;
+}
+
+.comments form input[type='url'],
+.comments form textarea[type='url'] {
+    width: 50%;
+    border-left: 1px solid #fff;
+}
+
+.comments form input::-webkit-input-placeholder,
+.comments form textarea::-webkit-input-placeholder {
+    color: #666;
+}
+
+.comments form input::-moz-placeholder,
+.comments form textarea::-moz-placeholder {
+    color: #666;
+}
+
+.comments form input:-ms-input-placeholder,
+.comments form textarea:-ms-input-placeholder {
+    color: #666;
+}
+
+.comments form input::placeholder,
+.comments form textarea::placeholder {
+    color: #666;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid::-webkit-input-placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid::-webkit-input-placeholder {
+    color: #f66;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid::-moz-placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid::-moz-placeholder {
+    color: #f66;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid:-ms-input-placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid:-ms-input-placeholder {
+    color: #f66;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid::placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid::placeholder {
+    color: #f66;
+}
+
+.comments form textarea {
+    padding: 20px;
+    height: 120px;
+    resize: none;
+}
+
+.comments form p {
+    margin-top: 10px;
+    padding: 10px 0;
+    width: 50%;
+}
+
+.comments form p a {
+    text-decoration: underline;
+}
+
+.comments form p a:hover {
+    text-decoration: none;
+}
+
+.comments form button {
+    margin: 10px auto 0;
+    padding: 10px 0;
+    width: 50%;
+    background: #9a3;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    display: block;
+}
+
+.comments form img {
+    width: 60px;
+    height: 60px;
+    background: rgba(229, 229, 229, 0.5);
+    border: 4px solid rgba(229, 229, 229, 0.5);
+    border-radius: 2px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
 @media (max-width: 440px) {
-  ul {
-    padding: 0;
-  }
-  ul li:before {
-    content: none;
-  }
-  ul li header img {
-    clip: rect(0, 0, 0, 0);
-  }
-  ul li header h1.author:after {
-    content: none;
-  }
+    .comments ul {
+        padding: 0;
+    }
+    .comments ul li:before {
+        content: none;
+    }
+    .comments ul li header img {
+        clip: rect(0, 0, 0, 0);
+    }
+    .comments ul li header h4.author:after {
+        content: none;
+    }
+    .comments form {
+        padding-left: 20px;
+    }
+    .comments form:before {
+        content: none;
+    }
+    .comments form img {
+        clip: rect(0, 0, 0, 0);
+    }
+    .comments form input,
+    .comments form textarea {
+        padding: 10px;
+    }
+    .comments form textarea {
+        height: 80px;
+    }
+    .comments form p,
+    .comments form button {
+        margin: 10px 10px 0;
+        width: 100%;
+    }
+    .comments form p {
+        padding: 0;
+    }
+}
 
-  form {
-    padding-left: 20px;
-  }
-  form:before {
-    content: none;
-  }
-  form img {
-    clip: rect(0, 0, 0, 0);
-  }
-  form input,
-  form textarea {
-    padding: 10px;
-  }
-  form textarea {
-    height: 80px;
-  }
-  form p,
-  form button {
-    margin: 10px 10px 0;
-    width: 100%;
-  }
-  form p {
-    padding: 0;
-  }
 
-*/
+/*comentarios*/
 
 
 /*

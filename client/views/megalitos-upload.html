@@ -1,171 +1,312 @@
-<div class="full ">
-    <div class="col-md-12 " id="outer-wrapper">
-        <div class="col-md-8 nopaddingLeft nopaddingRight">
-            <!-- Blog Post -->
-            <form name="megalitosForm" id="main-home">
-                <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
-                <!-- NOMBRE -->
-                <div class="form-group" ng-class="{ 'has-error' : megalitosForm.nombre.$invalid && !megalitosForm.nombre.$pristine }">
-                    <label>Nombre</label>
-                    <input type="text" name="nombre" class="form-control" ng-model="megalito.nombre" required> </input>
-                    <p ng-show="megalitosForm.nombre.$invalid && !megalitosForm.nombre.$pristine" class="help-block">El nombre del megalito es requrido</p>
-                </div>
-                <!-- Tipo de megalito -->
-                <div class="form-group" ng-class="{ 'has-error' : megalitosForm.tipoMegalito.$invalid && !megalitosForm.tipoMegalito.$pristine }">
-                    <label>Clase de megalito</label>
-                    <select class="form-control" name="tipoMegalito" ng-model="megalito.tipoMegalito" required>
-                        <option value="">-- Seleccione una clase--</option>
-                        <option value="Cromlech">Cromlech</option>
-                        <option value="Menhir">Menhir</option>
-                        <option value="Tumulo">Túmulo</option>
-                        <option value="Dolmen">Dolmen</option>
-                    </select>
-                    <p ng-show="megalitosForm.tipoMegalito.$invalid && !megalitosForm.tipoMegalito.$pristine " class="help-block">You name is required.</p>
-                </div>
-                <!-- Estacion Megalitica -->
-                <div class="form-group">
-                    <label>Estacion megalitica</label>
-                    <input type="text" name="estacionMegalitica" class="form-control" ng-model="megalito.estacionMegalitica">
-                </div>
-                <div class="col-sm-12 nopaddingLeft nopaddingRight">
-                    <!-- comunidades o distritos -->
-                    <div class="col-sm-4 nopaddingLeft">
-                        <div class="form-group" ng-class="{ 'has-error':megalitosForm.comunidades.$invalid && !megalitosForm.comunidades.$pristine }">
-                            <label>Comunidad o distrito</label>
-                            <select class="form-control" ng-options="c as c.comunidad for c in comunidades" ng-change="selectedComunidad()" name="comunidades" ng-model="megalito.selectedComunidades" required>
-                                <option value="">-- SELECCIONE UNA COMUNIDAD--</option>
-                            </select>
-                            <p ng-show="megalitosForm.comunidades.$invalid && !megalitosForm.comunidades.$pristine " class="help-block">La comunidad es requerida.</p>
-                        </div>
-                    </div>
-                    <!-- provincia -->
-                    <div class="col-sm-4 nopaddingLeft nopaddingRight">
-                        <div class="form-group" ng-class="{ 'has-error':megalitosForm.provincias.$invalid && !megalitosForm.provincias.$pristine }">
-                            <label>Provincia</label>
-                            <select class="form-control" id="provincias" ng-options="c as c.provincia for c in provincias" ng-change="selectedProvincia()" name="provincias" ng-model="megalito.selectedProvincias" disabled required>
-                                <option value="">-- SELECCIONE UNA PROVINCIA--</option>
-                            </select>
-                            <p ng-show="megalitosForm.provincias.$invalid && !megalitosForm.provincias.$pristine " class="help-block">La provincia es requerida.</p>
-                        </div>
-                    </div>
-                    <!-- pueblo  -->
-                    <div class="col-sm-4 nopaddingRight">
-                        <div class="form-group" ng-class="{ 'has-error':megalitosForm.pueblos.$invalid && !megalitosForm.pueblos.$pristine }">
-                            <label>Pueblo</label>
-                            <select class="form-control" id="pueblos" ng-options="c as c.pueblo for c in pueblos" name="pueblos" ng-model="megalito.selectedPueblos" placeholder="-- SELECCIONE UN PUEBLO--" disabled required>
-                                <option value="">-- SELECCIONE UN PUEBLO--</option>
-                            </select>
-                            <p ng-show="megalitosForm.pueblos.$invalid && !megalitosForm.pueblos.$pristine " class="help-block">El pueblo es requerido.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Localizacion-->
-                <div class="form-group">
-                    <label>Localización</label>
-                    <textarea auto-grow type="text" name="localizacion" class="form-control " ng-model="megalito.localizacion">
-                    </textarea>
-                </div>
-                <!-- Coordenadas -->
-                <div class="col-sm-12 nopaddingLeft nopaddingRight">
-                    <div class="col-sm-6 nopaddingLeft">
-                        <div class="form-group" ng-class="{ 'has-error' : megalitosForm.lat.$invalid && !megalitosForm.lat.$pristine }">
-                            <label>Coordenadas N-S (Lat)</label>
-                            <input type="text" placeholder="37° 1′ 28.51″ N" name="lat" class="form-control" ng-model="megalito.lat" required> </input>
-                            <p ng-show="megalitosForm.lat.$invalid && !megalitosForm.lat.$pristine" class="help-block">La latitud es requerida</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 nopaddingRight">
-                        <div class="form-group" ng-class="{ 'has-error' : megalitosForm.lng.$invalid && !megalitosForm.lng.$pristine }">
-                            <label>Coordenada E-O (Lng)</label>
-                            <input type="text" placeholder="4° 32′ 46.65″ W" name="lng" class="form-control" ng-model="megalito.lng" required> </input>
-                            <p ng-show="megalitosForm.lng.$invalid && !megalitosForm.lng.$pristine" class="help-block">La longitud es requerida</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group" ng-class="{ 'has-error' : megalitosForm.descripcion.$invalid && !megalitosForm.descripcion.$pristine }">
-                    <label>Descripción</label>
-                    <textarea auto-grow type="text" name="descripcion" class="form-control" ng-model="megalito.descripcion" required>
-                    </textarea>
-                    <p ng-show="megalitosForm.descripcion.$invalid && !megalitosForm.descripcion.$pristine" class="help-block">La descripción del megalito es requerida</p>
-                </div>
-                <!-- Imagenes -->
-                <div class="form-group">
-                    <label>Imagenes</label>
-                    <div nv-file-drop uploader="uploader">
-                        <div ng-show="uploader.isHTML5">
-                            <!-- 3. nv-file-over | nv-file-over="className" -->
-                            <!-- <div class="well my-drop-zone" nv-file-over uploader="uploader">
+<form class="form-horizontal form-label-left" novalidate>
+    <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
+    </p>
+    <span class="section">Personal Info</span>
+    <div class="item form-group">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12  for=" name ">Nombre <span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+             <ul class="parsley-errors-list filled " id="parsley-id-2 "></ul>
+            </div>
+    </div>
+
+    <div class="col-sm-12 nopaddingLeft nopaddingRight ">
+        <!-- comunidades o distritos -->
+        <div class="col-sm-4 nopaddingLeft ">
+            <div class="form-group " ng-class="{ 'has-error':megalitosForm.comunidades.$invalid && !megalitosForm.comunidades.$pristine } ">
+                <label>Comunidad o distrito</label>
+                <select class="form-control " ng-options="c as c.comunidad for c in comunidades " ng-change="selectedComunidad() " name="comunidades " ng-model="megalito.selectedComunidades " required>
+                    <option value=" ">-- SELECCIONE UNA COMUNIDAD--</option>
+                </select>
+                <p ng-show="megalitosForm.comunidades.$invalid && !megalitosForm.comunidades.$pristine " class="help-block ">La comunidad es requerida.</p>
+            </div>
+        </div>
+        <!-- provincia -->
+        <div class="col-sm-4 nopaddingLeft nopaddingRight ">
+            <div class="form-group " ng-class="{ 'has-error':megalitosForm.provincias.$invalid && !megalitosForm.provincias.$pristine } ">
+                <label>Provincia</label>
+                <select class="form-control " id="provincias " ng-options="c as c.provincia for c in provincias " ng-change="selectedProvincia() " name="provincias " ng-model="megalito.selectedProvincias " disabled required>
+                    <option value=" ">-- SELECCIONE UNA PROVINCIA--</option>
+                </select>
+                <p ng-show="megalitosForm.provincias.$invalid && !megalitosForm.provincias.$pristine " class="help-block ">La provincia es requerida.</p>
+            </div>
+        </div>
+        <!-- pueblo  -->
+        <div class="col-sm-4 nopaddingRight ">
+            <div class="form-group " ng-class="{ 'has-error':megalitosForm.pueblos.$invalid && !megalitosForm.pueblos.$pristine } ">
+                <label>Pueblo</label>
+                <select class="form-control " id="pueblos " ng-options="c as c.pueblo for c in pueblos " name="pueblos " ng-model="megalito.selectedPueblos " placeholder="-- SELECCIONE UN PUEBLO-- " disabled required>
+                    <option value=" ">-- SELECCIONE UN PUEBLO--</option>
+                </select>
+                <p ng-show="megalitosForm.pueblos.$invalid && !megalitosForm.pueblos.$pristine " class="help-block ">El pueblo es requerido.</p>
+            </div>
+        </div>
+    </div>
+
+   
+                      
+
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 text-left " for="email ">Clase de megalito <span class="required ">*</span>
+        </label>
+        <div class="col-md-8 col-sm-8 col-xs-12 ">
+            <input type="text " id="email " name="email " required="required " class="form-control col-md-7 col-xs-12 ">
+            <ul class="parsley-errors-list filled " id="parsley-id-2 "></ul>
+        </div>
+    </div>
+
+
+
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="email ">Estación megalítica <span class="required ">*</span>
+        </label>
+        <div class="col-md-8 col-sm-8 col-xs-12 " >
+            <input type="email " id="email2 " name="confirm_email " data-validate-linked="email " required="required " class="form-control col-md-7 col-xs-12 ">
+            <ul class="parsley-errors-list filled " id="parsley-id-3 "></ul>
+        </div>
+    </div>
+
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="number ">Comunidad o distrito <span class="required ">*</span>
+        </label>
+        <div class="col-md-8 col-sm-8 col-xs-12 ">
+            <input type="number " id="number " name="number " required="required " data-validate-minmax="10,100 " class="form-control col-md-7 col-xs-12 ">
+            <ul class="parsley-errors-list filled " id="parsley-id-4 "></ul>
+        </div>
+    </div>
+
+
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="website ">Provincia <span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <input type="url " id="website " name="website " required="required " placeholder="www.website.com " class="form-control col-md-7 col-xs-12 ">
+            <ul class="parsley-errors-list filled " id="parsley-id-5 "></ul>
+        </div>
+    </div>
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="occupation ">Pueblo <span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <input id="occupation " type="text " name="occupation " data-validate-length-range="5,20 " class="optional form-control col-md-7 col-xs-12 ">
+            <ul class="parsley-errors-list filled " id="parsley-id-6 "></ul>
+        </div>
+    </div>
+     <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="textarea ">Localización<span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <textarea id="textarea " required="required " name="textarea " class="form-control col-md-7 col-xs-12 "></textarea>
+            <ul class="parsley-errors-list filled " id="parsley-id-7 "></ul>
+        </div>
+    </div>
+     <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="telephone ">Coordenadas N-S (Lat)<span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <input type="tel " id="telephone " name="phone " required="required " data-validate-length-range="8,20 " class="form-control col-md-7 col-xs-12 ">
+            <ul class="parsley-errors-list filled " id="parsley-id-8 "></ul>
+        </div>
+    </div>
+
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="telephone ">Coordenada E-O (Lng)<span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <input type="tel " id="telephone " name="phone " required="required " data-validate-length-range="8,20 " class="form-control col-md-7 col-xs-12 ">
+            <ul class="parsley-errors-list filled " id="parsley-id-9 "></ul>
+        </div>
+    </div>
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="textarea ">Textarea <span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <textarea id="textarea " required="required " name="textarea " class="form-control col-md-7 col-xs-12 "></textarea>
+            <ul class="parsley-errors-list filled " id="parsley-id-10 "></ul>
+        </div>
+    </div>
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="textarea ">Obserbciones<span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <textarea id="textarea " required="required " name="textarea " class="form-control col-md-7 col-xs-12 "></textarea>
+            <ul class="parsley-errors-list filled " id="parsley-id-11 "></ul>
+        </div>
+    </div>
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="textarea ">Descubrimiento <span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <textarea id="textarea " required="required " name="textarea " class="form-control col-md-7 col-xs-12 "></textarea>
+            <ul class="parsley-errors-list filled " id="parsley-id-12 "></ul>
+        </div>
+    </div>
+    <div class="item form-group ">
+        <label class="control-label col-md-2 col-sm-2 col-xs-12 " for="textarea ">Bibliografia<span class="required ">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12 ">
+            <textarea id="textarea " required="required " name="textarea " class="form-control col-md-7 col-xs-12 "></textarea>
+            <ul class="parsley-errors-list filled " id="parsley-id-13 "></ul>
+        </div>
+    </div>
+    <div class="ln_solid "></div>
+    <div class="form-group ">
+        <div class="col-md-6 col-md-offset-3 ">
+            <button type="submit " class="btn btn-primary ">Cancel</button>
+            <button id="send " type="submit " class="btn btn-success ">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+<form name="megalitosForm " class="main-home ">
+    <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+    <!-- NOMBRE -->
+    <div class="form-group " ng-class="{ 'has-error' : megalitosForm.nombre.$invalid && !megalitosForm.nombre.$pristine } ">
+        <label>Nombre</label>
+        <input type="text " name="nombre " class="form-control " ng-model="megalito.nombre " required> </input>
+        <p ng-show="megalitosForm.nombre.$invalid && !megalitosForm.nombre.$pristine " class="help-block ">El nombre del megalito es requrido</p>
+    </div>
+    <!-- Tipo de megalito -->
+    <div class="form-group " ng-class="{ 'has-error' : megalitosForm.tipoMegalito.$invalid && !megalitosForm.tipoMegalito.$pristine } ">
+        <label>Clase de megalito</label>
+        <select class="form-control " name="tipoMegalito " ng-model="megalito.tipoMegalito " required>
+            <option value=" ">-- Seleccione una clase--</option>
+            <option value="Cromlech ">Cromlech</option>
+            <option value="Menhir ">Menhir</option>
+            <option value="Tumulo ">Túmulo</option>
+            <option value="Dolmen ">Dolmen</option>
+        </select>
+        <p ng-show="megalitosForm.tipoMegalito.$invalid && !megalitosForm.tipoMegalito.$pristine " class="help-block ">You name is required.</p>
+    </div>
+    <!-- Estacion Megalitica -->
+    <div class="form-group ">
+        <label>Estacion megalitica</label>
+        <input type="text " name="estacionMegalitica " class="form-control " ng-model="megalito.estacionMegalitica ">
+    </div>
+    <div class="col-sm-12 nopaddingLeft nopaddingRight ">
+        <!-- comunidades o distritos -->
+        <div class="col-sm-4 nopaddingLeft ">
+            <div class="form-group " ng-class="{ 'has-error':megalitosForm.comunidades.$invalid && !megalitosForm.comunidades.$pristine } ">
+                <label>Comunidad o distrito</label>
+                <select class="form-control " ng-options="c as c.comunidad for c in comunidades " ng-change="selectedComunidad() " name="comunidades " ng-model="megalito.selectedComunidades " required>
+                    <option value=" ">-- SELECCIONE UNA COMUNIDAD--</option>
+                </select>
+                <p ng-show="megalitosForm.comunidades.$invalid && !megalitosForm.comunidades.$pristine " class="help-block ">La comunidad es requerida.</p>
+            </div>
+        </div>
+        <!-- provincia -->
+        <div class="col-sm-4 nopaddingLeft nopaddingRight ">
+            <div class="form-group " ng-class="{ 'has-error':megalitosForm.provincias.$invalid && !megalitosForm.provincias.$pristine } ">
+                <label>Provincia</label>
+                <select class="form-control " id="provincias " ng-options="c as c.provincia for c in provincias " ng-change="selectedProvincia() " name="provincias " ng-model="megalito.selectedProvincias " disabled required>
+                    <option value=" ">-- SELECCIONE UNA PROVINCIA--</option>
+                </select>
+                <p ng-show="megalitosForm.provincias.$invalid && !megalitosForm.provincias.$pristine " class="help-block ">La provincia es requerida.</p>
+            </div>
+        </div>
+        <!-- pueblo  -->
+        <div class="col-sm-4 nopaddingRight ">
+            <div class="form-group " ng-class="{ 'has-error':megalitosForm.pueblos.$invalid && !megalitosForm.pueblos.$pristine } ">
+                <label>Pueblo</label>
+                <select class="form-control " id="pueblos " ng-options="c as c.pueblo for c in pueblos " name="pueblos " ng-model="megalito.selectedPueblos " placeholder="-- SELECCIONE UN PUEBLO-- " disabled required>
+                    <option value=" ">-- SELECCIONE UN PUEBLO--</option>
+                </select>
+                <p ng-show="megalitosForm.pueblos.$invalid && !megalitosForm.pueblos.$pristine " class="help-block ">El pueblo es requerido.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Localizacion-->
+    <div class="form-group ">
+        <label>Localización</label>
+        <textarea auto-grow type="text " name="localizacion " class="form-control " ng-model="megalito.localizacion ">
+        </textarea>
+    </div>
+    <!-- Coordenadas -->
+    <div class="col-sm-12 nopaddingLeft nopaddingRight ">
+        <div class="col-sm-6 nopaddingLeft ">
+            <div class="form-group " ng-class="{ 'has-error' : megalitosForm.lat.$invalid && !megalitosForm.lat.$pristine } ">
+                <label>Coordenadas N-S (Lat)</label>
+                <input type="text " placeholder="37° 1′ 28.51″ N " name="lat " class="form-control " ng-model="megalito.lat " required> </input>
+                <p ng-show="megalitosForm.lat.$invalid && !megalitosForm.lat.$pristine " class="help-block ">La latitud es requerida</p>
+            </div>
+        </div>
+        <div class="col-sm-6 nopaddingRight ">
+            <div class="form-group " ng-class="{ 'has-error' : megalitosForm.lng.$invalid && !megalitosForm.lng.$pristine } ">
+                <label>Coordenada E-O (Lng)</label>
+                <input type="text " placeholder="4° 32′ 46.65″ W " name="lng " class="form-control " ng-model="megalito.lng " required> </input>
+                <p ng-show="megalitosForm.lng.$invalid && !megalitosForm.lng.$pristine " class="help-block ">La longitud es requerida</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-group " ng-class="{ 'has-error' : megalitosForm.descripcion.$invalid && !megalitosForm.descripcion.$pristine } ">
+        <label>Descripción</label>
+        <textarea auto-grow type="text " name="descripcion " class="form-control " ng-model="megalito.descripcion " required>
+        </textarea>
+        <p ng-show="megalitosForm.descripcion.$invalid && !megalitosForm.descripcion.$pristine " class="help-block ">La descripción del megalito es requerida</p>
+    </div>
+    <!-- Imagenes -->
+    <div class="form-group ">
+        <label>Imagenes</label>
+        <div nv-file-drop uploader="uploader ">
+            <div ng-show="uploader.isHTML5 ">
+                <!-- 3. nv-file-over | nv-file-over="className " -->
+                <!-- <div class="well my-drop-zone " nv-file-over uploader="uploader ">
                                 Arrastra tu imagen
                             </div> -->
-                        </div>
-                        <!-- 2. nv-file-select | nv-file-select="options" -->
-                        <input nv-file-select valid-file ng-model="megalito.imagenes" uploader="uploader" accept="image/*" type="file" multiple/>
-                        <br/>
-                        <!--<p>Queue length: {{ uploader.queue.length }}</p>-->
-                        <table class="table" ng-show="uploader.queue.length >0">
-                            <thead>
-                                <tr>
-                                    <th width="50%">Name</th>
-                                    <th ng-show="uploader.isHTML5">Size</th>
-                                    <th ng-show="uploader.isHTML5">Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="item in uploader.queue| limitTo:10">
-                                    <td><strong>{{ item.file.name }}</strong></td>
-                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB
-                                    </td>
-                                    <td nowrap>
-                                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                                            <span class="glyphicon glyphicon-trash"></span> Remove
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div>
-                            </p>
-                            <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-                                <span class="glyphicon glyphicon-trash"></span> Remove all
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Observaciones-->
-                <div class="form-group">
-                    <label>Observaciones</label>
-                    <textarea auto-grow type="text" name="observaciones" class="form-control" ng-model="megalito.observaciones">
-                    </textarea>
-                </div>
-                <!-- Descubrimiento -->
-                <div class="form-group">
-                    <label>Descubrimiento</label>
-                    <textarea auto-grow type="text" name="descubrimiento" class="form-control" ng-model="megalito.descubrimiento">
-                    </textarea>
-                </div>
-                <!-- Bibliografia -->
-                <div class="form-group">
-                    <label>Bibliografia</label>
-                    <textarea auto-grow type="text" name="bibliografia" class="form-control" ng-model="megalito.bibliografia">
-                    </textarea>
-                </div>
-                <!-- SUBMIT BUTTON -->
-                <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-primary" ng-click="submitForm ($event)">Submit</button>
-            </form>
-        </div>
-        <megalitos-etiquetas></megalitos-etiquetas>
+            </div>
+            <!-- 2. nv-file-select | nv-file-select="options " -->
+            <input nv-file-select valid-file ng-model="megalito.imagenes " uploader="uploader " accept="image/* " type="file " multiple/>
+            <br/>
+            <!--<p>Queue length: {{ uploader.queue.length }}</p>-->
+            <table class="table " ng-show="uploader.queue.length>0">
+            <thead>
+                <tr>
+                    <th width="50%">Name</th>
+                    <th ng-show="uploader.isHTML5">Size</th>
+                    <th ng-show="uploader.isHTML5">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in uploader.queue| limitTo:10">
+                    <td><strong>{{ item.file.name }}</strong></td>
+                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB
+                    </td>
+                    <td nowrap>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                            <span class="glyphicon glyphicon-trash"></span> Remove
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <div>
+                </p>
+                <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                </button>
+            </div>
     </div>
-</div>
-<!-- /.row -->
-<hr>
-<!-- Footer -->
-<!--<footer>
-    <div class="row">
-        <div class="col-md-10">
-            <p>Copyright &copy; Your Website 2014</p>
-        </div>
     </div>
-    <!-- /.row -->
-<!--</footer>-->
-</div>
-<!-- /.container -->
+    <!-- Observaciones-->
+    <div class="form-group">
+        <label>Observaciones</label>
+        <textarea auto-grow type="text" name="observaciones" class="form-control" ng-model="megalito.observaciones">
+        </textarea>
+    </div>
+    <!-- Descubrimiento -->
+    <div class="form-group">
+        <label>Descubrimiento</label>
+        <textarea auto-grow type="text" name="descubrimiento" class="form-control" ng-model="megalito.descubrimiento">
+        </textarea>
+    </div>
+    <!-- Bibliografia -->
+    <div class="form-group">
+        <label>Bibliografia</label>
+        <textarea auto-grow type="text" name="bibliografia" class="form-control" ng-model="megalito.bibliografia">
+        </textarea>
+    </div>
+    <!-- SUBMIT BUTTON -->
+    <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-primary" ng-click="submitForm ($event)">Submit</button>
+</form>

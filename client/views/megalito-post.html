@@ -1,22 +1,20 @@
 <div class="col-md-8 nopaddingLeft nopaddingRight">
-    <div id="main-home">
-        <div class="post hentry uncustomized-post-template">
-            <a name="4748758417125243990"></a>
+    <div class="main-home">
+        <div class="post">
             <h3 class="post-title entry-title">
                 <a href="">{{megalito.nombre}}</a>
             </h3>
-            <div class="post-header-line-1"></div>
             <div class="postlabels-top">
                 Publicado por
                 <span class="fn">Misterios con Xana</span>
             </div>
-            <div class="post-body" >
-                <div class="separator" style="clear: both; text-align: center;">
+            <div class="post-body">
+                
                     <!--<a href="" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="400" src="/api/containers/img/download/{{images[0].imagenes[0].name}}" width="400"></a>-->
                     <a ng-click="openLightboxModal()">
-                        <img class="img-responsive"border="0" height="400" ng-src="/api/containers/img/download/{{images[0].imagenes[0].name}}" width="400">
+                        <img class="img-responsive" border="0" height="400" ng-src="/api/containers/img/download/{{images[0].imagenes[0].name}}" width="400">
                     </a>
-                </div>
+                
                 <br>
                 <span ng-show="lugar.pueblo"> <p><b>Municipio: </b>{{lugar.pueblo}}</p>
                 </span>
@@ -29,11 +27,9 @@
                 <span ng-show="megalito.observaciones"> <p><b>Observaciones: </b> {{megalito.observaciones}}</p></span>
                 <span ng-show="megalito.descubrimiento"> <p> <b>Descubrimiento: </b>{{megalito.descubrimiento}}</p></span>
                 <span ng-show="megalito.bibliografia"> <p><b>Bibliografia: </b> {{megalito.bibliografia}}</p></span>
-                <coments></coments>
             </div>
-
-            <div style="clear: both;"></div>
+            
         </div>
+        <comments></comments>
     </div>
-</div>
 </div>
