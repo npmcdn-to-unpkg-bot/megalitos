@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps', 'ngImgCrop'])
+    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps'])
     .config(['$stateProvider', '$urlRouterProvider', function(
         $stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -8,7 +8,7 @@ angular
                 
                 views: {
                     "megalitos": {
-                        templateUrl: "/views/main/main-megalitos.html",
+                        templateUrl: "/views/main/main-megalitos.html"
                     }
                 }
             }).state('megalito', {
@@ -16,7 +16,7 @@ angular
                 views: {
 
                     "megalito": {
-                        templateUrl: "/views/main/main-megalito.html",
+                        templateUrl: "/views/main/main-megalito.html"
                     }
                 }
             })
@@ -32,7 +32,7 @@ angular
                 url: '/map',
                 views: {
                     "map": {
-                        templateUrl: "/views/main/main-map.html",
+                        templateUrl: "/views/main/main-map.html"
                     }
                 }
             })
@@ -71,6 +71,7 @@ angular
 .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(event, next) {
         // redirect to login page if not logged in
+        
 
         if (next.authenticate && !$rootScope.currentUser) {
             event.preventDefault(); //prevent current page from loading

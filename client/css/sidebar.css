@@ -1,4 +1,7 @@
-
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
 .nav-sm .container.body .left_col {
   width: 70px;
   padding: 0;
@@ -4776,13 +4779,6 @@ ul.notifications {
   min-height: 300px;
   border: 1px solid #e5e5e5;
 }
-/** /Dropzone.js **/
-.garbitu{
-  margin: 0px;
-  padding: 0px;
-}
-
-
 
 
 

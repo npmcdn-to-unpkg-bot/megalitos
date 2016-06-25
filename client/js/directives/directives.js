@@ -70,7 +70,7 @@ angular.module('app')
         return {
             restrict: 'E',
             templateUrl: 'views/nav/top-navigation.html',
-             controller:'SidebarCtrl'
+            controller:'SidebarCtrl'
             
 
 

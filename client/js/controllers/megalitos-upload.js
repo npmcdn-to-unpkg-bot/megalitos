@@ -8,8 +8,8 @@ angular
 
             // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
             $('form')
-                .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-                .on('change', 'select.required', validator.checkField)
+                .on('blur', 'input[required], input.optional, select[required], textarea[required]', validator.checkField)
+                .on('change', 'select[required]', validator.checkField)
                 .on('keypress', 'input[required][pattern]', validator.keypress);
 
             $('.multi.required').on('keyup blur', 'input', function() {
@@ -30,10 +30,6 @@ angular
 
                 return false;
             });
-
-
-
-
             // create a uploader with options
             $scope.imagenes = [];
 
@@ -45,6 +41,7 @@ angular
                 ]
             });
             // ADDING FILTERS
+            console.log(angular.version);
             uploader.filters.push({
                 name: 'imageFilter',
                 fn: function(item, options) { // second user filter
