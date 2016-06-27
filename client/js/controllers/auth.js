@@ -3,8 +3,9 @@ angular
     .controller('AuthLoginController', ['$scope', '$rootScope', '$http', 'User', '$cookies', 'AuthService', '$state',
         function($scope, $rootScope, $http, User, $cookies, AuthService, $state) {
             $scope.loginAuto = function() {
-                console.log("beti");
+
                 if (window.localStorage.getItem("key")) {
+                    console.log("beti");
                     userLocal = JSON.parse(window.localStorage.getItem("key"));
                     $scope.user = {
                         email: userLocal.email,
@@ -18,8 +19,8 @@ angular
                         });
                 }
 
-
             };
+
             $scope.login = function() {
                 console.log("login");
                 AuthService.login($scope.user.email, $scope.user.password)
@@ -74,14 +75,16 @@ angular
              aboutYourself: 'ni informatikaria naiz'
          };
          */
+        $(document).ready(function() {
+            autosize($('.resizable_textarea'));
+        });
+
         $scope.user = {
             username: 'markelor',
             email: 'mendimarkel@gmail.com',
             password: 'jaijaijai',
             aboutYourself: 'ni informatikaria naiz'
         };
-
-
         $scope.register = function() {
             AuthService.register($scope.user.username, $scope.user.email, $scope.user.password, $scope.user.aboutYourself)
                 .then(function(user) {

@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps'])
+    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps','ngImgCrop'])
     .config(['$stateProvider', '$urlRouterProvider', function(
         $stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -13,12 +13,20 @@ angular
                 }
             }).state('megalito', {
                 url: '/megalitos/:megalitoId',
-                views: {
-
+                authenticate: true,
+                views: {    
                     "megalito": {
                         templateUrl: "/views/main/main-megalito.html"
                     }
                 }
+            }).state('comentarios', {
+                url: '/megalitos/comentarios',
+                /*views: {
+
+                    "megalito": {
+                        templateUrl: "/views/main/main-megalito.html"
+                    }
+                }*/
             })
             .state('megalitos-comunidad', {
                 url: '/megalitos/comunidad/:comunidad',

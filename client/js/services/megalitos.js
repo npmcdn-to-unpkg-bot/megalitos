@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .factory('MegalitosService', ['$rootScope', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes', function(
-        $rootScope, Megalitos, Lugares, Coordenadas, Imagenes) {
+    .factory('MegalitosService', ['$rootScope', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes','Comentarios', function(
+        $rootScope, Megalitos, Lugares, Coordenadas, Imagenes,Comentarios) {
         function getAllMegalitos() {
             return Megalitos
                 .find()
@@ -133,6 +133,26 @@ angular
                 .$promise;
 
         }
+         function createComentarioMegalito(megalitoId,userId,comentario) {
+            console.log(megalitoId);
+            console.log(userId);
+            console.log(comentario);
+            return  Comentarios.create({
+                    megalitosId:megalitoId,
+                    userId:userId,
+                    comentario:comentario
+                }).$promise;
+
+        }
+        function getComentariosMegalito(megalitoId) {
+            return  Comentarios.find({
+                    filter: {
+                        where: {
+                            megalitosId: megalitoId
+                        }
+                    }
+                }).$promise;
+        }
 
 
         return {
@@ -150,6 +170,8 @@ angular
             createImagenes: createImagenes,
             deleteLugares: deleteLugares,
             deleteCoordenadas: deleteCoordenadas,
-            deleteImagenes: deleteImagenes
+            deleteImagenes: deleteImagenes,
+            createComentarioMegalito:createComentarioMegalito,
+            getComentariosMegalito:getComentariosMegalito
         };
     }]);

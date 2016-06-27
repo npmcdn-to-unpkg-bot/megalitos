@@ -1,8 +1,10 @@
 angular
     .module('app')
-    .controller('MegalitosUploadController', ['$scope', 'MegalitosService', '$http', '$q', 'FileUploader',
-        function($scope, MegalitosService, $http, $q, FileUploader) {
-           
+    .controller('MegalitosUploadController', ['$scope', '$state','MegalitosService', '$http', '$q', 'FileUploader',
+        function($scope,$state, MegalitosService, $http, $q, FileUploader) {
+            $(document).ready(function() {
+                    autosize($('.resizable_textarea'));
+                });
             // initialize the validator function
             validator.message.date = 'not a real date';
 
@@ -16,20 +18,6 @@ angular
                 validator.checkField.apply($(this).siblings().last()[0]);
             });
 
-            $('form').submit(function(e) {
-                e.preventDefault();
-                var submit = true;
-
-                // evaluate the form using generic validaing
-                if (!validator.checkAll($(this))) {
-                    submit = false;
-                }
-
-                if (submit)
-                    this.submit();
-
-                return false;
-            });
             // create a uploader with options
             $scope.imagenes = [];
 
@@ -63,7 +51,6 @@ angular
                 if (ind !== -1) {
                     $scope.provincias = $scope.comunidades[ind].provincias;
                 } else {
-                    console.log("hemen1");
                     angular.element(document.getElementById('provincias'))[0].disabled = true;
                     $scope.megalito.selectedProvincias = "-- SELECCIONE UNA PROVINCIA--";
                     angular.element(document.getElementById('pueblos'))[0].disabled = true;
@@ -84,12 +71,12 @@ angular
 
                     });
                 } else {
-                    console.log("hemen2");
                     angular.element(document.getElementById('pueblos'))[0].disabled = true;
                     $scope.megalito.selectedPueblos = "--SELECCIONE UN PUEBLO--";
                 }
             };
             $scope.submitForm = function(e) {
+                console.log("hemen2");
                 //No subir mas de 5 imagenes
                 if (uploader.queue.length > 5) {
                     for (var i = uploader.queue.length - 1; i >= 5; i--) {
@@ -107,60 +94,62 @@ angular
                     console.log("hemen");
                     createMegalito();
                 };
-
-                function createMegalito() {
-                    MegalitosService.createMegalito($scope.megalito.nombre, $scope.megalito.tipoMegalito, $scope.megalito.estacionMegalitica, $scope.megalito.localizacion,
-                        $scope.megalito.descripcion, $scope.megalito.descubrimiento, $scope.megalito.observaciones, $scope.megalito.bibliografia)
-
-                    .then(function(megalito) {
-                            console.log(megalito);
-                            MegalitosService.createLugares($scope.megalito.selectedComunidades.comunidad,
-                                $scope.megalito.selectedProvincias.provincia, $scope.megalito.selectedPueblos.pueblo, megalito.id)
-
-                            .then(function(lugares) {
-                                    MegalitosService.createCoordenadas($scope.megalito.lat, $scope.megalito.lng, megalito.id)
-
-                                    .then(function(coordenadas) {
-                                            MegalitosService.createImagenes($scope.imagenes, megalito.id)
-
-                                            .then(function(imagenes) {
-
-                                                },
-                                                function(reason) {
-                                                    //reason imagenes
-                                                    console.log(reason);
-                                                    //borrar megalito lugares coordenadas e imagenes
-                                                });
-
-
-                                        },
-                                        function(reason) {
-                                            console.log(reason);
-                                            //borrar megalito lugares y coordenadas
-                                        });
-
-
-                                },
-                                function(reason) {
-                                    //reason lugares
-                                    console.log(reason);
-                                    //borrar megalito y lugares
-                                });
-
-
-
-
-                        },
-                        function(reason) {
-                            //reson megalitos
-                            console.log(reason);
-                        });
-
-                }
-
-
-
             };
+
+            function createMegalito() {
+                MegalitosService.createMegalito($scope.megalito.nombre, $scope.megalito.tipoMegalito, $scope.megalito.estacionMegalitica, $scope.megalito.localizacion,
+                    $scope.megalito.descripcion, $scope.megalito.descubrimiento, $scope.megalito.observaciones, $scope.megalito.bibliografia)
+
+                .then(function(megalito) {
+                        console.log(megalito);
+                        MegalitosService.createLugares($scope.megalito.selectedComunidades.comunidad,
+                            $scope.megalito.selectedProvincias.provincia, $scope.megalito.selectedPueblos.pueblo, megalito.id)
+
+                        .then(function(lugares) {
+                                MegalitosService.createCoordenadas($scope.megalito.lat, $scope.megalito.lng, megalito.id)
+
+                                .then(function(coordenadas) {
+                                        MegalitosService.createImagenes($scope.imagenes, megalito.id)
+
+                                        .then(function(imagenes) {
+
+                                            },
+                                            function(reason) {
+                                                //reason imagenes
+                                                console.log(reason);
+                                                $state.go('megalitos');
+                                                //borrar megalito lugares coordenadas e imagenes
+                                            });
+
+
+                                    },
+                                    function(reason) {
+                                        console.log(reason);
+                                        //borrar megalito lugares y coordenadas
+                                    });
+
+
+                            },
+                            function(reason) {
+                                //reason lugares
+                                console.log(reason);
+                                //borrar megalito y lugares
+                            });
+
+
+
+
+                    },
+                    function(reason) {
+                        //reson megalitos
+                        console.log(reason);
+                    });
+
+            }
+
+
+
+
         }
 
     ]);

@@ -381,6 +381,17 @@ table.no-margin .progress {
   width: 50%;
   margin-bottom: 10px;
 }
+@media (min-width: 450px) {
+  .col-md-55 {
+    width: 30%;
+  }
+}
+
+@media (min-width: 600px) {
+  .col-md-55 {
+    width: 25%;
+  }
+}
 @media (min-width: 768px) {
   .col-md-55 {
     width: 20%;
@@ -392,6 +403,11 @@ table.no-margin .progress {
   }
 }
 @media (min-width: 1200px) {
+  .col-md-55 {
+    width: 25%;
+  }
+}
+@media (min-width: 1500px) {
   .col-md-55 {
     width: 20%;
   }
@@ -4783,3 +4799,416 @@ ul.notifications {
 
 
 
+/*comentarios*/
+
+@import url(//fonts.googleapis.com/css?family=Ubuntu:300,400,700);
+button.love,
+button.reply {
+    background: scroll transparent none 0 0 repeat;
+    border: 0 none #000;
+    outline: 0 none #000;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    text-transform: inherit;
+    line-height: inherit;
+    vertical-align: top;
+    cursor: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button.love,
+button.reply,
+button.love,
+button.reply:before,
+button.love,
+button.reply:after {
+    box-sizing: border-box;
+}
+
+.comments {
+    padding-top: 30px;
+}
+
+.comments ul {
+    padding-left: 80px;
+    list-style: none;
+}
+
+.comments ul li {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.comments ul li:not(:first-child) {
+    margin-top: 20px;
+}
+
+.comments ul li:before {
+    content: "";
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #fff;
+    position: absolute;
+    top: 10px;
+    left: -10px;
+}
+
+.comments ul li header {
+    border-bottom: 1px solid #e5e5e5;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.comments ul li header * {
+    display: block;
+}
+
+.comments ul li header h4 {
+    margin-top: 0px;
+    padding-left: 20px;
+    font-weight: normal;
+    line-height: 40px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+     width: 100px;
+    display: block;
+}
+
+.comments ul li header p span {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.comments ul li header p {
+    font-size: 10px;
+    padding-left: 20px;
+    line-height: 60px;
+    position: absolute;
+    line-height: 80px;
+    margin: 0 0 0px;
+    left: 0;
+    
+}
+
+
+/*.comments ul li header p {
+        content: none;
+        /*visibility:hidden;*/
+
+
+/* position: absolute;
+        line-height: 0px;
+        left: 0;
+        top: 40px;
+    }
+    .comments ul li header h4 {
+      -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+        
+    }
+    */
+
+.comments ul li header h4.author,
+.comments ul li header h4.author * {
+    color: #9a3;
+}
+
+.comments ul li header h4.author:after {
+    content: "Author";
+    margin: 10px 0 10px 10px;
+    padding: 0 5px;
+    background: #9a3;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+.comments ul li header button {
+    padding: 10px;
+}
+
+.comments ul li header button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.comments ul li header button svg * {
+    fill: #999;
+}
+
+.comments ul li header button:hover svg * {
+    fill: #666;
+}
+
+.comments ul li header button.loved svg * {
+    fill: #f66;
+}
+
+.comments ul li header img {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 4px solid #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: -80px;
+}
+
+.comments ul li article {
+    padding: 20px;
+    white-space: pre-line;
+    overflow-x: hidden;
+}
+
+.comments ul li article .reply {
+    color: #9a3;
+}
+
+.comments ul li article strong {
+    font-weight: 500;
+}
+
+.comments ul li article em {
+    font-style: italic;
+}
+
+.comments ul li article a {
+    text-decoration: underline;
+}
+
+.comments ul li article a:hover {
+    text-decoration: none;
+}
+
+.comments ul li article code {
+    font-family: "Source Code Pro", monospace;
+}
+
+.comments form {
+    margin-top: 20px;
+    padding: 20px 20px 20px 100px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.comments form:before {
+    content: "";
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent rgba(229, 229, 229, 0.5);
+    position: absolute;
+    top: 30px;
+    left: 90px;
+}
+
+.comments form input,
+.comments form textarea {
+    padding: 9px 20px;
+    width: 100%;
+    background: rgba(229, 229, 229, 0.5);
+    display: block;
+}
+
+.comments form input:not(:first-child),
+.comments form textarea:not(:first-child) {
+    margin-top: 2px;
+}
+
+.comments form input[type='email'],
+.comments form textarea[type='email'] {
+    width: 50%;
+    border-right: 1px solid #fff;
+}
+
+.comments form input[type='url'],
+.comments form textarea[type='url'] {
+    width: 50%;
+    border-left: 1px solid #fff;
+}
+
+.comments form input::-webkit-input-placeholder,
+.comments form textarea::-webkit-input-placeholder {
+    color: #666;
+}
+
+.comments form input::-moz-placeholder,
+.comments form textarea::-moz-placeholder {
+    color: #666;
+}
+
+.comments form input:-ms-input-placeholder,
+.comments form textarea:-ms-input-placeholder {
+    color: #666;
+}
+
+.comments form input::placeholder,
+.comments form textarea::placeholder {
+    color: #666;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid::-webkit-input-placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid::-webkit-input-placeholder {
+    color: #f66;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid::-moz-placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid::-moz-placeholder {
+    color: #f66;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid:-ms-input-placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid:-ms-input-placeholder {
+    color: #f66;
+}
+
+.comments form input.ng-dirty.ng-invalid,
+.comments form input.ng-dirty.ng-invalid::placeholder,
+.comments form textarea.ng-dirty.ng-invalid,
+.comments form textarea.ng-dirty.ng-invalid::placeholder {
+    color: #f66;
+}
+
+.comments form textarea {
+    padding: 20px;
+    height: 120px;
+    resize: none;
+}
+
+.comments form p {
+    margin-top: 10px;
+    padding: 10px 0;
+    width: 50%;
+}
+
+.comments form p a {
+    text-decoration: underline;
+}
+
+.comments form p a:hover {
+    text-decoration: none;
+}
+
+.comments form button {
+    margin: 10px auto 0;
+    padding: 10px 0;
+    width: 50%;
+    background: #9a3;
+    border-radius: 2px;
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    display: block;
+}
+
+.comments form img {
+    width: 60px;
+    height: 60px;
+    background: rgba(229, 229, 229, 0.5);
+    border: 4px solid rgba(229, 229, 229, 0.5);
+    border-radius: 2px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+@media (max-width: 440px) {
+    .comments ul {
+        padding: 0;
+    }
+    .comments ul li:before {
+        content: none;
+    }
+    .comments ul li header img {
+        clip: rect(0, 0, 0, 0);
+    }
+    .comments ul li header h4.author:after {
+        content: none;
+    }
+    .comments form {
+        padding-left: 20px;
+    }
+    .comments form:before {
+        content: none;
+    }
+    .comments form img {
+        clip: rect(0, 0, 0, 0);
+    }
+    .comments form input,
+    .comments form textarea {
+        padding: 10px;
+    }
+    .comments form textarea {
+        height: 80px;
+    }
+    .comments form p,
+    .comments form button {
+        margin: 10px 10px 0;
+        width: 100%;
+    }
+    .comments form p {
+        padding: 0;
+    }
+}
+
+
+/*comentarios*/
+/*Image cropped*/
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:500px;
+    height:350px;
+}
+form .progress {
+    line-height: 15px;
+}
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+/* Image cropped fin*/

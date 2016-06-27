@@ -1,21 +1,37 @@
-<form class="main-home" name="avatarForm">
-    <div class="row" nv-file-drop="" uploader="uploader">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xxs-12">
-            <div class="img-responsive">
-                <h3>Select files</h3>
-                <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
-            </div>
+<form name="megalitosForm " novalidate>
+    <h3>Select files</h3>
+    <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
+    <div ng-repeat="item in uploader.queue">
+        <br/>
+        <strong>{{ item.file.name }}</strong>
+        <div class="cropArea img-responsive center-block">
+            <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
         </div>
-        <div ng-repeat="item in uploader.queue">
-            <br/>
-            <strong>{{ item.file.name }}</strong>
-            <div class="cropArea img-responsive center-block">
-                <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
+        <div>Cropped Image:</div>
+        <div><img class="img-thumbnail center-block" ng-src="{{item.croppedImage}}" /></div>
+    </div>
+    <div class="row">
+        <p>Media gallery design emelents</p>
+        <div class="col-md-55" ng-repeat="file in files">
+            <div class="image view view-first">
+                <img style="width: 100%;  display: block;" ng-src="/api/containers/profile/download/{{file.name}}" alt="image" />
+                <div class="mask">
+                    <p>Your Text</p>
+                    <div class="tools tools-bottom">
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="#"><i class="fa fa-pencil"></i></a>
+                        <a href="#"><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
             </div>
-            <div>Cropped Image:</div>
-            <div><img class="img-thumbnail center-block" ng-src="{{item.croppedImage}}" /></div>
+            <!--<div class="caption">
+                <p>Snow and Ice Incoming for the South</p>
+            </div>-->
         </div>
-        <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 " ng-repeat="file in files"><img class="img-thumbnail center-block" ng-src="/api/containers/profile/download/{{file.name}}" /></div>
-        <button ng-disabled="avatarForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-primary" ng-click="submitForm ($event)">guardar Cambios</button>
+    </div>
+    <div class="form-group ">
+        <div class="col-md-6 col-md-offset-3 ">
+            <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Submit</button>
+        </div>
     </div>
 </form>

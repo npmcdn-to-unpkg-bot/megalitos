@@ -22,8 +22,6 @@
     "serve-favicon": "^2.0.1"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-loopback-sdk-angular": "^1.2.0",
     "jshint": "^2.5.6",
     "tape": "^4.2.0"
   },

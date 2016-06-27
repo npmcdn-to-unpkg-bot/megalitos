@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('MegalitosComunidadController', ['$scope', 'MegalitosService', 'amMoment', 'Imagenes', 'Lugares', '$stateParams', function($scope,
+    .controller('MegalitosComunidadController', ['$scope', 'MegalitosService', 'amMoment','$stateParams', function($scope,
 
         MegalitosService, amMoment, $stateParams) {
         $scope.megalitos = [];
@@ -11,8 +11,7 @@ angular
         //$scope.userId=userId;
         //console.log($scope.token);
         //megalito guztiak ez, aldatzeko
-
-
+        console.log($stateParams.comunidad);
         MegalitosService.getLugaresComunidad($stateParams.comunidad)
             .then(function(lugares) {
                     lugares.forEach(function(lugar) {
