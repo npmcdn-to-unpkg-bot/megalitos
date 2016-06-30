@@ -1,35 +1,19 @@
-<div class="col-md-8 nopaddingLeft nopaddingRight">
-    <div class="main-home">
-        <div class="post">
-            <h3 class="post-title entry-title">
-                <a href="">{{megalito.nombre}}</a>
-            </h3>
-            <div class="postlabels-top">
-                Publicado por
-                <span class="fn">Misterios con Xana</span>
-            </div>
-            <div class="post-body">
-                
-                    <!--<a href="" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="400" src="/api/containers/img/download/{{images[0].imagenes[0].name}}" width="400"></a>-->
-                    <a ng-click="openLightboxModal()">
-                        <img class="img-responsive" border="0" height="400" ng-src="/api/containers/img/download/{{images[0].imagenes[0].name}}" width="400">
-                    </a>
-                
-                <br>
-                <span ng-show="lugar.pueblo"> <p><b>Municipio: </b>{{lugar.pueblo}}</p>
+<div>
+    <a ng-click="openLightboxModal()">
+        <img class="img-responsive" border="0" height="400" ng-src="/api/containers/img/download/{{imagesMegalito[0].imagenes[0].name}}" width="400">
+    </a>
+    <br>
+    <span ng-show="lugar.pueblo"> <p><b>Municipio: </b>{{lugar.pueblo}}</p>
                 </span>
-                <span ng-show="megalito.tipoMegalito"> <p><b>Tipo Megalito: </b>{{megalito.tipoMegalito}}</p>
+    <span ng-show="megalito.tipoMegalito"> <p><b>Tipo Megalito: </b>{{megalito.tipoMegalito}}</p>
                 </span>
-                <span ng-show="megalito.estacionMegalitica"> <p> <b>Estación Megalitica: </b>{{megalito.estacionMegalitica}}</p></span>
-                <span ng-show="coordenadas.lat&& coordenadas.lng"> <p> <b>Coordenadas: </b>{{coordenadas.lat+ "  " +coordenadas.lng }}</p></span>
-                <span ng-show="megalito.localizacion"><p> <b> Localización: </b>{{megalito.localizacion}}</p></span>
-                <span ng-show="megalito.descripcion"> <p> <b>Descripción: </b> {{megalito.descripcion}}</p></span>
-                <span ng-show="megalito.observaciones"> <p><b>Observaciones: </b> {{megalito.observaciones}}</p></span>
-                <span ng-show="megalito.descubrimiento"> <p> <b>Descubrimiento: </b>{{megalito.descubrimiento}}</p></span>
-                <span ng-show="megalito.bibliografia"> <p><b>Bibliografia: </b> {{megalito.bibliografia}}</p></span>
-            </div>
-            
-        </div>
-        <comments></comments>
-    </div>
+    <span ng-show="megalito.estacionMegalitica"> <p> <b>Estación Megalitica: </b>{{megalito.estacionMegalitica}}</p></span>
+    <span ng-show="coordenadas.lat&& coordenadas.lng"> <p> <b>Coordenadas: </b>{{coordenadas.lat+ "  " +coordenadas.lng }}</p></span>
+    <span ng-show="megalito.localizacion"><p> <b> Localización: </b>{{megalito.localizacion}}</p></span>
+    <span ng-show="megalito.descripcion"> <p> <b>Descripción: </b> {{megalito.descripcion}}</p></span>
+    <span ng-show="megalito.observaciones"> <p><b>Observaciones: </b> {{megalito.observaciones}}</p></span>
+    <span ng-show="megalito.descubrimiento"> <p> <b>Descubrimiento: </b>{{megalito.descubrimiento}}</p></span>
+    <span ng-show="megalito.bibliografia"> <p><b>Bibliografia: </b> {{megalito.bibliografia}}</p></span>
 </div>
+<map></map>
+<comments></comments>

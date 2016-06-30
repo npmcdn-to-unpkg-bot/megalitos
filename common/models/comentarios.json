@@ -9,6 +9,10 @@
     "TimeStamp": true
   },
   "properties": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
     "positivo": {
       "type": "number",
       "required": true,
@@ -19,7 +23,7 @@
       "required": true,
       "default": "0"
     },
-    "comentario": {
+    "message": {
       "type": "string",
       "required": true
     }

@@ -37,10 +37,10 @@ angular
 
 
         $scope.images = [];
-        $scope.getImages = function(id) {
-            MegalitosService.getImagesMegalito(id)
+        $scope.getImages = function(megalito) {
+            MegalitosService.getImagesMegalito(megalito.id)
                 .then(function(images) {
-                        $scope.images.push(images[0]);
+                        megalito.images=images[0];
                     },
                     function(reason) {
                         //reason images

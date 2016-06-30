@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .factory('MegalitosService', ['$rootScope', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes','Comentarios', function(
-        $rootScope, Megalitos, Lugares, Coordenadas, Imagenes,Comentarios) {
+    .factory('MegalitosService', ['$rootScope','User', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes','Comentarios', function(
+        $rootScope, User,Megalitos, Lugares, Coordenadas, Imagenes,Comentarios) {
         function getAllMegalitos() {
             return Megalitos
                 .find()
@@ -62,9 +62,10 @@ angular
                     }
                 }).$promise;
         }
-        function createMegalito(nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
+        function createMegalito(userId,nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
             return Megalitos
                 .create({
+                    userId:userId,
                     nombre: nombre,
                     tipoMegalito: tipoMegalito,
                     estacionMegalitica: estacionMegalitica,
@@ -133,14 +134,12 @@ angular
                 .$promise;
 
         }
-         function createComentarioMegalito(megalitoId,userId,comentario) {
-            console.log(megalitoId);
-            console.log(userId);
-            console.log(comentario);
+         function createComentarioMegalito(megalitoId,userId,username,message) {
             return  Comentarios.create({
                     megalitosId:megalitoId,
                     userId:userId,
-                    comentario:comentario
+                    username:username,
+                    message:message
                 }).$promise;
 
         }
@@ -153,7 +152,13 @@ angular
                     }
                 }).$promise;
         }
+        function getUser(userId) {
+            return User.findById({ id: userId })
+            .$promise;
+        }
+        
 
+        
 
         return {
             getAllMegalitos:getAllMegalitos,
@@ -172,6 +177,7 @@ angular
             deleteCoordenadas: deleteCoordenadas,
             deleteImagenes: deleteImagenes,
             createComentarioMegalito:createComentarioMegalito,
-            getComentariosMegalito:getComentariosMegalito
+            getComentariosMegalito:getComentariosMegalito,
+            getUser:getUser
         };
     }]);

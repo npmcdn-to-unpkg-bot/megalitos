@@ -1,12 +1,11 @@
 angular
     .module('app')
-    .controller('CommentsController', ['$scope','$rootScope', '$sce', 'MegalitosService', 'amMoment', '$stateParams', function($scope,$rootScope, $sce,
+    .controller('CommentsController', ['$scope', '$rootScope', '$state', '$sce', 'MegalitosService', 'amMoment', '$stateParams', function($scope, $rootScope, $state, $sce,
         MegalitosService, amMoment, $stateParams) {
-        console.log($rootScope.currentUser.id);
-
         MegalitosService.getComentariosMegalito($stateParams.megalitoId)
             .then(function(comentarios) {
-                    console.log(comentarios);
+                    $scope.comments = comentarios;
+
                 },
                 function(reason) {
                     //reason images
@@ -14,47 +13,34 @@ angular
 
                 });
 
+        $scope.setAuthor = function(index, commentUserId) {
+            MegalitosService.getUser(commentUserId)
+                .then(function(user) {
+                        $scope.comments[index].avatar = user.avatar;
+                    },
+                    function(reason) {
+                        //reason images
+                        console.log(reason);
 
-        var markdown, postAuthorEmail;
-        postAuthorEmail = 'jan.kanty.pawelski@gmail.com';
-        $scope.comments = [{
-            id: 1,
-            author: {
-                name: 'Joseba Meabebasterretxea',
-                email: 'jan.kanty.pawelski@gmail.com',
-                website: 'pawelski.io'
-            },
-            content: 'I made it! My awesome angular comment system. What do you think?',
-            createdAt: '2016-06-20T14:10:12.767Z',
-            loved: false
-        }, {
-            id: 2,
-            author: {
-                name: 'Tomasz Jakut',
-                email: 'comandeer@comandeer.pl',
-                website: 'comandeer.pl'
-            },
-            content: 'Nice looking. Good job dude ;)',
-            loved: true
-        }, {
-            id: 3,
-            author: {
-                name: 'Jan-Kanty Pawelski',
-                email: 'jan.kanty.pawelski@gmail.com',
-                website: 'pawelski.io'
-            },
-            content: '<span class="reply">@Tomasz Jakut</span> Thanks man. I tried hard.',
-            loved: false
-        }, {
-            id: 4,
-            author: {
-                name: 'Grzegorz Bąk',
-                email: 'szary.elf@gmail.com',
-                website: 'gregbak.com'
-            },
-            content: 'Third! Amazing system man! By the way check my new website: <a href="//gregbak.com">http://gregbak.com</a>.',
-            loved: false
-        }];
+                    });
+
+            MegalitosService.getMegalito($stateParams.megalitoId)
+                .then(function(megalito) {
+                        if (commentUserId === megalito.userId)
+                            $scope.comments[index].author = true;
+                        else
+                            $scope.comments[index].author = false;
+
+                    },
+                    function(reason) {
+                        //reason images
+                        console.log(reason);
+
+                    });
+
+        };
+
+
         $scope.newComment = {};
         markdown = function(string) {
             string = string.replace(/(@.+)@/g, '<span class="reply">$1</span>');
@@ -69,9 +55,7 @@ angular
         $scope.parseContent = function(content) {
             return $sce.trustAsHtml(content);
         };
-        $scope.isAuthor = function(email) {
-            return email === postAuthorEmail;
-        };
+
         $scope.getGravatar = function(email) {
             /*var hash;
             if (email === void 0) {
@@ -110,19 +94,22 @@ angular
                     $scope.newComment.content = ' ' + $scope.newComment.content;
                 }
                 return $scope.newComment.content = '@' + author + '@' + $scope.newComment.content;
+
             }
         };
         $scope.createNewComment = function() {
-            /*$scope.newComment.id = $scope.comments.length + 1;
-            //$scope.newComment.author.website = $scope.newComment.author.website.replace(/https?:\/\/(www.)?/g, '');
+            /* $scope.newComment.id = $scope.comments.length + 1;
+             //$scope.newComment.author.website = $scope.newComment.author.website.replace(/https?:\/\/(www.)?/g, '');
+             $scope.comment.message = markdown($scope.comment.message);
+             $scope.newComment.loved = false;
+             */
             $scope.newComment.content = markdown($scope.newComment.content);
-            $scope.newComment.loved = false;
-            $scope.comments.push($scope.newComment);
-            return $scope.newComment = {};
-            */
-            MegalitosService.createComentarioMegalito($stateParams.megalitoId,$rootScope.currentUser.id,$scope.comment.message)
+
+
+
+            MegalitosService.createComentarioMegalito($stateParams.megalitoId, $rootScope.currentUser.id, $rootScope.currentUser.username, $scope.newComment.content)
                 .then(function(comentarios) {
-                        console.log(comentarios);
+                        $state.go($state.current, {}, { reload: true });
                     },
                     function(reason) {
                         //reason images
@@ -130,14 +117,5 @@ angular
 
                     });
         };
-
-        return $scope.$watch('newComment.email', function(newValue, oldValue) {
-            var newCommentAvatar;
-            newCommentAvatar = document.getElementById('newCommentAvatar');
-            return newCommentAvatar.src = $scope.getGravatar($scope.newComment.email);
-        });
-
-
-
 
     }]);

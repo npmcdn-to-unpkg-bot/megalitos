@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .controller('MegalitosUploadController', ['$scope', '$state','MegalitosService', '$http', '$q', 'FileUploader',
-        function($scope,$state, MegalitosService, $http, $q, FileUploader) {
+    .controller('MegalitosUploadController', ['$scope','$rootScope', '$state','MegalitosService', '$http', '$q', 'FileUploader',
+        function($scope,$rootScope,$state, MegalitosService, $http, $q, FileUploader) {
             $(document).ready(function() {
                     autosize($('.resizable_textarea'));
                 });
@@ -97,7 +97,7 @@ angular
             };
 
             function createMegalito() {
-                MegalitosService.createMegalito($scope.megalito.nombre, $scope.megalito.tipoMegalito, $scope.megalito.estacionMegalitica, $scope.megalito.localizacion,
+                MegalitosService.createMegalito($rootScope.currentUser.id,$scope.megalito.nombre, $scope.megalito.tipoMegalito, $scope.megalito.estacionMegalitica, $scope.megalito.localizacion,
                     $scope.megalito.descripcion, $scope.megalito.descubrimiento, $scope.megalito.observaciones, $scope.megalito.bibliografia)
 
                 .then(function(megalito) {

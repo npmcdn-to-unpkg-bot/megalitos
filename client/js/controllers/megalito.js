@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('MegalitoController', ['$scope',  'MegalitosService', 'amMoment','$stateParams', 'Lightbox', function($scope,
         MegalitosService, amMoment,$stateParams, Lightbox) {
-        $scope.images = [];
+        $scope.imagesMegalito = [];
         $scope.properties = [];
         MegalitosService.getMegalito($stateParams.megalitoId)
         .then(function(megalito) {
@@ -33,7 +33,7 @@ angular
             });
         MegalitosService.getImagesMegalito($stateParams.megalitoId)
         .then(function(images) {
-                $scope.images.push(images[0]);
+                $scope.imagesMegalito.push(images[0]);
             },
             function(reason) {
                 //reason images
@@ -43,12 +43,12 @@ angular
 
 
         $scope.openLightboxModal = function() {
-            $scope.imagesUrl = [];
-            $scope.images[0].imagenes.forEach(function(imagen) {
-                $scope.imagesUrl.push("api/containers/img/download/" + imagen.name);
+            $scope.imagesMegalitoUrl = [];
+            $scope.imagesMegalito[0].imagenes.forEach(function(imagen) {
+                $scope.imagesMegalitoUrl.push("api/containers/img/download/" + imagen.name);
             });
 
-            Lightbox.openModal($scope.imagesUrl, 0);
+            Lightbox.openModal($scope.imagesMegalitoUrl, 0);
         };
 
 

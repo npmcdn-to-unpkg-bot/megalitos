@@ -61,9 +61,9 @@
       "foreignKey": ""
     },
     "user": {
-      "type": "belongsTo",
+      "type": "hasOne",
       "model": "user",
-      "foreignKey": "userId"
+      "foreignKey": ""
     },
     "lugares": {
       "type": "hasOne",

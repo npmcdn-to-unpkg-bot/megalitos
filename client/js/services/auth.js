@@ -13,7 +13,9 @@ angular
                         id: response.user.id,
                         tokenId: response.id,
                         email: response.user.email,
-                        username: response.user.username
+                        username: response.user.username,
+                        avatar: response.user.avatar,
+                        aboutYourself: response.user.aboutYourself
                     };
                     $cookies.key = JSON.stringify($rootScope.currentUser);
                     window.localStorage.setItem("key", JSON.stringify({ username: $rootScope.currentUser.username, email: $rootScope.currentUser.email, password: password }));
@@ -39,7 +41,19 @@ angular
                 })
                 .$promise.then(function(user) {
                     console.log(user);
-                     //window.localStorage.setItem("key", JSON.stringify({ username: user.username, email: user.email, password: user.password }));
+                    //window.localStorage.setItem("key", JSON.stringify({ username: user.username, email: user.email, password: user.password }));
+                });
+        }
+
+        function hasPassword() {
+            return User
+                .upsert({
+                    id: $rootScope.currentUser.id,
+                    password: "lotalo"
+                })
+                .$promise.then(function(user) {
+                    console.log(user);
+                    //window.localStorage.setItem("key", JSON.stringify({ username: user.username, email: user.email, password: user.password }));
                 });
         }
 
@@ -47,5 +61,6 @@ angular
             login: login,
             logout: logout,
             register: register,
+            hasPassword: hasPassword
         };
     }]);

@@ -10,6 +10,7 @@ angular
         //$scope.userId=userId;
         //console.log($scope.token);
         //megalito guztiak ez, aldatzeko
+        
         console.log($rootScope.currentUser);
         MegalitosService.getAllMegalitos()
         .then(function(megalitos) {
@@ -22,11 +23,11 @@ angular
             });
 
         $scope.images = [];
-        $scope.getImages = function(id) {
-            console.log(id);
-            MegalitosService.getImagesMegalito(id)
+        $scope.getImages = function(megalito) {
+            MegalitosService.getImagesMegalito(megalito.id)
             .then(function(images) {
-                    $scope.images.push(images[0]);
+                    megalito.images=images[0];
+                    console.log(megalito);
                 },
                 function(reason) {
                     //reason megalitos

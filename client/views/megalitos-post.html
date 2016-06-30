@@ -1,13 +1,31 @@
-
-    <div class="main-home" ng-repeat="megalito in megalitos">
+<div class="x_panel" ng-show="!showAll" ng-repeat="megalito in megalitos |  filter:search | limitTo:10">
+    <div class="x_title">
+        <h2>{{megalito.nombre}}<small>Sessions</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li ng-show="!showCollapse"><a class="collapse-link" ng-click="showCollapse = !showCollapse"><i  class="fa fa-chevron-up"></i> </a>
+            </li>
+            <li ng-show="showCollapse"><a class="collapse-link" ng-click="showCollapse = !showCollapse"><i class="fa fa-chevron-down"></i> </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a class="close-link" ng-click="showAll = !showAll"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content" ng-show="!showCollapse">
         <!-- Date/Time -->
         <p><span class="glyphicon glyphicon-time"></span> {{megalito.createdAt | amCalendar:referenceTime:formats|capitalize }} </p>
         <div class="post">
-            <h3 class="post-title entry-title">
-                        <a href="">{{megalito.nombre}}</a>
-                        </h3>
-            <div class="post-body" ng-init="getImages(megalito.id)">
-                <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img ng-src="/api/containers/img/download/{{images[$index].imagenes[0].name}}" width="180px" height="130px"></span>
+            <div class="post-body" ng-init="getImages(megalito)">
+                <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img ng-src="/api/containers/img/download/{{megalito.images.imagenes[0].name}}" width="250px" height="200px"></span>
                     <div>
                         {{megalito.descripcion}}</div>
                 </div>
@@ -49,3 +67,4 @@
             </div>
         </div>
     </div>
+</div>
