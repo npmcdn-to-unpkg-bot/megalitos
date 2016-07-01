@@ -19,7 +19,6 @@ angular
                 }
             });
 
-
             // CALLBACKS
 
             /**
@@ -84,10 +83,25 @@ angular
 
                 };
             };
-            AuthService.hasPassword()
+            this.tab=1;
+            $scope.selectTab=function(setTab){
+                this.tab=setTab;
+            };
+            $scope.isSelected=function(checkTab){
+                console.log("is selected");
+                console.log(this.tab);
+                console.log(checkTab);
+                return this.tab===checkTab;
+            };
+            
+            $scope.restartPassword = function(e) {
+                AuthService.hasPassword()
                     .then(function() {
-                       console.log("ongi");
+                        console.log("ongi");
                     });
+            };
+
+
 
         }
     ]);

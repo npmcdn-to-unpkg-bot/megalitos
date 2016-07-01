@@ -3035,7 +3035,6 @@ span.tag a {
 
 ul.bar_tabs {
     overflow: visible;
-    background: #F5F7FA;
     height: 25px;
     margin: 21px 0 14px;
     padding-left: 14px;
@@ -3086,6 +3085,17 @@ ul.bar_tabs.right li {
 
 a:focus {
     outline: none;
+}
+
+@media(max-width: 600px) {
+    ul.bar_tabs {
+        background: none;
+        border-bottom: none;
+    }
+    ul.bar_tabs > li {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }
 
 
@@ -6130,5 +6140,4 @@ body,
     right: 0;
     left: 0;
     height: 600px;
-    
 }

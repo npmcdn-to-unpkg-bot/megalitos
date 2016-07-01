@@ -45,22 +45,18 @@ angular
                 });
         }
 
-        function hasPassword() {
+        function restartPassword() {
             return User
-                .upsert({
-                    id: $rootScope.currentUser.id,
-                    password: "lotalo"
+                .resetPassword({
+                    email: $rootScope.currentUser.email
                 })
-                .$promise.then(function(user) {
-                    console.log(user);
-                    //window.localStorage.setItem("key", JSON.stringify({ username: user.username, email: user.email, password: user.password }));
-                });
+                .$promise;
         }
 
         return {
             login: login,
             logout: logout,
             register: register,
-            hasPassword: hasPassword
+            restartPassword: restartPassword
         };
     }]);

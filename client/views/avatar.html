@@ -4,10 +4,7 @@
         <div id="crop-avatar">
             <!-- Current avatar -->
             <img class="img-responsive avatar-view" ng-src="{{currentUser.avatar}}" alt="Avatar" title="Change the avatar">
-            <!-- Loading state -->
-            <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
         </div>
-        
     </div>
     <h3>{{currentUser.username}}</h3>
     <ul class="list-unstyled user_data">
@@ -27,19 +24,21 @@
 <div class="col-md-9 col-sm-9 col-xs-12">
     <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#tab_content2" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
+            <li ng-init="selectTab(1)" role="presentation" class="active"><a href ng-click="selectTab(1)" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Comentarios</a>
             </li>
-            <li role="presentation" class=""><a href="" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projects Worked on</a>
+            <li role="presentation" class=""><a href ng-click="selectTab(2)" role="tab"  data-toggle="tab" aria-expanded="false">Megalitos</a>
             </li>
-            <li role="presentation" class=""><a href="" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+            <li role="presentation" class=""><a href ng-click="selectTab(3)" role="tab"  data-toggle="tab" aria-expanded="false">Datos Personales</a>
+            </li>
+            <li role="presentation" class=""><a href ng-click="selectTab(4)" role="tab"  data-toggle="tab" aria-expanded="false">Rutas</a>
             </li>
         </ul>
         <div id="myTabContent" class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+            <div ng-show="isSelected(1)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                 <!-- start recent activity -->
                 <ul class="messages">
                     <li>
-                        <img src="images/img.jpg" class="avatar" alt="Avatar">
+                        <img src="" class="avatar" alt="Avatar">
                         <div class="message_date">
                             <h3 class="date text-info">24</h3>
                             <p class="month">May</p>
@@ -55,7 +54,7 @@
                         </div>
                     </li>
                     <li>
-                        <img src="images/img.jpg" class="avatar" alt="Avatar">
+                        <img src="" class="avatar" alt="Avatar">
                         <div class="message_date">
                             <h3 class="date text-error">21</h3>
                             <p class="month">May</p>
@@ -71,7 +70,7 @@
                         </div>
                     </li>
                     <li>
-                        <img src="images/img.jpg" class="avatar" alt="Avatar">
+                        <img src="" class="avatar" alt="Avatar">
                         <div class="message_date">
                             <h3 class="date text-info">24</h3>
                             <p class="month">May</p>
@@ -105,107 +104,47 @@
                 </ul>
                 <!-- end recent activity -->
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                <!-- start user projects -->
-                <table class="data table table-striped no-margin">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Project Name</th>
-                            <th>Client Company</th>
-                            <th class="hidden-phone">Hours Spent</th>
-                            <th>Contribution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>New Company Takeover Review</td>
-                            <td>Deveint Inc</td>
-                            <td class="hidden-phone">18</td>
-                            <td class="vertical-align-mid">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success" data-transitiongoal="35" aria-valuenow="35" style="width: 35%;"></div>
+            <div ng-show="isSelected(2)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                <!-- start recent activity -->
+                <form name="megalitosForm " novalidate>
+                    <h3>Select files</h3>
+                    <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
+                    <div ng-repeat="item in uploader.queue">
+                        <br/>
+                        <strong>{{ item.file.name }}</strong>
+                        <div class="cropArea img-responsive center-block">
+                            <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
+                        </div>
+                        <div>Cropped Image:</div>
+                        <div><img class="img-thumbnail center-block" ng-src="{{item.croppedImage}}" /></div>
+                    </div>
+                    <div class="row">
+                        <p>Media gallery design emelents</p>
+                        <div class="col-md-55" ng-repeat="file in files">
+                            <div class="image view view-first">
+                                <img style="width: 100%;  display: block;" ng-src="/api/containers/profile/download/{{file.name}}" alt="image" />
+                                <div class="mask">
+                                    <p>Your Text</p>
+                                    <div class="tools tools-bottom">
+                                        <a href="#"><i class="fa fa-link"></i></a>
+                                        <a href="#"><i class="fa fa-pencil"></i></a>
+                                        <a href="#"><i class="fa fa-times"></i></a>
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>New Partner Contracts Consultanci</td>
-                            <td>Deveint Inc</td>
-                            <td class="hidden-phone">13</td>
-                            <td class="vertical-align-mid">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-danger" data-transitiongoal="15" aria-valuenow="15" style="width: 15%;"></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Partners and Inverstors report</td>
-                            <td>Deveint Inc</td>
-                            <td class="hidden-phone">30</td>
-                            <td class="vertical-align-mid">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success" data-transitiongoal="45" aria-valuenow="45" style="width: 45%;"></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>New Company Takeover Review</td>
-                            <td>Deveint Inc</td>
-                            <td class="hidden-phone">28</td>
-                            <td class="vertical-align-mid">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-success" data-transitiongoal="75" aria-valuenow="75" style="width: 75%;"></div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- end user projects -->
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk </p>
+                            </div>
+                            <!--<div class="caption">
+                <p>Snow and Ice Incoming for the South</p>
+            </div>-->
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-md-6 col-md-offset-3 ">
+                            <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- end recent activity -->
             </div>
         </div>
     </div>
 </div>
-<form name="megalitosForm " novalidate>
-    <h3>Select files</h3>
-    <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
-    <div ng-repeat="item in uploader.queue">
-        <br/>
-        <strong>{{ item.file.name }}</strong>
-        <div class="cropArea img-responsive center-block">
-            <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
-        </div>
-        <div>Cropped Image:</div>
-        <div><img class="img-thumbnail center-block" ng-src="{{item.croppedImage}}" /></div>
-    </div>
-    <div class="row">
-        <p>Media gallery design emelents</p>
-        <div class="col-md-55" ng-repeat="file in files">
-            <div class="image view view-first">
-                <img style="width: 100%;  display: block;" ng-src="/api/containers/profile/download/{{file.name}}" alt="image" />
-                <div class="mask">
-                    <p>Your Text</p>
-                    <div class="tools tools-bottom">
-                        <a href="#"><i class="fa fa-link"></i></a>
-                        <a href="#"><i class="fa fa-pencil"></i></a>
-                        <a href="#"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!--<div class="caption">
-                <p>Snow and Ice Incoming for the South</p>
-            </div>-->
-        </div>
-    </div>
-    <div class="form-group ">
-        <div class="col-md-6 col-md-offset-3 ">
-            <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Submit</button>
-        </div>
-    </div>
-</form>

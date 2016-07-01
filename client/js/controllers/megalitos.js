@@ -27,7 +27,6 @@ angular
             MegalitosService.getImagesMegalito(megalito.id)
             .then(function(images) {
                     megalito.images=images[0];
-                    console.log(megalito);
                 },
                 function(reason) {
                     //reason megalitos
