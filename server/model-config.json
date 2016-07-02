@@ -88,5 +88,11 @@
   "roleMapping": {
     "dataSource": "MongoDB",
     "public": true
+  },
+  "mencionadoComentario": {
+    "dataSource": "MongoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

@@ -1,0 +1,30 @@
+{
+  "name": "mencionadoComentario",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "leido": {
+      "type": "string",
+      "required": true,
+      "default": "false"
+    },
+     "usuarioMencionado": {
+      "type": "string",
+      "required": true
+    }
+
+  },
+  "validations": [],
+  "relations": {
+    "comentarios": {
+      "type": "belongsTo",
+      "model": "comentarios",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

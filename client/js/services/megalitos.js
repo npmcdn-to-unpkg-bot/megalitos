@@ -1,19 +1,21 @@
 angular
     .module('app')
-    .factory('MegalitosService', ['$rootScope','User', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes','Comentarios', function(
-        $rootScope, User,Megalitos, Lugares, Coordenadas, Imagenes,Comentarios) {
+    .factory('MegalitosService', ['$rootScope', 'User', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes', 'Comentarios', 'MencionadoComentario', function(
+        $rootScope, User, Megalitos, Lugares, Coordenadas, Imagenes, Comentarios, MencionadoComentario) {
         function getAllMegalitos() {
             return Megalitos
                 .find()
 
             .$promise;
         }
+
         function getAllCoordenadas() {
             return Coordenadas
                 .find()
 
             .$promise;
         }
+
         function getAllLugares() {
             return Lugares
                 .find()
@@ -23,49 +25,53 @@ angular
 
         function getMegalito(megalitoId) {
             return Megalitos.findById({ id: megalitoId })
-            .$promise;
+                .$promise;
         }
+
         function getLugaresMegalito(megalitoId) {
-            return  Lugares.find({
-                    filter: {
-                        where: {
-                            megalitosId: megalitoId
-                        }
+            return Lugares.find({
+                filter: {
+                    where: {
+                        megalitosId: megalitoId
                     }
-                }).$promise;
+                }
+            }).$promise;
         }
+
         function getLugaresComunidad(comunidad) {
-            return  Lugares.find({
-                    filter: {
-                        where: {
-                            comunidad: comunidad
-                        }
+            return Lugares.find({
+                filter: {
+                    where: {
+                        comunidad: comunidad
                     }
-                }).$promise;
+                }
+            }).$promise;
         }
+
         function getCoordenadasMegalito(megalitoId) {
-            return  Coordenadas.find({
-                    filter: {
-                        where: {
-                            megalitosId: megalitoId
-                        }
+            return Coordenadas.find({
+                filter: {
+                    where: {
+                        megalitosId: megalitoId
                     }
-                }).$promise;
+                }
+            }).$promise;
         }
 
         function getImagesMegalito(megalitoId) {
-            return  Imagenes.find({
-                    filter: {
-                        where: {
-                            megalitosId: megalitoId
-                        }
+            return Imagenes.find({
+                filter: {
+                    where: {
+                        megalitosId: megalitoId
                     }
-                }).$promise;
+                }
+            }).$promise;
         }
-        function createMegalito(userId,nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
+
+        function createMegalito(userId, nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
             return Megalitos
                 .create({
-                    userId:userId,
+                    userId: userId,
                     nombre: nombre,
                     tipoMegalito: tipoMegalito,
                     estacionMegalitica: estacionMegalitica,
@@ -134,41 +140,73 @@ angular
                 .$promise;
 
         }
-         function createComentarioMegalito(megalitoId,userId,username,message) {
-            return  Comentarios.create({
-                    megalitosId:megalitoId,
-                    userId:userId,
-                    username:username,
-                    message:message
-                }).$promise;
+
+        function createComentarioMegalito(megalitoId, userId, username, message) {
+            return Comentarios.create({
+                megalitosId: megalitoId,
+                userId: userId,
+                username: username,
+                message: message
+            }).$promise;
 
         }
+
         function getComentariosMegalito(megalitoId) {
-            return  Comentarios.find({
-                    filter: {
-                        where: {
-                            megalitosId: megalitoId
-                        }
+            return Comentarios.find({
+                filter: {
+                    where: {
+                        megalitosId: megalitoId
                     }
-                }).$promise;
+                }
+            }).$promise;
         }
+
         function getUser(userId) {
             return User.findById({ id: userId })
-            .$promise;
+                .$promise;
         }
-        
 
-        
+        function getUserWithUsername(username) {
+            return User.find({
+                    filter: {
+                        where: {
+                            username: username
+                        }
+                    }
+                })
+                .$promise;
 
+        }
+
+        function getUserComents(userId) {
+            return User.find({
+                    filter: {
+                        where: {
+                            userId: userId
+                        }
+                    }
+                })
+                .$promise;
+        }
+
+        function createComentarioResponse(usuarioMencionado, comentarioId) {
+            console.log(comentarioId);
+            return MencionadoComentario
+                .create({
+                    comentariosId: comentarioId,
+                    usuarioMencionado: usuarioMencionado
+                }).$promise;
+
+        }
         return {
-            getAllMegalitos:getAllMegalitos,
-            getAllCoordenadas:getAllCoordenadas,
-            getAllLugares:getAllLugares,
-            getMegalito:getMegalito,
-            getLugaresMegalito:getLugaresMegalito,
-            getLugaresComunidad:getLugaresComunidad,
-            getCoordenadasMegalito:getCoordenadasMegalito,
-            getImagesMegalito:getImagesMegalito,
+            getAllMegalitos: getAllMegalitos,
+            getAllCoordenadas: getAllCoordenadas,
+            getAllLugares: getAllLugares,
+            getMegalito: getMegalito,
+            getLugaresMegalito: getLugaresMegalito,
+            getLugaresComunidad: getLugaresComunidad,
+            getCoordenadasMegalito: getCoordenadasMegalito,
+            getImagesMegalito: getImagesMegalito,
             createMegalito: createMegalito,
             createLugares: createLugares,
             createCoordenadas: createCoordenadas,
@@ -176,8 +214,11 @@ angular
             deleteLugares: deleteLugares,
             deleteCoordenadas: deleteCoordenadas,
             deleteImagenes: deleteImagenes,
-            createComentarioMegalito:createComentarioMegalito,
-            getComentariosMegalito:getComentariosMegalito,
-            getUser:getUser
+            createComentarioMegalito: createComentarioMegalito,
+            getComentariosMegalito: getComentariosMegalito,
+            getUser: getUser,
+            getUserWithUsername: getUserWithUsername,
+            getUserComents: getUserComents,
+            createComentarioResponse: createComentarioResponse
         };
     }]);

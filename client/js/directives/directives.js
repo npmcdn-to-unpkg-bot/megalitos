@@ -68,6 +68,13 @@ angular.module('app')
             templateUrl: 'views/comments.html',
             controller: 'CommentsController'
         };
+    }).directive('userComments', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/user-comments.html',
+            controller: 'UserCommentsController'
+        };
     })
     .directive('map', function() {
 

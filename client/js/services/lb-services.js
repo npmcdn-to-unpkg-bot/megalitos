@@ -35,6 +35,384 @@ var module = angular.module("lbServices", ['ngResource']);
 
 /**
  * @ngdoc object
+ * @name lbServices.Container
+ * @header lbServices.Container
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Container` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "Container",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/containers/:id",
+      { 'id': '@id' },
+      {
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#getContainers
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Container` object.)
+         * </em>
+         */
+        "getContainers": {
+          isArray: true,
+          url: urlBase + "/containers",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#createContainer
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Container` object.)
+         * </em>
+         */
+        "createContainer": {
+          url: urlBase + "/containers",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#destroyContainer
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `container` – `{string=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `` – `{undefined=}` - 
+         */
+        "destroyContainer": {
+          url: urlBase + "/containers/:container",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#getContainer
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `container` – `{string=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Container` object.)
+         * </em>
+         */
+        "getContainer": {
+          url: urlBase + "/containers/:container",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#getFiles
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `container` – `{string=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Container` object.)
+         * </em>
+         */
+        "getFiles": {
+          isArray: true,
+          url: urlBase + "/containers/:container/files",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#getFile
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `container` – `{string=}` - 
+         *
+         *  - `file` – `{string=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Container` object.)
+         * </em>
+         */
+        "getFile": {
+          url: urlBase + "/containers/:container/files/:file",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#removeFile
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `container` – `{string=}` - 
+         *
+         *  - `file` – `{string=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `` – `{undefined=}` - 
+         */
+        "removeFile": {
+          url: urlBase + "/containers/:container/files/:file",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#upload
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `req` – `{object=}` - 
+         *
+         *  - `res` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `result` – `{object=}` - 
+         */
+        "upload": {
+          url: urlBase + "/containers/:container/upload",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Container#download
+         * @methodOf lbServices.Container
+         *
+         * @description
+         *
+         * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `container` – `{string=}` - 
+         *
+         *  - `file` – `{string=}` - 
+         *
+         *  - `req` – `{object=}` - 
+         *
+         *  - `res` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        "download": {
+          url: urlBase + "/containers/:container/download/:file",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+
+    /**
+    * @ngdoc property
+    * @name lbServices.Container#modelName
+    * @propertyOf lbServices.Container
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `Container`.
+    */
+    R.modelName = "Container";
+
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
  * @name lbServices.User
  * @header lbServices.User
  * @object
@@ -1513,6 +1891,31 @@ module.factory(
           method: "GET"
         },
 
+        // INTERNAL. Use Megalitos.user.create() instead.
+        "::create::megalitos::user": {
+          url: urlBase + "/megalitos/:id/user",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Megalitos.user.createMany() instead.
+        "::createMany::megalitos::user": {
+          isArray: true,
+          url: urlBase + "/megalitos/:id/user",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Megalitos.user.update() instead.
+        "::update::megalitos::user": {
+          url: urlBase + "/megalitos/:id/user",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Megalitos.user.destroy() instead.
+        "::destroy::megalitos::user": {
+          url: urlBase + "/megalitos/:id/user",
+          method: "DELETE"
+        },
+
         // INTERNAL. Use Comentarios.user() instead.
         "::get::comentarios::user": {
           url: urlBase + "/comentarios/:id/user",
@@ -2389,6 +2792,24 @@ module.factory(
           method: "GET"
         },
 
+        // INTERNAL. Use Megalitos.user.create() instead.
+        "prototype$__create__user": {
+          url: urlBase + "/megalitos/:id/user",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Megalitos.user.update() instead.
+        "prototype$__update__user": {
+          url: urlBase + "/megalitos/:id/user",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Megalitos.user.destroy() instead.
+        "prototype$__destroy__user": {
+          url: urlBase + "/megalitos/:id/user",
+          method: "DELETE"
+        },
+
         // INTERNAL. Use Megalitos.comentarios.findById() instead.
         "prototype$__findById__comentarios": {
           params: {
@@ -3187,6 +3608,20 @@ module.factory(
     */
     R.modelName = "Megalitos";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.Megalitos.user
+     * @header lbServices.Megalitos.user
+     * @object
+     * @description
+     *
+     * The object `Megalitos.user` groups methods
+     * manipulating `User` instances related to `Megalitos`.
+     *
+     * Call {@link lbServices.Megalitos#user Megalitos.user()}
+     * to query all related instances.
+     */
+
 
         /**
          * @ngdoc method
@@ -3195,7 +3630,7 @@ module.factory(
          *
          * @description
          *
-         * Fetches belongsTo relation user.
+         * Fetches hasOne relation user.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -3221,6 +3656,151 @@ module.factory(
         R.user = function() {
           var TargetResource = $injector.get("User");
           var action = TargetResource["::get::megalitos::user"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Megalitos.user#create
+         * @methodOf lbServices.Megalitos.user
+         *
+         * @description
+         *
+         * Creates a new instance in user of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
+         */
+        R.user.create = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::create::megalitos::user"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Megalitos.user#createMany
+         * @methodOf lbServices.Megalitos.user
+         *
+         * @description
+         *
+         * Creates a new instance in user of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
+         */
+        R.user.createMany = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::createMany::megalitos::user"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Megalitos.user#destroy
+         * @methodOf lbServices.Megalitos.user
+         *
+         * @description
+         *
+         * Deletes user of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.user.destroy = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::destroy::megalitos::user"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Megalitos.user#update
+         * @methodOf lbServices.Megalitos.user
+         *
+         * @description
+         *
+         * Update user of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
+         */
+        R.user.update = function() {
+          var TargetResource = $injector.get("User");
+          var action = TargetResource["::update::megalitos::user"];
           return action.apply(R, arguments);
         };
     /**
@@ -4256,6 +4836,58 @@ module.factory(
           method: "GET"
         },
 
+        // INTERNAL. Use Comentarios.mencionadoComentario.findById() instead.
+        "prototype$__findById__mencionadoComentario": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/comentarios/:id/mencionadoComentario/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.destroyById() instead.
+        "prototype$__destroyById__mencionadoComentario": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/comentarios/:id/mencionadoComentario/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.updateById() instead.
+        "prototype$__updateById__mencionadoComentario": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/comentarios/:id/mencionadoComentario/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario() instead.
+        "prototype$__get__mencionadoComentario": {
+          isArray: true,
+          url: urlBase + "/comentarios/:id/mencionadoComentario",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.create() instead.
+        "prototype$__create__mencionadoComentario": {
+          url: urlBase + "/comentarios/:id/mencionadoComentario",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.destroyAll() instead.
+        "prototype$__delete__mencionadoComentario": {
+          url: urlBase + "/comentarios/:id/mencionadoComentario",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.count() instead.
+        "prototype$__count__mencionadoComentario": {
+          url: urlBase + "/comentarios/:id/mencionadoComentario/count",
+          method: "GET"
+        },
+
         /**
          * @ngdoc method
          * @name lbServices.Comentarios#create
@@ -4795,6 +5427,12 @@ module.factory(
           url: urlBase + "/megalitos/:id/comentarios/count",
           method: "GET"
         },
+
+        // INTERNAL. Use MencionadoComentario.comentarios() instead.
+        "::get::mencionadoComentario::comentarios": {
+          url: urlBase + "/mencionadoComentarios/:id/comentarios",
+          method: "GET"
+        },
       }
     );
 
@@ -5007,6 +5645,307 @@ module.factory(
         R.user = function() {
           var TargetResource = $injector.get("User");
           var action = TargetResource["::get::comentarios::user"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Comentarios.mencionadoComentario
+     * @header lbServices.Comentarios.mencionadoComentario
+     * @object
+     * @description
+     *
+     * The object `Comentarios.mencionadoComentario` groups methods
+     * manipulating `MencionadoComentario` instances related to `Comentarios`.
+     *
+     * Call {@link lbServices.Comentarios#mencionadoComentario Comentarios.mencionadoComentario()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios#mencionadoComentario
+         * @methodOf lbServices.Comentarios
+         *
+         * @description
+         *
+         * Queries mencionadoComentario of comentarios.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R.mencionadoComentario = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::get::comentarios::mencionadoComentario"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios.mencionadoComentario#count
+         * @methodOf lbServices.Comentarios.mencionadoComentario
+         *
+         * @description
+         *
+         * Counts mencionadoComentario of comentarios.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.mencionadoComentario.count = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::count::comentarios::mencionadoComentario"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios.mencionadoComentario#create
+         * @methodOf lbServices.Comentarios.mencionadoComentario
+         *
+         * @description
+         *
+         * Creates a new instance in mencionadoComentario of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R.mencionadoComentario.create = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::create::comentarios::mencionadoComentario"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios.mencionadoComentario#createMany
+         * @methodOf lbServices.Comentarios.mencionadoComentario
+         *
+         * @description
+         *
+         * Creates a new instance in mencionadoComentario of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R.mencionadoComentario.createMany = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::createMany::comentarios::mencionadoComentario"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios.mencionadoComentario#destroyAll
+         * @methodOf lbServices.Comentarios.mencionadoComentario
+         *
+         * @description
+         *
+         * Deletes all mencionadoComentario of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.mencionadoComentario.destroyAll = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::delete::comentarios::mencionadoComentario"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios.mencionadoComentario#destroyById
+         * @methodOf lbServices.Comentarios.mencionadoComentario
+         *
+         * @description
+         *
+         * Delete a related item by id for mencionadoComentario.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for mencionadoComentario
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.mencionadoComentario.destroyById = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::destroyById::comentarios::mencionadoComentario"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios.mencionadoComentario#findById
+         * @methodOf lbServices.Comentarios.mencionadoComentario
+         *
+         * @description
+         *
+         * Find a related item by id for mencionadoComentario.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for mencionadoComentario
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R.mencionadoComentario.findById = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::findById::comentarios::mencionadoComentario"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comentarios.mencionadoComentario#updateById
+         * @methodOf lbServices.Comentarios.mencionadoComentario
+         *
+         * @description
+         *
+         * Update a related item by id for mencionadoComentario.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for mencionadoComentario
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R.mencionadoComentario.updateById = function() {
+          var TargetResource = $injector.get("MencionadoComentario");
+          var action = TargetResource["::updateById::comentarios::mencionadoComentario"];
           return action.apply(R, arguments);
         };
 
@@ -8806,6 +9745,699 @@ module.factory(
         R.user = function() {
           var TargetResource = $injector.get("User");
           var action = TargetResource["::get::roleMapping::user"];
+          return action.apply(R, arguments);
+        };
+
+    return R;
+  }]);
+
+/**
+ * @ngdoc object
+ * @name lbServices.MencionadoComentario
+ * @header lbServices.MencionadoComentario
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `MencionadoComentario` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+module.factory(
+  "MencionadoComentario",
+  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+    var R = Resource(
+      urlBase + "/mencionadoComentarios/:id",
+      { 'id': '@id' },
+      {
+
+        // INTERNAL. Use MencionadoComentario.comentarios() instead.
+        "prototype$__get__comentarios": {
+          url: urlBase + "/mencionadoComentarios/:id/comentarios",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#create
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "create": {
+          url: urlBase + "/mencionadoComentarios",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#createMany
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Create a new instance of the model and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "createMany": {
+          isArray: true,
+          url: urlBase + "/mencionadoComentarios",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#upsert
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "upsert": {
+          url: urlBase + "/mencionadoComentarios",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#exists
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Check whether a model instance exists in the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `exists` – `{boolean=}` - 
+         */
+        "exists": {
+          url: urlBase + "/mencionadoComentarios/:id/exists",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#findById
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Find a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         *  - `filter` – `{object=}` - Filter defining fields and include
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "findById": {
+          url: urlBase + "/mencionadoComentarios/:id",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#find
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Find all instances of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "find": {
+          isArray: true,
+          url: urlBase + "/mencionadoComentarios",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#findOne
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Find first instance of the model matched by filter from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "findOne": {
+          url: urlBase + "/mencionadoComentarios/findOne",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#updateAll
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        "updateAll": {
+          url: urlBase + "/mencionadoComentarios/update",
+          method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#deleteById
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "deleteById": {
+          url: urlBase + "/mencionadoComentarios/:id",
+          method: "DELETE"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#count
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Count instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        "count": {
+          url: urlBase + "/mencionadoComentarios/count",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#prototype$updateAttributes
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/mencionadoComentarios/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#createChangeStream
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Create a change stream.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `options` – `{object=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `changes` – `{ReadableStream=}` - 
+         */
+        "createChangeStream": {
+          url: urlBase + "/mencionadoComentarios/change-stream",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.findById() instead.
+        "::findById::comentarios::mencionadoComentario": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/comentarios/:id/mencionadoComentario/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.destroyById() instead.
+        "::destroyById::comentarios::mencionadoComentario": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/comentarios/:id/mencionadoComentario/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.updateById() instead.
+        "::updateById::comentarios::mencionadoComentario": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/comentarios/:id/mencionadoComentario/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario() instead.
+        "::get::comentarios::mencionadoComentario": {
+          isArray: true,
+          url: urlBase + "/comentarios/:id/mencionadoComentario",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.create() instead.
+        "::create::comentarios::mencionadoComentario": {
+          url: urlBase + "/comentarios/:id/mencionadoComentario",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.createMany() instead.
+        "::createMany::comentarios::mencionadoComentario": {
+          isArray: true,
+          url: urlBase + "/comentarios/:id/mencionadoComentario",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.destroyAll() instead.
+        "::delete::comentarios::mencionadoComentario": {
+          url: urlBase + "/comentarios/:id/mencionadoComentario",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Comentarios.mencionadoComentario.count() instead.
+        "::count::comentarios::mencionadoComentario": {
+          url: urlBase + "/comentarios/:id/mencionadoComentario/count",
+          method: "GET"
+        },
+      }
+    );
+
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#updateOrCreate
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Update an existing model instance or insert a new one into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R["updateOrCreate"] = R["upsert"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#update
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Update instances of the model matched by where from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * The number of instances updated
+         */
+        R["update"] = R["updateAll"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#destroyById
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R["destroyById"] = R["deleteById"];
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#removeById
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Delete a model instance by id from the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - Model id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `MencionadoComentario` object.)
+         * </em>
+         */
+        R["removeById"] = R["deleteById"];
+
+
+    /**
+    * @ngdoc property
+    * @name lbServices.MencionadoComentario#modelName
+    * @propertyOf lbServices.MencionadoComentario
+    * @description
+    * The name of the model represented by this $resource,
+    * i.e. `MencionadoComentario`.
+    */
+    R.modelName = "MencionadoComentario";
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.MencionadoComentario#comentarios
+         * @methodOf lbServices.MencionadoComentario
+         *
+         * @description
+         *
+         * Fetches belongsTo relation comentarios.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Comentarios` object.)
+         * </em>
+         */
+        R.comentarios = function() {
+          var TargetResource = $injector.get("Comentarios");
+          var action = TargetResource["::get::mencionadoComentario::comentarios"];
           return action.apply(R, arguments);
         };
 

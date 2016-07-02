@@ -93,29 +93,83 @@ angular
                 } else {
                     $scope.newComment.content = ' ' + $scope.newComment.content;
                 }
+                $scope.comentAutor = author;
                 return $scope.newComment.content = '@' + author + '@' + $scope.newComment.content;
+
 
             }
         };
         $scope.createNewComment = function() {
-            /* $scope.newComment.id = $scope.comments.length + 1;
-             //$scope.newComment.author.website = $scope.newComment.author.website.replace(/https?:\/\/(www.)?/g, '');
-             $scope.comment.message = markdown($scope.comment.message);
-             $scope.newComment.loved = false;
+
+            createComentarioWithResponse = function(usuariosMencionados) {
+
+                MegalitosService.createComentarioMegalito($stateParams.megalitoId, $rootScope.currentUser.id, $rootScope.currentUser.username, $scope.newComment.content)
+                    .then(function(comentario) {
+                            usuariosMencionados.forEach(function(usuarioMencionado) {
+                                MegalitosService.getUserWithUsername(usuarioMencionado)
+                                    .then(function(user) {
+                                            console.log(comentario);
+                                            console.log(user);
+                                            MegalitosService.createComentarioResponse(user[0].id, comentario.id)
+                                                .then(function() {
+                                                        console.log("makina nauk");
+                                                    },
+                                                    function(reason) {
+                                                        //reason images
+                                                        console.log(reason);
+
+                                                    });
+                                        },
+                                        function(reason) {
+                                            //reason images
+                                            console.log(reason);
+
+                                        });
+
+
+                            });
+
+                            $state.go($state.current, {}, { reload: true });
+                        },
+                        function(reason) {
+                            //reason images
+                            console.log(reason);
+
+                        });
+
+
+                $state.go($state.current, {}, { reload: true });
+
+
+            };
+            var elem;
+            try {
+
+                usuariosMencionados = $scope.newComment.content.match(/@(.*)@/).pop().replace(/@/g, '').replace(/ /g, '').split(',');
+                $scope.newComment.content = markdown($scope.newComment.content);
+                createComentarioWithResponse(usuariosMencionados);
+
+            } catch (err) {
+                console.log(err);
+                $scope.newComment.content = markdown($scope.newComment.content);
+                //comment, no response
+                MegalitosService.createComentarioMegalito($stateParams.megalitoId, $rootScope.currentUser.id, $rootScope.currentUser.username, $scope.newComment.content)
+                    .then(function(comentario) {
+                            $state.go($state.current, {}, { reload: true });
+                        },
+                        function(reason) {
+                            //reason images
+                            console.log(reason);
+
+                        });
+            }
+
+
+
+
+
+            /* 
              */
-            $scope.newComment.content = markdown($scope.newComment.content);
-
-
-
-            MegalitosService.createComentarioMegalito($stateParams.megalitoId, $rootScope.currentUser.id, $rootScope.currentUser.username, $scope.newComment.content)
-                .then(function(comentarios) {
-                        $state.go($state.current, {}, { reload: true });
-                    },
-                    function(reason) {
-                        //reason images
-                        console.log(reason);
-
-                    });
         };
 
     }]);

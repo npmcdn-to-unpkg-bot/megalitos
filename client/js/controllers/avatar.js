@@ -55,9 +55,6 @@ angular
 
                 var blob = dataURItoBlob(item.croppedImage);
                 item._file = blob;
-                console.log("blob");
-                console.log(blob);
-                console.log(item);
             };
 
             /**
@@ -88,9 +85,6 @@ angular
                 this.tab=setTab;
             };
             $scope.isSelected=function(checkTab){
-                console.log("is selected");
-                console.log(this.tab);
-                console.log(checkTab);
                 return this.tab===checkTab;
             };
             

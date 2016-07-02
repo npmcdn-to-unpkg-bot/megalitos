@@ -18,7 +18,7 @@
     "provider": "filesystem",
     "root": "./server/storage"
   },
-   "myEmailDataSource": {
+  "myEmailDataSource": {
     "name": "myEmailDataSource",
     "connector": "mail",
     "transports": [

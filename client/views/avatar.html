@@ -26,83 +26,16 @@
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
             <li ng-init="selectTab(1)" role="presentation" class="active"><a href ng-click="selectTab(1)" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Comentarios</a>
             </li>
-            <li role="presentation" class=""><a href ng-click="selectTab(2)" role="tab"  data-toggle="tab" aria-expanded="false">Megalitos</a>
+            <li role="presentation" class=""><a href ng-click="selectTab(2)" role="tab" data-toggle="tab" aria-expanded="false">Megalitos</a>
             </li>
-            <li role="presentation" class=""><a href ng-click="selectTab(3)" role="tab"  data-toggle="tab" aria-expanded="false">Datos Personales</a>
+            <li role="presentation" class=""><a href ng-click="selectTab(3)" role="tab" data-toggle="tab" aria-expanded="false">Datos Personales</a>
             </li>
-            <li role="presentation" class=""><a href ng-click="selectTab(4)" role="tab"  data-toggle="tab" aria-expanded="false">Rutas</a>
+            <li role="presentation" class=""><a href ng-click="selectTab(4)" role="tab" data-toggle="tab" aria-expanded="false">Rutas</a>
             </li>
         </ul>
         <div id="myTabContent" class="tab-content">
             <div ng-show="isSelected(1)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                <!-- start recent activity -->
-                <ul class="messages">
-                    <li>
-                        <img src="" class="avatar" alt="Avatar">
-                        <div class="message_date">
-                            <h3 class="date text-info">24</h3>
-                            <p class="month">May</p>
-                        </div>
-                        <div class="message_wrapper">
-                            <h4 class="heading">Desmond Davison</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br>
-                            <p class="url">
-                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="" class="avatar" alt="Avatar">
-                        <div class="message_date">
-                            <h3 class="date text-error">21</h3>
-                            <p class="month">May</p>
-                        </div>
-                        <div class="message_wrapper">
-                            <h4 class="heading">Brian Michaels</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br>
-                            <p class="url">
-                                <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                <a href="#" data-original-title="">Download</a>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="" class="avatar" alt="Avatar">
-                        <div class="message_date">
-                            <h3 class="date text-info">24</h3>
-                            <p class="month">May</p>
-                        </div>
-                        <div class="message_wrapper">
-                            <h4 class="heading">Desmond Davison</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br>
-                            <p class="url">
-                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="images/img.jpg" class="avatar" alt="Avatar">
-                        <div class="message_date">
-                            <h3 class="date text-error">21</h3>
-                            <p class="month">May</p>
-                        </div>
-                        <div class="message_wrapper">
-                            <h4 class="heading">Brian Michaels</h4>
-                            <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                            <br>
-                            <p class="url">
-                                <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                <a href="#" data-original-title="">Download</a>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-                <!-- end recent activity -->
+                <user-comments></user-comments>
             </div>
             <div ng-show="isSelected(2)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                 <!-- start recent activity -->
@@ -143,6 +76,11 @@
                         </div>
                     </div>
                 </form>
+                <!-- end recent activity -->
+            </div>
+            <div ng-show="isSelected(3)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                <!-- start recent activity -->
+                <user-comments></user-comments>
                 <!-- end recent activity -->
             </div>
         </div>

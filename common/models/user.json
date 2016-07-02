@@ -7,10 +7,10 @@
     "validateUpsert": true
   },
   "properties": {
-     "avatar": {
+    "avatar": {
       "type": "string",
-      "default": "/api/containers/profile/download/descarga.jpg",
-      "required": true
+      "required": true,
+      "default": "/api/containers/profile/download/descarga.jpg"
     }
   },
   "validations": [],

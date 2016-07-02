@@ -81,7 +81,8 @@
       "foreignKey": ""
     }
   },
-  "acls": [{
+  "acls": [
+    {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
@@ -98,6 +99,7 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW"
-    }],
+    }
+  ],
   "methods": {}
 }

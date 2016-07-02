@@ -1,25 +1,25 @@
 {
-    "name": "roleMapping",
-    "plural": "roleMappings",
-    "base": "RoleMapping",
-    "idInjection": false,
-    "options": {
-        "validateUpsert": true
+  "name": "roleMapping",
+  "plural": "roleMappings",
+  "base": "RoleMapping",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "role": {
+      "type": "belongsTo",
+      "model": "role",
+      "foreignKey": "roleId"
     },
-    "properties": {},
-    "validations": [],
-    "relations": {
-        "role": {
-            "type": "belongsTo",
-            "model": "role",
-            "foreignKey": "roleId"
-        },
-        "user": {
-            "type": "belongsTo",
-            "model": "user",
-            "foreignKey": "ownerId"
-        }
-    },
-    "acls": [],
-    "methods": {}
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "ownerId"
+    }
+  },
+  "acls": [],
+  "methods": {}
 }
