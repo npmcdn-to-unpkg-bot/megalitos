@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .controller('AvatarController', ['$scope', 'AuthService', '$state', '$http', 'FileUploader',
-        function($scope, AuthService, $state, $http, FileUploader) {
+    .controller('AvatarController', ['$scope','$rootScope' ,'AuthService', 'MegalitosService', '$state', '$http', 'FileUploader',
+        function($scope,$rootScope, AuthService, MegalitosService, $state, $http, FileUploader) {
             var uploader = $scope.uploader = new FileUploader({
                 scope: $scope, // to automatically update the html. Default: $rootScope
                 url: '/api/containers/profile/upload',
@@ -25,7 +25,8 @@ angular
              * Show preview with cropping
              */
             uploader.onAfterAddingFile = function(item) {
-                // $scope.croppedImage = '';
+                item.file.name = new Date().valueOf().toString() + "-" + item.file.name;
+
                 item.croppedImage = '';
                 var reader = new FileReader();
                 reader.onload = function(event) {
@@ -34,16 +35,14 @@ angular
                     });
                 };
                 reader.readAsDataURL(item._file);
-                console.log("lehena");
-                console.log(item);
             };
             //cargar imagenes
+            $scope.chargeImages = function() {
+                $http.get('/api/containers/profile/files').success(function(data) {
+                    $scope.files = data;
+                });
 
-            $http.get('/api/containers/profile/files').success(function(data) {
-                $scope.files = data;
-            });
-
-
+            };
 
             /**
              * Upload Blob (cropped image) instead of file.
@@ -77,17 +76,17 @@ angular
 
                 uploader.uploadAll();
                 uploader.onCompleteAll = function() {
-
+                    $scope.chargeImages();
                 };
             };
-            this.tab=1;
-            $scope.selectTab=function(setTab){
-                this.tab=setTab;
+            this.tab = 1;
+            $scope.selectTab = function(setTab) {
+                this.tab = setTab;
             };
-            $scope.isSelected=function(checkTab){
-                return this.tab===checkTab;
+            $scope.isSelected = function(checkTab) {
+                return this.tab === checkTab;
             };
-            
+
             $scope.restartPassword = function(e) {
                 AuthService.hasPassword()
                     .then(function() {
@@ -95,7 +94,22 @@ angular
                     });
             };
 
+            $scope.setActive = function(index) {
+                $scope.activeImage = index;
+            };
+            $scope.stablishImage = function() {
+               var img="/api/containers/profile/download/"+$scope.files[$scope.activeImage].name;
+                MegalitosService.updateUser($scope.currentUser.id,img)
+                    .then(function() {
+                        $rootScope.currentUser.avatar=img;
+                            //$state.go($state.current, {}, { reload: true });
+                        },
+                        function(reason) {
+                            //reason images
+                            console.log(reason);
 
+                        });
+            };
 
         }
     ]);

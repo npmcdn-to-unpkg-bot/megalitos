@@ -2,35 +2,32 @@ angular
     .module('app')
     .controller('UserCommentsController', ['$scope', '$rootScope', '$state', '$sce', 'MegalitosService', 'amMoment', '$stateParams', function($scope, $rootScope, $state, $sce,
         MegalitosService, amMoment, $stateParams) {
-       MegalitosService.getUserComents($scope.currentUser.id)
-                .then(function(userComents) {
-                         $scope.comments = userComents;
-                         console.log($scope.comments);
+        MegalitosService.getAllUserComents($scope.currentUser.id)
+            .then(function(userComents) {
+                    $scope.comments = userComents;
+                },
+                function(reason) {
+                    //reason images
+                    console.log(reason);
 
-                    },
-                    function(reason) {
-                        //reason images
-                        console.log(reason);
+                });
 
-                    });
-
-       /* $scope.setAuthor = function(index, commentUserId) {
-            MegalitosService.getUser(commentUserId)
+        $scope.setAuthor = function(comment) {
+            MegalitosService.getUser(comment.userId)
                 .then(function(user) {
-                        $scope.comments[index].avatar = user.avatar;
+                        comment.avatar = user.avatar;
                     },
                     function(reason) {
                         //reason images
                         console.log(reason);
 
                     });
-
-            MegalitosService.getMegalito($stateParams.megalitoId)
+            MegalitosService.getMegalito(comment.megalitosId)
                 .then(function(megalito) {
-                        if (commentUserId === megalito.userId)
-                            $scope.comments[index].author = true;
+                        if (comment.userId === megalito.userId)
+                            comment.author = true;
                         else
-                            $scope.comments[index].author = false;
+                            comment.author = false;
 
                     },
                     function(reason) {
@@ -38,9 +35,10 @@ angular
                         console.log(reason);
 
                     });
+
 
         };
-        */
+
 
 
         $scope.newComment = {};

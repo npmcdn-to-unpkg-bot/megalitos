@@ -34,8 +34,9 @@ angular
                 AuthService.logout()
                     .then(function() {
                         window.localStorage.clear();
-                        $scope.currentUser = $rootScope.currentUser;
+                        $scope.currentUser = null;
                         $scope.user = null;
+                        $state.go('megalitos');
                         window.location.reload();
                     });
             };

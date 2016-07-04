@@ -20,19 +20,18 @@
     <li role="presentation" class="dropdown">
         <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-envelope-o"></i>
-            <span class="badge bg-green">9</span>
-        </a>
+            <span ng-show="messages.length" class="badge bg-green">{{messages.length}}
         <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-            <li>
-                <a>
-                    <span class="image"><img src="img/img.jpg" alt="Profile Image" /></span>
+            <li  ng-repeat="message in messages" >
+                <a ng-click="goToMegalito(message)">
+                    <span ng-init="setAvatar(message)" class="image"><img ng-src="{{message.avatar}}" alt="Profile Image" /></span>
                     <span>
-                          <span>John Smith</span>
-                    <span class="time">3 mins ago</span>
+                          <span>{{message.username}}</span>
+                    <span class="time">
+                    {{message.createdAt | amCalendar:referenceTime:formats|capitalize }}</span>
                     </span>
-                    <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
+                    <span class="message" ng-bind-html="parseContent(message.comment)">
+                    </span>
                 </a>
             </li>
             

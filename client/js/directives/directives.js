@@ -22,7 +22,8 @@ angular.module('app')
 
         return {
             restrict: 'E',
-            templateUrl: 'views/login/log-in.html'
+            templateUrl: 'views/login/log-in.html',
+            controller:'MessagesController'
 
         };
     }).directive('logOut', function() {

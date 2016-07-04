@@ -37,44 +37,44 @@
             <div ng-show="isSelected(1)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                 <user-comments></user-comments>
             </div>
-            <div ng-show="isSelected(2)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+            <div ng-show="isSelected(2)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab" ng-init="chargeImages()">
                 <!-- start recent activity -->
                 <form name="megalitosForm " novalidate>
                     <h3>Select files</h3>
                     <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
-                    <div ng-repeat="item in uploader.queue">
+                    <div ng-repeat="item in uploader.queue" >
                         <br/>
                         <strong>{{ item.file.name }}</strong>
-                        <div class="cropArea img-responsive center-block">
+                        <div class="cropArea img-responsive ">
                             <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
                         </div>
-                        <div>Cropped Image:</div>
-                        <div><img class="img-thumbnail center-block" ng-src="{{item.croppedImage}}" /></div>
+                        <h4>Imagen Recortada:</h4>
+                        <div><img class="img-thumbnail" ng-src="{{item.croppedImage}}" /></div>
+                    </div>
+                    </br>
+                    <div class="form-group ">
+                        
+                            <button ng-hide="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Guardar Imagen</button>
+                       <h4>Imagenes Guardadas:</h4>
                     </div>
                     <div class="row">
-                        <p>Media gallery design emelents</p>
+
+                        
                         <div class="col-md-55" ng-repeat="file in files">
-                            <div class="image view view-first">
-                                <img style="width: 100%;  display: block;" ng-src="/api/containers/profile/download/{{file.name}}" alt="image" />
-                                <div class="mask">
-                                    <p>Your Text</p>
-                                    <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
+                            <div class="image view ">
+                                <img ng-class="{ selected : activeImage===$index}" class="img-thumbnail" style="width: 100%;  display: block;" ng-src="/api/containers/profile/download/{{file.name}}" alt="image"  ng-click="setActive($index)" />
                             </div>
                             <!--<div class="caption">
                 <p>Snow and Ice Incoming for the South</p>
             </div>-->
                         </div>
                     </div>
-                    <div class="form-group ">
-                        <div class="col-md-6 col-md-offset-3 ">
-                            <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Submit</button>
-                        </div>
+                    <div class="form-group">
+
+                            <button ng-hide="activeImage===$index" type="submit" class="btn btn-success" ng-click="stablishImage()">Establecer Imagen</button>
+                       
                     </div>
+                    
                 </form>
                 <!-- end recent activity -->
             </div>
@@ -86,3 +86,4 @@
         </div>
     </div>
 </div>
+

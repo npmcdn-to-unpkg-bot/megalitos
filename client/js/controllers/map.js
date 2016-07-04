@@ -18,7 +18,7 @@ angular
 
                                 });
 
-                        MegalitosService.getImagesMegalito(coordenada.megalitosId)
+                        MegalitosService.getAllImagesMegalito(coordenada.megalitosId)
                             .then(function(images) {
                                     $scope.images.push(images[0]);
                                 },

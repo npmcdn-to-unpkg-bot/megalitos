@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('CommentsController', ['$scope', '$rootScope', '$state', '$sce', 'MegalitosService', 'amMoment', '$stateParams', function($scope, $rootScope, $state, $sce,
         MegalitosService, amMoment, $stateParams) {
-        MegalitosService.getComentariosMegalito($stateParams.megalitoId)
+        MegalitosService.getAllComentariosMegalito($stateParams.megalitoId)
             .then(function(comentarios) {
                     $scope.comments = comentarios;
 
@@ -13,10 +13,10 @@ angular
 
                 });
 
-        $scope.setAuthor = function(index, commentUserId) {
-            MegalitosService.getUser(commentUserId)
+        $scope.setAuthor = function(comment) {
+            MegalitosService.getUser(comment.userId)
                 .then(function(user) {
-                        $scope.comments[index].avatar = user.avatar;
+                        comment.avatar = user.avatar;
                     },
                     function(reason) {
                         //reason images
@@ -26,10 +26,10 @@ angular
 
             MegalitosService.getMegalito($stateParams.megalitoId)
                 .then(function(megalito) {
-                        if (commentUserId === megalito.userId)
-                            $scope.comments[index].author = true;
+                       if (comment.userId === megalito.userId)
+                            comment.author = true;
                         else
-                            $scope.comments[index].author = false;
+                            comment.author = false;
 
                     },
                     function(reason) {
@@ -108,8 +108,7 @@ angular
                             usuariosMencionados.forEach(function(usuarioMencionado) {
                                 MegalitosService.getUserWithUsername(usuarioMencionado)
                                     .then(function(user) {
-                                            console.log(comentario);
-                                            console.log(user);
+                                        if(user[0]){
                                             MegalitosService.createComentarioResponse(user[0].id, comentario.id)
                                                 .then(function() {
                                                         console.log("makina nauk");
@@ -119,6 +118,8 @@ angular
                                                         console.log(reason);
 
                                                     });
+                                        }
+
                                         },
                                         function(reason) {
                                             //reason images
@@ -150,7 +151,7 @@ angular
                 createComentarioWithResponse(usuariosMencionados);
 
             } catch (err) {
-                console.log(err);
+                console.log("barruan");
                 $scope.newComment.content = markdown($scope.newComment.content);
                 //comment, no response
                 MegalitosService.createComentarioMegalito($stateParams.megalitoId, $rootScope.currentUser.id, $rootScope.currentUser.username, $scope.newComment.content)

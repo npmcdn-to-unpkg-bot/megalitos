@@ -24,7 +24,7 @@ angular
 
         $scope.images = [];
         $scope.getImages = function(megalito) {
-            MegalitosService.getImagesMegalito(megalito.id)
+            MegalitosService.getAllImagesMegalito(megalito.id)
             .then(function(images) {
                     megalito.images=images[0];
                 },

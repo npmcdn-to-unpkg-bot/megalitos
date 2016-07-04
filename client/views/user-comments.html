@@ -7,7 +7,7 @@
     </svg>
     <ul ng-if="comments.length">
         <li ng-repeat="comment in comments">
-            <header ng-init="setAuthor($index,comment.userId)">
+            <header ng-init="setAuthor(comment)">
                 <h4 ng-class="{ author: comment.author}">{{comment.username}}</h4>
                 <p><span class="glyphicon glyphicon-time"></span> {{comment.createdAt | amCalendar:referenceTime:formats|capitalize }} </p>
                 <button ng-click="loveComment(comment.id)" ng-class="{ loved: comment.loved }" class="love">
