@@ -41,7 +41,7 @@ angular
 
                 });
 
-        MegalitosService.getUserAllResponses($scope.currentUser.id)
+        MegalitosService.getAllUserResponses($scope.currentUser.id)
             .then(function(responses) {
                     responses.forEach(function(message) {
                         MegalitosService.getComment(message.comentariosId)

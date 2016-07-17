@@ -37,9 +37,12 @@
     <div ui-view="megalito"></div>
     <div ui-view="megalitos-comunidad"></div>
     <div ui-view="map"></div>
-    <div ui-view="megalitos-upload"></div>
+    <div ui-view="megalito-upload"></div>
     <div ui-view="sign-up"></div>
-    <div ui-view="avatar"></div>
+    <div ui-view="user"></div>
+    <div ui-view="favourites"></div>
+    <div ui-view="user-edit-megalito-upload"></div>
+    
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap-3.0.3/js/bootstrap.min.js"></script>
     <script src="vendor/angular.js"></script>
@@ -68,12 +71,15 @@
     <script src="js/controllers/megalito.js"></script>
     <script src="js/controllers/comments.js"></script>
     <script src="js/controllers/user-comments.js"></script>
+    <script src="js/controllers/user-megalitos.js"></script>
     <script src="js/controllers/megalitos-comunidad.js"></script>
     <script src="js/controllers/map.js"></script>
     <script src="js/controllers/file-upload.js"></script>
-    <script src="js/controllers/megalitos-upload.js"></script>
+    <script src="js/controllers/megalito-upload.js"></script>
     <script src="js/controllers/etiquetas.js"></script>
-    <script src="js/controllers/avatar.js"></script>
+    <script src="js/controllers/user-config.js"></script>
+    <script src="js/controllers/favourites.js"></script>
+    <script src="js/controllers/user-edit-megalito-upload.js"></script>
     <script src="js/directives/directives.js"></script>
     <script src="js/directives/bundle-directives.js"></script>
     <script src="js/controllers/auth.js"></script>
@@ -82,6 +88,7 @@
     <script src="js/services/auth.js"></script>
     <script src="js/services/megalitos.js"></script>
     <script src="js/filters/moment-filter.js"></script>
+
     
 </body>
 

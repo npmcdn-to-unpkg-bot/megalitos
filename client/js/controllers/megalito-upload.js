@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('MegalitosUploadController', ['$scope','$rootScope', '$state','MegalitosService', '$http', '$q', 'FileUploader',
+    .controller('MegalitoUploadController', ['$scope','$rootScope', '$state','MegalitosService', '$http', '$q', 'FileUploader',
         function($scope,$rootScope,$state, MegalitosService, $http, $q, FileUploader) {
             $(document).ready(function() {
                     autosize($('.resizable_textarea'));
@@ -42,6 +42,9 @@ angular
                 $scope.comunidades = data;
 
             });
+            uploader.onAfterAddingFile = function(item) {
+                item.file.name = new Date().valueOf().toString() + "-" + item.file.name;
+            };
 
             $scope.selectedComunidad = function() {
                 angular.element(document.getElementById('provincias'))[0].disabled = false;

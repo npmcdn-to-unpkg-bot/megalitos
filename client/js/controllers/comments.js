@@ -5,6 +5,30 @@ angular
         MegalitosService.getAllComentariosMegalito($stateParams.megalitoId)
             .then(function(comentarios) {
                     $scope.comments = comentarios;
+                    comentarios.forEach(function(comentario, index) {
+                        MegalitosService.getCommentFavourite(comentario.id, $rootScope.currentUser.id)
+                            .then(function(commentarioFavourite) {
+                                
+                                try {
+                                    if (commentarioFavourite[0].favourite) {
+                                    comentarios[index].loved = true;
+                                }
+
+
+                                } catch (err) {
+                                    console.log("barruan");
+                                    
+                                }
+
+
+                            }, function(reason) {
+
+                                //reason images
+                                console.log(reason);
+
+                            });
+
+                    });
 
                 },
                 function(reason) {
@@ -12,6 +36,9 @@ angular
                     console.log(reason);
 
                 });
+
+
+
 
         $scope.setAuthor = function(comment) {
             MegalitosService.getUser(comment.userId)
@@ -26,7 +53,7 @@ angular
 
             MegalitosService.getMegalito($stateParams.megalitoId)
                 .then(function(megalito) {
-                       if (comment.userId === megalito.userId)
+                        if (comment.userId === megalito.userId)
                             comment.author = true;
                         else
                             comment.author = false;
@@ -55,20 +82,8 @@ angular
         $scope.parseContent = function(content) {
             return $sce.trustAsHtml(content);
         };
-
-        $scope.getGravatar = function(email) {
-            /*var hash;
-            if (email === void 0) {
-                email = '';
-            }
-            hash = email.trim();
-            hash = hash.toLowerCase();
-            hash = md5(hash);
-            return '//gravatar.com/avatar/' + hash + '?s=104&d=identicon';
-            */
-        };
         $scope.loveComment = function(commentId) {
-            var comment, i, len, ref, results;
+            var comment, i, len, ref, favourite, id, results;
             ref = $scope.comments;
             results = [];
             for (i = 0, len = ref.length; i < len; i++) {
@@ -76,6 +91,32 @@ angular
                 comment = ref[i];
                 if (comment.id === commentId) {
                     results.push(comment.loved = !comment.loved);
+                    if (comment.loved)
+                        favourite = true;
+                    else
+                        favourite = false;
+                    MegalitosService.getCommentFavourite(commentId, $rootScope.currentUser.id)
+                        .then(function(commentarioFavourite) {
+                            console.log(results);
+                            if (commentarioFavourite.length === 0) {
+                                id = commentarioFavourite;
+                            } else {
+                                id = commentarioFavourite[0].id;
+                            }
+                            MegalitosService.upsertCommentFavourite(id, commentId, favourite, $rootScope.currentUser.id)
+                                .then(function(comentarios) {}, function(reason) {
+                                    //reason images
+                                    console.log(reason);
+
+                                });
+                        }, function(reason) {
+
+                            //reason images
+                            console.log(reason);
+
+                        });
+
+
                 } else {
                     results.push(void 0);
                 }
@@ -100,25 +141,23 @@ angular
             }
         };
         $scope.createNewComment = function() {
-
             createComentarioWithResponse = function(usuariosMencionados) {
-
                 MegalitosService.createComentarioMegalito($stateParams.megalitoId, $rootScope.currentUser.id, $rootScope.currentUser.username, $scope.newComment.content)
                     .then(function(comentario) {
                             usuariosMencionados.forEach(function(usuarioMencionado) {
                                 MegalitosService.getUserWithUsername(usuarioMencionado)
                                     .then(function(user) {
-                                        if(user[0]){
-                                            MegalitosService.createComentarioResponse(user[0].id, comentario.id)
-                                                .then(function() {
-                                                        console.log("makina nauk");
-                                                    },
-                                                    function(reason) {
-                                                        //reason images
-                                                        console.log(reason);
+                                            if (user[0]) {
+                                                MegalitosService.createComentarioResponse(user[0].id, comentario.id)
+                                                    .then(function() {
+                                                            console.log("makina nauk");
+                                                        },
+                                                        function(reason) {
+                                                            //reason images
+                                                            console.log(reason);
 
-                                                    });
-                                        }
+                                                        });
+                                            }
 
                                         },
                                         function(reason) {
@@ -165,12 +204,6 @@ angular
                         });
             }
 
-
-
-
-
-            /* 
-             */
         };
 
     }]);

@@ -26,11 +26,11 @@ angular.module('app')
 
         };
     })
-    .directive('megalitosUploadBundle', function() {
+    .directive('megalitoUploadBundle', function() {
 
         return {
             restrict: 'E',
-            templateUrl: 'views/bundle/megalitos-upload-bundle.html'
+            templateUrl: 'views/bundle/megalito-upload-bundle.html'
 
 
         };
@@ -44,12 +44,29 @@ angular.module('app')
 
         };
 
-    }).directive('avatarBundle', function() {
+    }).directive('userConfigBundle', function() {
 
         return {
             restrict: 'E',
-            templateUrl: 'views/bundle/avatar-bundle.html'
+            templateUrl: 'views/bundle/user-config-bundle.html'
 
+
+
+        };
+
+    }).directive('favouritesBundle', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/bundle/favourites-bundle.html'
+
+        };
+
+    }).directive('userEditMegalitoUploadBundle', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/bundle/user-edit-megalito-upload-bundle.html'
 
 
         };

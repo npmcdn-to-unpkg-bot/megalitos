@@ -1,10 +1,22 @@
 angular
     .module('app')
-    .factory('MegalitosService', ['$rootScope', 'User', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes', 'Comentarios', 'MencionadoComentario', function(
-        $rootScope, User, Megalitos, Lugares, Coordenadas, Imagenes, Comentarios, MencionadoComentario) {
+    .factory('MegalitosService', ['$rootScope', 'User', 'Megalitos', 'Lugares', 'Coordenadas', 'Imagenes', 'Comentarios', 'MencionadoComentario', 'ComentariosFavoritos', function(
+        $rootScope, User, Megalitos, Lugares, Coordenadas, Imagenes, Comentarios, MencionadoComentario, ComentariosFavoritos) {
         function getAllMegalitos() {
             return Megalitos
-                .find()
+                .find({})
+                .$promise;
+        }
+
+        function getAllUserMegalitos(userId) {
+            return Megalitos
+                .find({
+                    filter: {
+                        where: {
+                            userId: userId
+                        }
+                    }
+                })
                 .$promise;
         }
 
@@ -58,6 +70,57 @@ angular
         function createImagenes(imagenes, megalitoId) {
             return Megalitos.imagenes
                 .create({ id: megalitoId }, {
+                    imagenes: imagenes
+                })
+                .$promise;
+
+        }
+        //editar
+
+        function editMegalito(megalitoId, nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
+            return Megalitos
+                .prototype$updateAttributes({ id: megalitoId }, {
+                    nombre: nombre,
+                    tipoMegalito: tipoMegalito,
+                    estacionMegalitica: estacionMegalitica,
+                    localizacion: localizacion,
+                    descripcion: descripcion,
+                    descubrimiento: descubrimiento,
+                    observaciones: observaciones,
+                    bibliografia: bibliografia
+
+                })
+
+            .$promise;
+
+        }
+
+        function editLugares(lugarId, comunidad, provincia,
+            pueblo) {
+            return Lugares
+                .prototype$updateAttributes({ id: lugarId }, {
+                    comunidad: comunidad,
+                    provincia: provincia,
+                    pueblo: pueblo
+
+                })
+                .$promise;
+        }
+
+
+        function editCoordenadas(coordenadasId, lat, lng) {
+            return Coordenadas
+                .prototype$updateAttributes({ id: coordenadasId }, {
+                    lat: lat,
+                    lng: lng
+                })
+                .$promise;
+
+        }
+
+        function editImagenes(imagesId, imagenes) {
+            return Imagenes
+                .prototype$updateAttributes({ id: imagesId }, {
                     imagenes: imagenes
                 })
                 .$promise;
@@ -168,7 +231,8 @@ angular
                     filter: {
                         where: {
                             userId: userId
-                        }
+                        },
+                        order: 'createdAt DESC'
                     }
                 })
                 .$promise;
@@ -212,7 +276,20 @@ angular
 
         }
 
-        function getUserAllResponses(userId) {
+        function getAllUserResponses(userId) {
+            return MencionadoComentario.find({
+                    filter: {
+                        where: {
+                            usuarioMencionado: userId
+                        }
+
+                    }
+                })
+                .$promise;
+
+        }
+
+        function getAllUserResponsesWithoutRead(userId) {
             return MencionadoComentario.find({
                     filter: {
                         where: {
@@ -225,16 +302,43 @@ angular
                 .$promise;
 
         }
+
         function updateUserResponse(mencionadoComentarioId) {
             return MencionadoComentario
                 .prototype$updateAttributes({ id: mencionadoComentarioId }, { leido: 'true' }).$promise;
 
         }
+        function getCommentFavourite(comentarioId,userId) {
+            return ComentariosFavoritos.find({
+                filter: {
+                     where: {
+                            and: [{ comentariosId: comentarioId },
+                                { userId: userId }
+                            ]
+                        }
+                }
+            }).$promise;
+        }
+
+        function upsertCommentFavourite(id,comentarioId, favourite,userId) {
+            console.log(id);
+            return ComentariosFavoritos
+                .prototype$updateAttributes({
+                   id:id
+                },{
+                    comentariosId: comentarioId,
+                    favourite: favourite,
+                    userId:userId
+                }).$promise;
+
+        }
+       
 
 
 
         return {
             getAllMegalitos: getAllMegalitos,
+            getAllUserMegalitos: getAllUserMegalitos,
             getAllCoordenadas: getAllCoordenadas,
             getAllLugares: getAllLugares,
             getMegalito: getMegalito,
@@ -246,6 +350,10 @@ angular
             createLugares: createLugares,
             createCoordenadas: createCoordenadas,
             createImagenes: createImagenes,
+            editMegalito: editMegalito,
+            editLugares: editLugares,
+            editCoordenadas: editCoordenadas,
+            editImagenes: editImagenes,
             deleteLugares: deleteLugares,
             deleteCoordenadas: deleteCoordenadas,
             deleteImagenes: deleteImagenes,
@@ -254,10 +362,13 @@ angular
             getUser: getUser,
             getUserWithUsername: getUserWithUsername,
             getAllUserComents: getAllUserComents,
-            getComment:getComment,
+            getComment: getComment,
             createComentarioResponse: createComentarioResponse,
             updateUser: updateUser,
-            getUserAllResponses: getUserAllResponses,
-            updateUserResponse:updateUserResponse
+            getAllUserResponses: getAllUserResponses,
+            getAllUserResponsesWithoutRead: getAllUserResponsesWithoutRead,
+            updateUserResponse: updateUserResponse,
+            getCommentFavourite:getCommentFavourite,
+            upsertCommentFavourite: upsertCommentFavourite
         };
     }]);

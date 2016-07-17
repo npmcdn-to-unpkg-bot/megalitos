@@ -87,12 +87,12 @@ angular.module('app')
 
         };
 
-    }).directive('megalitosUpload', function() {
+    }).directive('megalitoUpload', function() {
 
         return {
             restrict: 'E',
-            templateUrl: 'views/megalitos-upload.html',
-            controller: 'MegalitosUploadController'
+            templateUrl: 'views/megalito-upload.html',
+            controller: 'MegalitoUploadController'
 
 
         };
@@ -107,12 +107,49 @@ angular.module('app')
 
         };
 
-    }).directive('avatar', function() {
+    }).directive('userConfig', function() {
 
         return {
             restrict: 'E',
-            templateUrl: 'views/avatar.html',
-            controller: 'AvatarController'
+            templateUrl: 'views/user-config.html',
+            controller: 'UserConfigController'
+
+
+        };
+
+    }).directive('favourites', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/favourites.html',
+            controller: 'FavouritesController'
+
+
+        };
+
+    }).directive('userMegalitos', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/user-megalitos.html',
+             controller: 'UserMegalitosController'
+
+        };
+    }).directive('userMegalitoPost', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/megalito-post.html',
+            controller: 'MegalitoController'
+
+
+        };
+    }).directive('userEditMegalitoUpload', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/user-edit-megalito-upload.html',
+            controller: 'UserEditMegalitoUploadController'
 
 
         };

@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('AvatarController', ['$scope','$rootScope' ,'AuthService', 'MegalitosService', '$state', '$http', 'FileUploader',
+    .controller('UserConfigController', ['$scope','$rootScope' ,'AuthService', 'MegalitosService', '$state', '$http', 'FileUploader',
         function($scope,$rootScope, AuthService, MegalitosService, $state, $http, FileUploader) {
             var uploader = $scope.uploader = new FileUploader({
                 scope: $scope, // to automatically update the html. Default: $rootScope
@@ -90,7 +90,6 @@ angular
             $scope.restartPassword = function(e) {
                 AuthService.hasPassword()
                     .then(function() {
-                        console.log("ongi");
                     });
             };
 
@@ -103,6 +102,7 @@ angular
                     .then(function() {
                         $rootScope.currentUser.avatar=img;
                             //$state.go($state.current, {}, { reload: true });
+                            $state.go($state.current, {}, { reload: true });
                         },
                         function(reason) {
                             //reason images

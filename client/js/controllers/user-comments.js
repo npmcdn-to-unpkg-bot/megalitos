@@ -5,6 +5,32 @@ angular
         MegalitosService.getAllUserComents($scope.currentUser.id)
             .then(function(userComents) {
                     $scope.comments = userComents;
+                    //ver respuestas para este usuario
+                    MegalitosService.getAllUserResponses($scope.currentUser.id)
+                        .then(function(responses) {
+                            console.log(responses);
+                                responses.forEach(function(response){
+                                    console.log(response);
+                                     MegalitosService.getComment(response.comentariosId)
+                                    .then(function(comment) {
+                                        $scope.comments.push(comment);
+                                            
+                                        },
+                                        function(reason) {
+                                            //reason images
+                                            console.log(reason);
+
+                                        });
+                            },
+                            function(reason) {
+                                //reason images
+                                console.log(reason);
+
+                            });
+
+                                });
+
+                               
                 },
                 function(reason) {
                     //reason images

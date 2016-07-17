@@ -1,26 +1,22 @@
 {
-  "name": "mencionadoComentario",
+  "name": "rutasFavoritas",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "leido": {
-      "type": "string",
+    "favourite": {
+      "type": "boolean",
       "required": true,
-      "default": "false"
-    },
-    "usuarioMencionado": {
-      "type": "string",
-      "required": true
+      "default": false
     }
   },
   "validations": [],
   "relations": {
-    "comentarios": {
+    "user": {
       "type": "belongsTo",
-      "model": "comentarios",
+      "model": "user",
       "foreignKey": ""
     }
   },

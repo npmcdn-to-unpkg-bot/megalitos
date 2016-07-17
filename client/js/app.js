@@ -19,14 +19,6 @@ angular
                         templateUrl: "/views/main/main-megalito.html"
                     }
                 }
-            }).state('comentarios', {
-                url: '/megalitos/comentarios',
-                /*views: {
-
-                    "megalito": {
-                        templateUrl: "/views/main/main-megalito.html"
-                    }
-                }*/
             })
             .state('megalitos-comunidad', {
                 url: '/megalitos/comunidad/:comunidad',
@@ -44,17 +36,17 @@ angular
                     }
                 }
             })
-            .state('megalitos-upload', {
-                url: '/megalitos-upload',
+            .state('megalito-upload', {
+                url: '/megalito-upload',
                // authenticate: true,
                
                 views: {
-                    "megalitos-upload": {
-                        templateUrl: "/views/main/main-megalitos-upload.html"
+                    "megalito-upload": {
+                        templateUrl: "/views/main/main-megalito-upload.html"
                     }
 
-
                 }
+
             })
             .state('sign-up', {
                 url: '/sign-up',
@@ -65,11 +57,28 @@ angular
                     }
                 }
             })
-            .state('avatar', {
-                url: '/avatar',
+            .state('user', {
+                url: '/usuario',
                 views: {
-                    "sign-up": {
-                        templateUrl: "views/main/main-avatar.html"
+                    "user": {
+                        templateUrl: "views/main/main-user-config.html"
+                    }
+                }
+            })
+            .state('favourites', {
+                url: '/favoritos',
+                views: {
+                    "favourites": {
+                        templateUrl: "views/main/main-favourites.html"
+                    }
+                }
+            })
+           .state('user-edit-megalito-upload', {
+                url: '/usuario/editar/:megalitoId',
+                authenticate: true,
+                views: {    
+                    "user-edit-megalito-upload": {
+                        templateUrl: "/views/main/main-user-edit-megalito-upload.html"
                     }
                 }
             });

@@ -94,5 +94,21 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "rutasFavoritas": {
+    "dataSource": "MongoDB",
+    "public": true
+  },
+  "comentariosFavoritos": {
+    "dataSource": "MongoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "megalitosFavoritos": {
+    "dataSource": "MongoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

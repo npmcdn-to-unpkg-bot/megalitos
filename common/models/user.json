@@ -42,6 +42,21 @@
       "type": "hasMany",
       "model": "megalitos",
       "foreignKey": "userId"
+    },
+    "comentariosFavoritos": {
+      "type": "hasMany",
+      "model": "comentariosFavoritos",
+      "foreignKey": "userId"
+    },
+    "megalitosFavoritos": {
+      "type": "hasMany",
+      "model": "megalitosFavoritos",
+      "foreignKey": "userId"
+    },
+    "rutasFavoritas": {
+      "type": "hasMany",
+      "model": "rutasFavoritas",
+      "foreignKey": "userId"
     }
   },
   "acls": [

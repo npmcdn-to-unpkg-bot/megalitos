@@ -3,7 +3,7 @@ angular
     .controller('MessagesController', ['$scope', '$rootScope', '$state', '$sce', 'MegalitosService', 'amMoment', '$stateParams', function($scope, $rootScope, $state, $sce,
         MegalitosService, amMoment, $stateParams) {
         if ($scope.currentUser) {
-            MegalitosService.getUserAllResponses($scope.currentUser.id)
+            MegalitosService.getAllUserResponsesWithoutRead($scope.currentUser.id)
                 .then(function(responses) {
                         $scope.messages = responses;
                     },

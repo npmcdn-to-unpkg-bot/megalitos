@@ -44,6 +44,11 @@
       "type": "hasMany",
       "model": "mencionadoComentario",
       "foreignKey": "comentariosId"
+    },
+    "comentariosFavoritos": {
+      "type": "hasMany",
+      "model": "comentariosFavoritos",
+      "foreignKey": "comentariosId"
     }
   },
   "acls": [],

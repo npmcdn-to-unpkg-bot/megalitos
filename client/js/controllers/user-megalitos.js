@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('MegalitosController', ['$scope', '$rootScope', 'MegalitosService', 'amMoment', function($scope, $rootScope, MegalitosService,
+    .controller('UserMegalitosController', ['$scope','$state', '$rootScope', 'MegalitosService', 'amMoment', function($scope,$state, $rootScope, MegalitosService,
         amMoment) {
 
         //var favoriteCookie = $cookies.get('myFavorite');
@@ -10,7 +10,7 @@ angular
         //$scope.userId=userId;
         //console.log($scope.token);
         //megalito guztiak ez, aldatzeko
-        MegalitosService.getAllMegalitos()
+        MegalitosService.getAllUserMegalitos($scope.currentUser.id)
         .then(function(megalitos) {
                 $scope.megalitos = megalitos;
             },
@@ -32,6 +32,12 @@ angular
 
                 });
 
+
+        };
+        $scope.editMegalito=function(megalito){
+            console.log(megalito.id);
+           $state.go('user-edit-megalito-upload', {megalitoId: megalito.id});
+           
 
         };
 
