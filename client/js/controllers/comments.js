@@ -8,16 +8,14 @@ angular
                     comentarios.forEach(function(comentario, index) {
                         MegalitosService.getCommentFavourite(comentario.id, $rootScope.currentUser.id)
                             .then(function(commentarioFavourite) {
-                                
+
                                 try {
                                     if (commentarioFavourite[0].favourite) {
-                                    comentarios[index].loved = true;
-                                }
-
+                                        comentarios[index].loved = true;
+                                    }
 
                                 } catch (err) {
-                                    console.log("barruan");
-                                    
+
                                 }
 
 

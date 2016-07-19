@@ -1,10 +1,10 @@
 angular.module('app')
+
     .directive('sidebar', function() {
 
         return {
             restrict: 'E',
             templateUrl: 'views/nav/sidebar.html',
-
 
 
         };

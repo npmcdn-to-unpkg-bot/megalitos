@@ -1,36 +1,88 @@
 angular
     .module('app')
-    .controller('UserCommentsController', ['$scope', '$rootScope', '$state', '$sce', 'MegalitosService', 'amMoment', '$stateParams', function($scope, $rootScope, $state, $sce,
-        MegalitosService, amMoment, $stateParams) {
+    .controller('UserCommentsController', ['$scope', '$rootScope', '$state', '$sce', 'MegalitosService', 'amMoment', '$stateParams', '$filter', function($scope, $rootScope, $state, $sce,
+        MegalitosService, amMoment, $stateParams, $filter) {
         MegalitosService.getAllUserComents($scope.currentUser.id)
             .then(function(userComents) {
                     $scope.comments = userComents;
-                    //ver respuestas para este usuario
-                    MegalitosService.getAllUserResponses($scope.currentUser.id)
-                        .then(function(responses) {
-                            console.log(responses);
-                                responses.forEach(function(response){
-                                    console.log(response);
-                                     MegalitosService.getComment(response.comentariosId)
-                                    .then(function(comment) {
-                                        $scope.comments.push(comment);
-                                            
-                                        },
-                                        function(reason) {
-                                            //reason images
-                                            console.log(reason);
 
-                                        });
-                            },
-                            function(reason) {
+                    userComents.forEach(function(comentario, index) {
+                        //corazones
+                        MegalitosService.getCommentFavourite(comentario.id, $rootScope.currentUser.id)
+                            .then(function(commentarioFavourite) {
+
+                                try {
+                                    if (commentarioFavourite[0].favourite) {
+                                        userComents[index].loved = true;
+                                    }
+
+                                } catch (err) {
+
+                                }
+
+
+                            }, function(reason) {
+
                                 //reason images
                                 console.log(reason);
 
                             });
 
+                    });
+                    //ver respuestas para este usuario
+                    MegalitosService.getAllUserResponses($scope.currentUser.id)
+                        .then(function(responses) {
+                            responses.forEach(function(response, index) {
+                                    MegalitosService.getComment(response.comentariosId)
+                                        .then(function(comment) {
+                                                $scope.comments.push(comment);
+                                                if (index === responses.length - 1) {
+                                                    //ordenar array
+                                                    $scope.comments.sort(function(x, y) {
+                                                        return new Date(y.createdAt) - new Date(x.createdAt);
+
+                                                    });
+                                                    var a = [];
+                                                    for (var i = 0; i < $scope.comments.length; i++) {
+                                                        a.push($scope.comments[i].megalitosId);
+                                                    }
+
+                                                    uniqueArray = a.filter(function(item, pos) {
+                                                        return a.indexOf(item) == pos;
+                                                    });
+
+                                                    for (var j = 0; j < $scope.comments.length; j++) {
+                                                        for (var z = 0; z < uniqueArray.length; z++) {
+                                                            if ($scope.comments[j].megalitosId === uniqueArray[z])
+                                                            $scope.comments[j].ordenar = z;
+
+                                                        }
+                                                    }
+                                                    $scope.ufa=$scope.comments;
+
+                                                }
+
+
+                                            },
+                                            function(reason) {
+                                                //reason images
+                                                console.log(reason);
+
+                                            });
+
+                                },
+                                function(reason) {
+                                    //reason images
+                                    console.log(reason);
+
                                 });
 
-                               
+
+
+
+                        });
+                    //$scope.comments.forEach
+
                 },
                 function(reason) {
                     //reason images
@@ -143,5 +195,12 @@ angular
 
                     });
         };
+        $scope.min = function(arr) {
+            console.log("nazka");
+            return $filter('min')
+                ($filter('map')(arr, 'createdAt'));
+        };
+
+
 
     }]);
