@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('MapController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
+    .controller('MapMegalitosController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
         amMoment, $stateParams, Lightbox) {
         MegalitosService.getAllCoordenadas()
             .then(function(coordenadasMapa) {
@@ -8,15 +8,32 @@ angular
                     $scope.megalitoMapa = [];
                     $scope.images = [];
                     $scope.coordenadasMapa.forEach(function(coordenada) {
-                        MegalitosService.getMegalito(coordenada.megalitosId)
-                            .then(function(megalitoMapa) {
-                                    $scope.megalitoMapa.push(megalitoMapa);
+                        if($stateParams.clase==="Todos"){
+                            MegalitosService.getMegalito(coordenada.megalitosId)
+                            .then(function(megalitoMapa) {        
+                                        $scope.megalitoMapa.push(megalitoMapa);  
                                 },
                                 function(reason) {
                                     //reason megalito
                                     console.log(reason);
 
                                 });
+
+                        }else{
+                            MegalitosService.getMegalitoMapa(coordenada.megalitosId, $stateParams.clase)
+                            .then(function(megalitoMapa) {
+                                    if (megalitoMapa.length !== 0) {
+                                        $scope.megalitoMapa.push(megalitoMapa[0]);
+                                    }
+                                },
+                                function(reason) {
+                                    //reason megalito
+                                    console.log(reason);
+
+                                });
+
+                        }
+                        
 
                         MegalitosService.getAllImagesMegalito(coordenada.megalitosId)
                             .then(function(images) {
@@ -72,7 +89,6 @@ angular
             }
             var latitude = coordenada.lat;
             var longitude = coordenada.lng;
-            
             var ret = {
                 latitude: latitude,
                 longitude: longitude,
@@ -99,7 +115,7 @@ angular
                 if (!ov.southwest && nv.southwest) {
                     var markers = [];
 
-                    for (var i = 0; i < $scope.coordenadasMapa.length; i++) {
+                    for (var i = 0; i < $scope.megalitoMapa.length; i++) {
                         markers.push(createMarker(i, $scope.coordenadasMapa[i]));
                     }
                     $scope.megalitosMarkers = markers;

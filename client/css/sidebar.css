@@ -391,8 +391,8 @@ body .container.body .right_col {
 }
 
 body {
-    color: #73879C;
-    background: #2A3F54;
+    color: black;
+    background: black;
     /*#ECF0F1; #FCFCFC*/
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;
@@ -6141,10 +6141,30 @@ body,
     left: 0;
     height: 600px;
 }
-.selected{
+
+.selected {
     background: black;
 }
-.center{
+
+.center {
     text-align: center;
     vertical-align: center;
 }
+
+
+/* Star*/
+
+.glyphicon-star {
+    color: #5CB85C;
+}
+
+.descripcion {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 11rem;
+    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
+}
+

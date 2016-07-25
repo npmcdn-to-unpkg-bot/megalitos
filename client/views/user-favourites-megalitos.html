@@ -1,6 +1,6 @@
 <div class="x_panel" ng-show="!showAll" ng-repeat="megalito in megalitos |  filter:search | limitTo:10">
     <div class="x_title">
-        <h2> <i class="glyphicon glyphicon-star"></i> {{megalito.nombre}}  <small>Sessions</small></h2>
+        <h2>{{megalito.nombre}}<small>Sessions</small></h2>
         <ul class="nav navbar-right panel_toolbox">
             <li ng-show="!showCollapse"><a class="collapse-link" ng-click="showCollapse = !showCollapse"><i  class="fa fa-chevron-up"></i> </a>
             </li>
@@ -24,8 +24,8 @@
         <!-- Date/Time -->
         <p><span class="glyphicon glyphicon-time"></span> {{megalito.createdAt | amCalendar:referenceTime:formats|capitalize }} </p>
         <div class="post">
-            <div class="post-body " ng-init="getImages(megalito)">
-                <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img class="img-responsive" ng-src="/api/containers/img/download/{{megalito.images.imagenes[0].name}}" width="250px" height="200px"></span>
+            <div class="post-body" ng-init="getImages(megalito)">
+                <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img ng-src="/api/containers/img/download/{{megalito.images.imagenes[0].name}}" width="250px" height="200px"></span>
                     <div>
                         {{megalito.descripcion}}</div>
                 </div>
@@ -49,8 +49,7 @@
                 </div>
                 <div class="post-footer-line post-footer-line-1">
                     <span class="post-backlinks post-comment-link">
-                                <a class="comment-link" href="">Enlaces a esta entrada
-                                 <i class="glyphicon glyphicon-star"></i></a>
+                                <a class="comment-link" href="">Enlaces a esta entrada</a>
                                 </span>
                     <span class="post-icons">
                                 <span class="item-action">
@@ -67,8 +66,8 @@
                 </div>
                 </br>
                 <div class="form-group">
-                    <button ng-hide="activeImage===$index" type="submit" class="btn btn-success" ng-click="editMegalito(megalito)">Editar Megalito</button>
-                </div>
+                        <button ng-hide="activeImage===$index" type="submit" class="btn btn-success" ng-click="editMegalito(megalito)">Editar Megalito</button>
+                    </div>
             </div>
         </div>
     </div>

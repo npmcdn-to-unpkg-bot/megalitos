@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps','ngImgCrop'])
+    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps','ngImgCrop','720kb.socialshare'])
     .config(['$stateProvider', '$urlRouterProvider', function(
         $stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -29,7 +29,7 @@ angular
                 }
             })
             .state('map', {
-                url: '/map',
+                url: '/map/:clase',
                 views: {
                     "map": {
                         templateUrl: "/views/main/main-map.html"

@@ -5,11 +5,12 @@
             <path id="icon_reply" d="M75.9,100C87,79.9,88.9,49.2,45.4,50.2V75L8,37.5L45.4,0v24.3C97.4,22.9,103.2,70.4,75.9,100z"></path>
         </defs>
     </svg>
-    <ul ng-if="comments.length ">
-    <li  ng-repeat="(key,value) in ufa  | groupBy: 'ordenar'">
+    <ul ng-if="comments.length " >
+    <li  ng-repeat="(key,value) in ufa  | groupBy: 'ordenar'" >
     <span > Group name: {{ megalito[key].nombre}}</span>
+   
     <ul>
-        <li ng-repeat="comment in value ">
+        <li ng-repeat="comment in value " >
             <header ng-init="setAuthor(comment)">
                 <h4 ng-class="{ author: comment.author}">{{comment.username}}</h4>
                 <p><span class="glyphicon glyphicon-time"></span> {{comment.createdAt | amCalendar:referenceTime:formats|capitalize }} </p>

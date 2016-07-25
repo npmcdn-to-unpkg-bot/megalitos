@@ -2,6 +2,99 @@
     <a ng-click="openLightboxModal()">
         <img class="img-responsive" border="0" height="400" ng-src="/api/containers/img/download/{{imagesMegalito[0].imagenes[0].name}}" width="400">
     </a>
+    <div class="separator100"></div>
+    <div class="col6 offset-left2">
+        <div class="separator30"></div>
+        <div>
+            <button class="btn btn-medium center-content color-black radius3 bg-white" socialshare="" socialshare-provider="facebook" socialshare-url="http://720kb.net">
+                <i class="fa fa-facebook"></i> Facebook
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-medium center-content color-black radius3 bg-white" socialshare="" socialshare-provider="twitter" socialshare="" socialshare-provider="twitter" socialshare-text="Woa" socialshare-url="http://720kb.net" socialshare-hashtags="720kb, development, angularjs, opensource">
+                <i class="fa fa-twitter"></i> Twitter
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-medium center-content color-black radius3 bg-white" socialshare="" socialshare-provider="google" socialshare-url="http://720kb.net">
+                <i class="fa fa-google-plus"></i> Go
+            </button>
+        </div>
+        <div class="x_panel" ng-show="!showAll" ng-repeat="megalito in megalitos |  filter:search | limitTo:10">
+            <div class="x_title">
+                <h2>{{megalito.nombre}}<small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li ng-show="!showCollapse"><a class="collapse-link" ng-click="showCollapse = !showCollapse"><i  class="fa fa-chevron-up"></i> </a>
+                    </li>
+                    <li ng-show="showCollapse"><a class="collapse-link" ng-click="showCollapse = !showCollapse"><i class="fa fa-chevron-down"></i> </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="close-link" ng-click="showAll = !showAll"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content" ng-show="!showCollapse">
+                <!-- Date/Time -->
+                <p><span class="glyphicon glyphicon-time"></span> {{megalito.createdAt | amCalendar:referenceTime:formats|capitalize }} </p>
+                <div class="post">
+                    <div class="post-body" ng-init="getImages(megalito)">
+                        <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img ng-src="/api/containers/img/download/{{megalito.images.imagenes[0].name}}" width="250px" height="200px"></span>
+                            <div>
+                                {{megalito.descripcion}}</div>
+                        </div>
+                        <div class="readmore">
+                            <a href="#/megalitos/{{megalito.id}}">Read More</a>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                    <div class="post-footer">
+                        <div class="postlabels">
+                            Etiquetas:
+                            <a href="" rel="tag">Arte rupestre</a> »
+                            <a href="" rel="tag">Vestigios del pasado: Italia</a>
+                        </div>
+                        <div class="postauthor">
+                            Publicado por
+                            <span class="fn">Misterios con Xana</span>
+                            <span class="p-comment">
+                                <a class="comment-link" href="" onclick="">1 comentarios</a>
+                                </span>
+                        </div>
+                        <div class="post-footer-line post-footer-line-1">
+                            <span class="post-backlinks post-comment-link">
+                                <a class="comment-link" href="">Enlaces a esta entrada</a>
+                                </span>
+                            <span class="post-icons">
+                                <span class="item-action">
+                                <a href="" title="Enviar entrada por correo electrónico">
+                                <img alt="" class="icon-action" src="">
+                                </a>
+                                </span>
+                            <span class="item-control blog-admin pid-1262228900">
+                                <a href="" title="Editar entrada">
+                                <img alt="" class="icon-action" height="18" src="" width="18">
+                                </a>
+                                </span>
+                            </span>
+                        </div>
+                        </br>
+                        <div class="form-group">
+                            <button class="btn btn-success" ng-click="editMegalito(megalito)">Editar Megalito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <br>
     <span ng-show="lugar.pueblo"> <p><b>Municipio: </b>{{lugar.pueblo}}</p>
                 </span>
@@ -15,6 +108,6 @@
     <span ng-show="megalito.descubrimiento"> <p> <b>Descubrimiento: </b>{{megalito.descubrimiento}}</p></span>
     <span ng-show="megalito.bibliografia"> <p><b>Bibliografia: </b> {{megalito.bibliografia}}</p></span>
 </div>
-<map></map>
+<map-megalito></map-megalito>
 <comments></comments>
 <a href="http://www.wikirutas.es/rutas/Navarra/Pirineo_Navarro/MENDAUR_ESTACIoN_MEGALITICA/">MENDAUR - ESTACIÓN MEGALITICA</a>

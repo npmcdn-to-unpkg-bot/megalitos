@@ -25,6 +25,19 @@ angular
                 .$promise;
         }
 
+ function getMegalitoMapa(megalitoId,tipo) {
+            return Megalitos
+                .find({
+                    filter: {
+                        where: {
+                            and: [{ id: megalitoId },
+                                { tipoMegalito: tipo }
+                            ]
+                        }
+                    }
+                })
+                .$promise;
+        }
         function createMegalito(userId, nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
             return Megalitos
                 .create({
@@ -221,7 +234,8 @@ angular
                 filter: {
                     where: {
                         megalitosId: megalitoId
-                    }
+                    },
+                    order: 'createdAt DESC'
                 }
             }).$promise;
         }
@@ -308,40 +322,57 @@ angular
                 .prototype$updateAttributes({ id: mencionadoComentarioId }, { leido: 'true' }).$promise;
 
         }
-        function getCommentFavourite(comentarioId,userId) {
+
+        function getUserAllCommentsFavourite(userId) {
             return ComentariosFavoritos.find({
                 filter: {
-                     where: {
-                            and: [{ comentariosId: comentarioId },
-                                { userId: userId }
-                            ]
-                        }
+                    where: {
+                        and: [{ userId: userId },
+                            { favourite: true }
+                        ]
+                    }
                 }
             }).$promise;
         }
 
-        function upsertCommentFavourite(id,comentarioId, favourite,userId) {
-            console.log(id);
+        function getCommentFavourite(comentarioId, userId) {
+            return ComentariosFavoritos.find({
+                filter: {
+                    where: {
+                        and: [{ comentariosId: comentarioId },
+                            { userId: userId }
+                        ]
+                    }
+                }
+            }).$promise;
+        }
+
+        function upsertCommentFavourite(id, comentarioId, favourite, userId) {
             return ComentariosFavoritos
                 .prototype$updateAttributes({
-                   id:id
-                },{
+                    id: id
+                }, {
                     comentariosId: comentarioId,
                     favourite: favourite,
-                    userId:userId
+                    userId: userId
                 }).$promise;
 
         }
-       
 
+        function deleteCommentFavourite(id) {
+            return ComentariosFavoritos
+                .deleteById({
+                    id: id
+                }).$promise;
 
-
+        }
         return {
             getAllMegalitos: getAllMegalitos,
             getAllUserMegalitos: getAllUserMegalitos,
             getAllCoordenadas: getAllCoordenadas,
             getAllLugares: getAllLugares,
             getMegalito: getMegalito,
+            getMegalitoMapa:getMegalitoMapa,
             getLugaresMegalito: getLugaresMegalito,
             getLugaresComunidad: getAllLugaresComunidad,
             getCoordenadasMegalito: getCoordenadasMegalito,
@@ -368,7 +399,9 @@ angular
             getAllUserResponses: getAllUserResponses,
             getAllUserResponsesWithoutRead: getAllUserResponsesWithoutRead,
             updateUserResponse: updateUserResponse,
-            getCommentFavourite:getCommentFavourite,
-            upsertCommentFavourite: upsertCommentFavourite
+            getCommentFavourite: getCommentFavourite,
+            upsertCommentFavourite: upsertCommentFavourite,
+            getUserAllCommentsFavourite: getUserAllCommentsFavourite,
+            deleteCommentFavourite: deleteCommentFavourite
         };
     }]);

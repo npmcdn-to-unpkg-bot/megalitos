@@ -25,13 +25,12 @@
         <p><span class="glyphicon glyphicon-time"></span> {{megalito.createdAt | amCalendar:referenceTime:formats|capitalize }} </p>
         <div class="post">
             <div class="post-body" ng-init="getImages(megalito)">
-                <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img ng-src="/api/containers/img/download/{{megalito.images.imagenes[0].name}}" width="250px" height="200px"></span>
-                    <div>
-                        {{megalito.descripcion}}</div>
+                <div id="summary4748758417125243990"><span style="float:left; padding:5px 10px 5px 0px;"><img class="img-responsive" ng-src="/api/containers/img/download/{{megalito.images.imagenes[0].name}}" width="250px" height="200px"></span>
+                    <div class="descripcion">
+                        {{megalito.descripcion}}
+                    </div>
                 </div>
-                <div class="readmore">
-                    <a href="#/megalitos/{{megalito.id}}">Read More</a>
-                </div>
+                <button class="btn btn-success pull-right" ng-click="readMore(megalito)">Leer Mas</button>
                 <div style="clear: both;"></div>
             </div>
             <div class="post-footer">

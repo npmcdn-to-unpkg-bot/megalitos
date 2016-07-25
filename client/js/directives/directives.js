@@ -77,12 +77,40 @@ angular.module('app')
             controller: 'UserCommentsController'
         };
     })
-    .directive('map', function() {
+    .directive('userFavouritesComments', function() {
 
         return {
             restrict: 'E',
-            templateUrl: 'views/map.html',
-            controller: 'MapController'
+            templateUrl: 'views/user-favourites-comments.html',
+            controller: 'UserFavouritesCommentsController'
+        };
+    })
+    .directive('mapMegalitos', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/map-megalitos.html',
+            controller: 'MapMegalitosController'
+
+
+        };
+
+    }).directive('mapMegalito', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/map-megalitos.html',
+            controller: 'MapMegalitoController'
+
+
+        };
+
+    }).directive('mapMegalitoUpload', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/map-megalitos.html',
+            controller: 'MapMegalitoUploadController'
 
 
         };
@@ -133,6 +161,15 @@ angular.module('app')
             restrict: 'E',
             templateUrl: 'views/user-megalitos.html',
              controller: 'UserMegalitosController'
+
+        };
+    })
+    .directive('userFavouritesMegalitos', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/user-favourites-megalitos.html',
+             controller: 'UserFavouritesMegalitosController'
 
         };
     }).directive('userMegalitoPost', function() {
