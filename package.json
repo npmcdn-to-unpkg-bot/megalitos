@@ -9,10 +9,10 @@
         "test": "tape tests/**/*.js"
     },
     "dependencies": {
-        "pkgcloud": "^1.1.0",
-        "async": "^0.9.0",
-        "formidable": "^1.0.16",
-        "loopback-component-explorer": "^2.1.0",
+        "loopback-component-storage": "^1.5.0",
+        "connect-ensure-login": "^0.1.1",
+        "express-flash": "0.0.2",
+        "cors": "^2.7.1",
         "loopback-component-passport": "^1.5.0",
         "passport": "^0.3.2",
         "body-parser": "^1.10.0",
