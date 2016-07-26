@@ -1,8 +1,12 @@
-.nopadding {
+    .nopadding {
     padding: 0 !important;
     margin: 0 !important;
 }
-
+.nopadding-left {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+   
+}
 .nav-sm .container.body .left_col {
     width: 70px;
     padding: 0;
@@ -6159,12 +6163,24 @@ body,
 }
 
 .descripcion {
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    height: 11rem;
-    overflow: hidden;
-    text-overflow: -o-ellipsis-lastline;
+    display: none;
 }
 
+.derecho {
+    float: left;
+}
+
+@media (min-width: 430px) {
+    .descripcion {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 11rem;
+        overflow: hidden;
+        text-overflow: -o-ellipsis-lastline;
+    }
+    .derecho {
+        float: right;
+    }
+}

@@ -1,8 +1,8 @@
 angular
     .module('app')
-    .controller('MegalitosComunidadController', ['$scope', 'MegalitosService', 'amMoment','$stateParams', function($scope,
+    .controller('MegalitosComunidadController', ['$scope', 'MegalitosService', 'amMoment','$stateParams','$state', function($scope,
 
-        MegalitosService, amMoment, $stateParams) {
+        MegalitosService, amMoment, $stateParams,$state) {
         $scope.megalitos = [];
 
         //console.log(cookies);
@@ -42,9 +42,12 @@ angular
                     },
                     function(reason) {
                         //reason images
-                        console.log(reason);a
+                        console.log(reason);
 
                     });
+        };
+        $scope.readMore = function(megalito) {
+            $state.go('megalito', {megalitoId: megalito.id});
 
 
         };

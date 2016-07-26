@@ -1,13 +1,13 @@
 <form class="form-horizontal form-label-left" name="megalitosForm "  novalidate>
     <span class="section">Personal Info</span>
     <!-- Nombre -->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Nombre</label>
         <input class="form-control col-md-7 col-xs-12" type="text" name="nombre" ng-model="megalito.nombre" data-validate-length-range="2"  placeholder="both name(s) e.g Jon Doe" required="required">
         <ul class="parsley-errors-list filled "></ul>
     </div>
     <!-- Tipo de megalito -->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Clase de megalito</label>
         <select class="form-control" name="tipoMegalito " ng-model="megalito.tipoMegalito" required="required">
             <option value="">-- Seleccione una clase--</option>
@@ -19,12 +19,12 @@
         <ul class="parsley-errors-list filled " "></ul>
     </div>
     <!-- Estacion Megalitica -->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Estación Megalítica</label>
         <input class="form-control col-md-7 col-xs-12" type="text" name="estacionMegalitica" ng-model="megalito.estacionMegalitica" placeholder="both name(s) e.g Jon Doe">
         <ul class="parsley-errors-list filled "></ul>
     </div>
-    <div class="col-md-8 col-sm-8 col-xs-12 nopadding">
+    <div class="col-md-10 col-sm-10 col-xs-12 nopadding">
         <!-- pais -->
         <!--<div class="form-group col-md-6 col-sm-6 col-xs-12">
             <label>Pais</label>
@@ -42,7 +42,7 @@
             <ul class="parsley-errors-list filled "></ul>
         </div>
     </div>
-    <div class="col-md-8 col-sm-8 col-xs-12 nopadding">
+    <div class="col-md-10 col-sm-10 col-xs-12 nopadding">
         <!-- provincia -->
         <div class="form-group col-md-6 col-sm-6 col-xs-12">
             <label>Provincia</label>
@@ -61,7 +61,7 @@
         </div>
     </div>
     <!-- Coordenadas -->
-    <div class="col-md-8 col-sm-8 col-xs-12 nopadding">
+    <div class="col-md-10 col-sm-10 col-xs-12 nopadding">
         <div class="form-group col-md-6 col-sm-6 col-xs-12">
             <label>Coordenadas N-S (Lat)</label>
             <input class="form-control col-md-7 col-xs-12" type="number" name="lat " ng-model="megalito.lat " placeholder="37° 1′ 28.51″ N " required="required">
@@ -74,29 +74,28 @@
         </div>
     </div>
 
-   <div class="form-group col-md-8 col-sm-8 col-xs-12">
+   <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Comprueba</label>
        <map-megalito-upload></map-megalito-upload>
     </div>
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
-        <div class="col-md-6 col-md-offset-3 ">
-            <button ng-disabled="" class="btn btn-success" ng-click="pasarCoordenadas(megalito.tipoMegalito,megalito.lat,megalito.lng)">Submit</button>
-        </div>
+    <div class="form-group col-md-10 col-sm-10 col-xs-12 text-center">
+            <button ng-disabled="" class="btn btn-success " ng-click="pasarCoordenadas(megalito.tipoMegalito,megalito.lat,megalito.lng)">Submit</button>
+        
     </div>
     <!-- Localizacion-->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Localizaón</label>
         <textarea class="resizable_textarea form-control" name="localizacion " ng-model="megalito.localizacion" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."  style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
         <ul class="parsley-errors-list filled "></ul>
     </div>
     <!-- Descripción -->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Descripción</label>
         <textarea class="resizable_textarea form-control" name="descripcion" ng-model="megalito.descripcion " placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." required="required" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
         <ul class="parsley-errors-list filled "></ul>
     </div>
     <!-- Imagenes -->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Imagenes</label>
         <p>Queue length: {{ uploader.queue.length }}</p>
         <!-- 2. nv-file-select | nv-file-select="options " -->
@@ -131,27 +130,26 @@
         </div>
     </div>
     <!-- Observaciones-->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Obserbaciones</label>
         <textarea class="resizable_textarea form-control" name="observaciones" ng-model="megalito.observaciones" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
         <ul class="parsley-errors-list filled "></ul>
     </div>
     <!-- Descubrimiento -->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Descubrimiento</label>
         <textarea class="resizable_textarea form-control" name="descubrimiento" ng-model="megalito.descubrimiento" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
         <ul class="parsley-errors-list filled "></ul>
     </div>
     <!-- Bibliografia -->
-    <div class="form-group col-md-8 col-sm-8 col-xs-12">
+    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Bibliografia</label>
         <textarea class="resizable_textarea form-control" name="bibliografia" ng-model="megalito.bibliografia" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
         <ul class="parsley-errors-list filled "></ul>
     </div>
     <div class="ln_solid "></div>
-    <div class="form-group ">
-        <div class="col-md-6 col-md-offset-3 ">
+     <div class="form-group col-md-10 col-sm-10 col-xs-12 text-center">
             <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Submit</button>
-        </div>
+        
     </div>
 </form>
