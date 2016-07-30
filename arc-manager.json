@@ -5,7 +5,7 @@
   },
   "models": {
     "ManagerHost": {
-      "91ad4ec8-00da-40f0-b65d-1034a77f308f": "{\"id\":\"91ad4ec8-00da-40f0-b65d-1034a77f308f\",\"host\":\"localhost\",\"port\":36633,\"actions\":[\"delete\",\"edit\"],\"protocol\":\"http\",\"created\":1469722380611,\"error\":{\"message\":\"connect ECONNREFUSED\"},\"errorType\":\"connection\",\"app\":null,\"processes\":null,\"$$hashKey\":\"object:764\",\"isHostProblem\":true}"
+      "91ad4ec8-00da-40f0-b65d-1034a77f308f": "{\"id\":\"91ad4ec8-00da-40f0-b65d-1034a77f308f\",\"host\":\"localhost\",\"port\":27017,\"actions\":[\"delete\",\"edit\",\"env-set\",\"env-get\",\"stop\",\"restart\",\"cluster-restart\",\"license-push\"],\"protocol\":\"http\",\"created\":1469722380611,\"error\":null,\"errorType\":null,\"app\":null,\"processes\":{\"pids\":\"It looks like you are trying to access MongoDB over HTTP on the native driver port.\\n\"},\"$$hashKey\":\"object:764\",\"isHostProblem\":true}"
     },
     "LoadBalancer": {}
   }
