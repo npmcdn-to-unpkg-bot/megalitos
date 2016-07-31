@@ -2,7 +2,6 @@ angular
     .module('app')
     .controller('MapMegalitoController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
         amMoment, $stateParams, Lightbox) {
-        console.log($stateParams.megalitoId);
         MegalitosService.getMegalito($stateParams.megalitoId)
             .then(function(megalitoMapa) {
                     $scope.megalitoMapa = megalitoMapa;
@@ -10,9 +9,8 @@ angular
                     //coordenada del megalito
                     MegalitosService.getCoordenadasMegalito($stateParams.megalitoId)
                         .then(function(coordenada) {
-                                $scope.coordenadasMapa = coordenada;
-                                 $scope.map.center =  {latitude: coordenada[0].lat, longitude: coordenada[0].lng};
-                                $scope.drawMap();
+                                
+                                $scope.pasarCoordenadas(coordenada);
 
                             },
                             function(reason) {
@@ -36,11 +34,6 @@ angular
                     console.log(reason);
 
                 });
-
-
-
-
-
 
         $scope.map = {
             center: {
@@ -67,15 +60,13 @@ angular
         $scope.options = {
             scrollwheel: false
         };
-        $scope.onMarkerClicked = function() {
-
-        };
         var createMarker = function(i, coordenada, idKey) {
             if (idKey == null) {
                 idKey = "id";
             }
             var latitude = coordenada.lat;
             var longitude = coordenada.lng;
+            console.log($scope.megalitoMapa.tipoMegalito);
 
             var ret = {
                 latitude: latitude,
@@ -90,10 +81,14 @@ angular
             ret[idKey] = i;
             return ret;
         };
-
+        $scope.pasarCoordenadas = function(coordenada) {
+             $scope.map.center =  {latitude: coordenada[0].lat,longitude:coordenada[0].lng};      
+                var markers = [];
+                markers.push(createMarker(0, coordenada[0]));
+                $scope.megalitosMarkers = markers; 
+        };
 
         $scope.drawMap = function() {
-
             $scope.megalitosMarkers = [];
             // Get the bounds from the map once it's loaded
             $scope.$watch(function() {
@@ -102,17 +97,13 @@ angular
                 // Only need to regenerate once
                 if (!ov.southwest && nv.southwest) {
                     var markers = [];
-
-                    for (var i = 0; i < $scope.coordenadasMapa.length; i++) {
-                        markers.push(createMarker(i, $scope.coordenadasMapa[i]));
-                    }
                     $scope.megalitosMarkers = markers;
                 }
             }, true);
 
 
         };
-
+        $scope.drawMap();
 
 
     }]);

@@ -4,12 +4,12 @@
     "connector": "memory"
   },
   "MongoDB": {
-    "host": "localhost",
-    "port": 27017,
-    "database": "megalitosDB",
-    "password": "",
+    "host": "ds031995.mlab.com",
+    "port": 31995,
+    "database": "megalitos",
+    "password": "6wOjOdE2",
     "name": "MongoDB",
-    "user": "",
+    "user": "markelor",
     "connector": "mongodb"
   },
   "storage": {

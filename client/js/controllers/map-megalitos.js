@@ -2,51 +2,56 @@ angular
     .module('app')
     .controller('MapMegalitosController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
         amMoment, $stateParams, Lightbox) {
+        var getImagesMegalito = function(megalitosId,megalitoMapa) {
+            MegalitosService.getAllImagesMegalito(megalitosId)
+                .then(function(images) {
+                        $scope.images.push(images[0]);
+                        $scope.pasarCoordenadas(megalitoMapa);
+                    },
+                    function(reason) {
+                        //reason images
+                        console.log(reason);
+
+                    });
+
+        };
+
         MegalitosService.getAllCoordenadas()
             .then(function(coordenadasMapa) {
                     $scope.coordenadasMapa = coordenadasMapa;
                     $scope.megalitoMapa = [];
                     $scope.images = [];
-                    $scope.coordenadasMapa.forEach(function(coordenada) {
-                        if($stateParams.clase==="Todos"){
+                    $scope.coordenadasMapa.forEach(function(coordenada, index) {
+                        if ($stateParams.clase === "Todos") {
                             MegalitosService.getMegalito(coordenada.megalitosId)
-                            .then(function(megalitoMapa) {        
-                                        $scope.megalitoMapa.push(megalitoMapa);  
-                                },
-                                function(reason) {
-                                    //reason megalito
-                                    console.log(reason);
+                                .then(function(megalitoMapa) {
+                                        $scope.megalitoMapa.push(megalitoMapa);
+                                        getImagesMegalito(coordenada.megalitosId,megalitoMapa);
+                                    },
+                                    function(reason) {
+                                        //reason megalito
+                                        console.log(reason);
 
-                                });
+                                    });
 
-                        }else{
+                        } else {
                             MegalitosService.getMegalitoMapa(coordenada.megalitosId, $stateParams.clase)
-                            .then(function(megalitoMapa) {
-                                    if (megalitoMapa.length !== 0) {
-                                        $scope.megalitoMapa.push(megalitoMapa[0]);
-                                    }
-                                },
-                                function(reason) {
-                                    //reason megalito
-                                    console.log(reason);
+                                .then(function(megalitoMapa) {
+                                        if (megalitoMapa.length !== 0) {
+                                            $scope.megalitoMapa.push(megalitoMapa[0]);
+                                            getImagesMegalito(coordenada.megalitosId,megalitoMapa[0]);
+                                        }
+                                    },
+                                    function(reason) {
+                                        //reason megalito
+                                        console.log(reason);
 
-                                });
+                                    });
 
                         }
-                        
-
-                        MegalitosService.getAllImagesMegalito(coordenada.megalitosId)
-                            .then(function(images) {
-                                    $scope.images.push(images[0]);
-                                },
-                                function(reason) {
-                                    //reason images
-                                    console.log(reason);
-
-                                });
 
                     });
-                    $scope.drawMap();
+
 
                 },
                 function(reason) {
@@ -54,6 +59,7 @@ angular
                     console.log(reason);
 
                 });
+
 
         $scope.map = {
             center: {
@@ -102,6 +108,15 @@ angular
             ret[idKey] = i;
             return ret;
         };
+        $scope.pasarCoordenadas = function(coordenadas) {
+            console.log(coordenadas);
+            var markers = [];
+            for (var i = 0; i < $scope.megalitoMapa.length; i++) {
+                markers.push(createMarker(i, $scope.coordenadasMapa[i]));
+            }
+            $scope.megalitosMarkers = markers;
+
+        };
 
 
         $scope.drawMap = function() {
@@ -114,16 +129,13 @@ angular
                 // Only need to regenerate once
                 if (!ov.southwest && nv.southwest) {
                     var markers = [];
-
-                    for (var i = 0; i < $scope.megalitoMapa.length; i++) {
-                        markers.push(createMarker(i, $scope.coordenadasMapa[i]));
-                    }
                     $scope.megalitosMarkers = markers;
                 }
             }, true);
 
 
         };
+        $scope.drawMap();
 
 
 
