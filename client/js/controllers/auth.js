@@ -31,6 +31,7 @@ angular
                     });
             };
             $scope.logout = function() {
+                console.log("hemen");
                 AuthService.logout()
                     .then(function() {
                         window.localStorage.clear();

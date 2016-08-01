@@ -61,7 +61,7 @@ module.exports = function(User) {
         if (ctx.instance) {
             if (ctx.isNewInstance) {
                 // Create the container
-                /*var mkdirp = require('mkdirp');
+                var mkdirp = require('mkdirp');
                 var userDir = ctx.instance.id.toString();
                 mkdirp(path.join(__dirname, '../../server/storage', userDir), function(err) {
                     mkdirp(path.join(__dirname, '../../server/storage/' + userDir, 'profile'), function(err) {
@@ -69,7 +69,6 @@ module.exports = function(User) {
                     });
 
                 });
-                */
                 Role.findOne({
                         name: 'usuario'
                     },
