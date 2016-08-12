@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps','ngImgCrop','720kb.socialshare'])
+    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps','ngImgCrop','720kb.socialshare','datatables','datatables.buttons'])
     .config(['$stateProvider', '$urlRouterProvider', function(
         $stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -79,6 +79,15 @@ angular
                 views: {    
                     "user-edit-megalito-upload": {
                         templateUrl: "/views/main/main-user-edit-megalito-upload.html"
+                    }
+                }
+            })
+           .state('admin-users', {
+                url: '/usuarios',
+                //authenticate: true,
+                views: {    
+                    "admin-users": {
+                        templateUrl: "/views/main/main-admin-users.html"
                     }
                 }
             });

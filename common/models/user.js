@@ -4,7 +4,6 @@ var path = require('path');
 module.exports = function(User) {
     User.afterRemote('create', function(context, User, next) {
         console.log('> User.afterRemote triggered');
-
         var options = {
             type: 'email',
             to: User.email,
@@ -12,7 +11,9 @@ module.exports = function(User) {
             subject: 'Thanks for registering.',
             template: path.resolve(__dirname, '../../server/views/verify.ejs'),
             redirect: '/verified',
-            user: User
+            user: User,
+            host : 'megalitos.eu-gb.mybluemix.net',
+            port:80
         };
 
         User.verify(options, function(err, response) {

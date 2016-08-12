@@ -1,39 +1,47 @@
-<a ng-click="openLightboxModal()">
-    <img class="img-responsive" border="0" height="400" ng-src="/api/containers/img/download/{{imagesMegalito[0].imagenes[0].name}}" width="400">
-</a>
-<div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 nopadding">
-    <!-- facebook-->
-    <div class="form-group col-md-4 col-sm-4 col-xs-4 col-xxs-4 nopadding-left">
-        <button class="btn btn-medium center-content color-black radius3 bg-white nopadding-left" socialshare="" socialshare-provider="facebook" socialshare-url="http://720kb.net">
-            <i class="fa fa-facebook"></i> Facebook
-        </button>
+<div class="x_panel">
+    <div class="x_title">
+         <h2>{{megalito.nombre}}<small>Sessions</small></h2>
+        <div class="clearfix"></div>
     </div>
-    <!-- twitter  -->
-    <div class="form-group col-md-4 col-sm-4 col-xs-4 col-xxs-4">
-        <button class="btn btn-medium center-content color-black radius3 bg-white nopadding-left" socialshare="" socialshare-provider="twitter" socialshare="" socialshare-provider="twitter" socialshare-text="Woa" socialshare-url="http://720kb.net" socialshare-hashtags="720kb, development, angularjs, opensource">
-            <i class="fa fa-twitter"></i> Twitter
-        </button>
-    </div>
-    <!-- google  -->
-    <div class="form-group col-md-4 col-sm-4 col-xs-4 col-xxs-4">
-        <button class="btn btn-medium center-content color-black radius3 bg-white nopadding-left" socialshare="" socialshare-provider="google" socialshare-url="http://720kb.net">
-            <i class="fa fa-google-plus"></i> Go
-        </button>
-    </div>
-</div>
-<div class="col-md-12 col-sm-12col-xs-12 nopadding">
-    <span ng-show="lugar.pueblo"> <p><b>Municipio: </b>{{lugar.pueblo}}</p>
+    <div class="x_content">
+        <a ng-click="openLightboxModal()">
+            <img class="img-responsive" border="0" height="400" ng-src="/api/containers/img/download/{{imagesMegalito[0].imagenes[0].name}}" width="400">
+        </a>
+        <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 nopadding">
+            <!-- facebook-->
+            <div class="form-group col-md-4 col-sm-4 col-xs-4 col-xxs-4 nopadding-left">
+                <button class="btn btn-medium center-content color-black radius3 bg-white nopadding-left" socialshare="" socialshare-provider="facebook" socialshare-url="http://720kb.net">
+                    <i class="fa fa-facebook"></i> Facebook
+                </button>
+            </div>
+            <!-- twitter  -->
+            <div class="form-group col-md-4 col-sm-4 col-xs-4 col-xxs-4">
+                <button class="btn btn-medium center-content color-black radius3 bg-white nopadding-left" socialshare="" socialshare-provider="twitter" socialshare="" socialshare-provider="twitter" socialshare-text="Woa" socialshare-url="http://720kb.net" socialshare-hashtags="720kb, development, angularjs, opensource">
+                    <i class="fa fa-twitter"></i> Twitter
+                </button>
+            </div>
+            <!-- google  -->
+            <div class="form-group col-md-4 col-sm-4 col-xs-4 col-xxs-4">
+                <button class="btn btn-medium center-content color-black radius3 bg-white nopadding-left" socialshare="" socialshare-provider="google" socialshare-url="http://720kb.net">
+                    <i class="fa fa-google-plus"></i> Go
+                </button>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12col-xs-12 nopadding">
+            <span ng-show="lugar.pueblo"> <p><b>Municipio: </b>{{lugar.pueblo}}</p>
                 </span>
-    <span ng-show="megalito.tipoMegalito"> <p><b>Tipo Megalito: </b>{{megalito.tipoMegalito}}</p>
+            <span ng-show="megalito.tipoMegalito"> <p><b>Tipo Megalito: </b>{{megalito.tipoMegalito}}</p>
                 </span>
-    <span ng-show="megalito.estacionMegalitica"> <p> <b>Estación Megalitica: </b>{{megalito.estacionMegalitica}}</p></span>
-    <span ng-show="coordenadas.lat&& coordenadas.lng"> <p> <b>Coordenadas: </b>{{coordenadas.lat+ "  " +coordenadas.lng }}</p></span>
-    <span ng-show="megalito.localizacion"><p> <b> Localización: </b>{{megalito.localizacion}}</p></span>
-    <span ng-show="megalito.descripcion"> <p> <b>Descripción: </b> {{megalito.descripcion}}</p></span>
-    <span ng-show="megalito.observaciones"> <p><b>Observaciones: </b> {{megalito.observaciones}}</p></span>
-    <span ng-show="megalito.descubrimiento"> <p> <b>Descubrimiento: </b>{{megalito.descubrimiento}}</p></span>
-    <span ng-show="megalito.bibliografia"> <p><b>Bibliografia: </b> {{megalito.bibliografia}}</p></span>
-    <map-megalito></map-megalito>
-    <comments></comments>
-    <a href="http://www.wikirutas.es/rutas/Navarra/Pirineo_Navarro/MENDAUR_ESTACIoN_MEGALITICA/">MENDAUR - ESTACIÓN MEGALITICA</a>
+            <span ng-show="megalito.estacionMegalitica"> <p> <b>Estación Megalitica: </b>{{megalito.estacionMegalitica}}</p></span>
+            <span ng-show="coordenadas.lat&& coordenadas.lng"> <p> <b>Coordenadas: </b>{{coordenadas.lat+ "  " +coordenadas.lng }}</p></span>
+            <span ng-show="megalito.localizacion"><p> <b> Localización: </b>{{megalito.localizacion}}</p></span>
+            <span ng-show="megalito.descripcion"> <p> <b>Descripción: </b> {{megalito.descripcion}}</p></span>
+            <span ng-show="megalito.observaciones"> <p><b>Observaciones: </b> {{megalito.observaciones}}</p></span>
+            <span ng-show="megalito.descubrimiento"> <p> <b>Descubrimiento: </b>{{megalito.descubrimiento}}</p></span>
+            <span ng-show="megalito.bibliografia"> <p><b>Bibliografia: </b> {{megalito.bibliografia}}</p></span>
+            <map-megalito></map-megalito>
+            <comments></comments>
+            <a href="http://www.wikirutas.es/rutas/Navarra/Pirineo_Navarro/MENDAUR_ESTACIoN_MEGALITICA/">MENDAUR - ESTACIÓN MEGALITICA</a>
+        </div>
+    </div>
 </div>

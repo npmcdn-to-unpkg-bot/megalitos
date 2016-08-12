@@ -1,4 +1,4 @@
-<div class="x_panel" ng-show="!showAll" ng-repeat="megalito in megalitos |  filter:search | limitTo:10">
+<div class="x_panel" ng-show="!showAll" ng-repeat="(key,megalito) in megalitos |  filter:search | limitTo:10">
     <div class="x_title">
         <h2>{{megalito.nombre}}<small>Sessions</small></h2>
         <ul class="nav navbar-right panel_toolbox">
@@ -34,34 +34,12 @@
                 <div style="clear: both;"></div>
             </div>
             <div class="post-footer">
-                <div class="postlabels">
-                    Etiquetas:
-                    <a href="" rel="tag">Arte rupestre</a> »
-                    <a href="" rel="tag">Vestigios del pasado: Italia</a>
-                </div>
-                <div class="postauthor">
+                <div class="postauthor" ng-init="getComentario(megalito)">
                     Publicado por
-                    <span class="fn">Misterios con Xana</span>
+                    <span class="fn">{{megalitoUser.username}}</span>
                     <span class="p-comment">
-                                <a class="comment-link" href="" onclick="">1 comentarios</a>
+                                <a class="comment-link" href="" ng-click="readMore(megalito)">{{countComentarios[key].count}} comentarios</a>
                                 </span>
-                </div>
-                <div class="post-footer-line post-footer-line-1">
-                    <span class="post-backlinks post-comment-link">
-                                <a class="comment-link" href="">Enlaces a esta entrada</a>
-                                </span>
-                    <span class="post-icons">
-                                <span class="item-action">
-                                <a href="" title="Enviar entrada por correo electrónico">
-                                <img alt="" class="icon-action" src="">
-                                </a>
-                                </span>
-                    <span class="item-control blog-admin pid-1262228900">
-                                <a href="" title="Editar entrada">
-                                <img alt="" class="icon-action" height="18" src="" width="18">
-                                </a>
-                                </span>
-                    </span>
                 </div>
             </div>
         </div>

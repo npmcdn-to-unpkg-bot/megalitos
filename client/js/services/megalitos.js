@@ -7,6 +7,11 @@ angular
                 .find({})
                 .$promise;
         }
+        function getAllUsers() {
+            return User
+                .find({})
+                .$promise;
+        }
 
         function getAllUserMegalitos(userId) {
             return Megalitos
@@ -55,6 +60,15 @@ angular
 
             .$promise;
 
+        }
+        function countComentariosMegalitos(megalitoId) {
+            return Comentarios.count({
+                    where: {
+                
+                        megalitosId: megalitoId
+                    }
+                    
+            }).$promise;
         }
 
         function createLugares(comunidad, provincia,
@@ -228,6 +242,10 @@ angular
             }).$promise;
 
         }
+        function getAllComentarios() {
+            return Comentarios.find({})
+                .$promise;
+        }
 
         function getAllComentariosMegalito(megalitoId) {
             return Comentarios.find({
@@ -368,6 +386,7 @@ angular
         }
         return {
             getAllMegalitos: getAllMegalitos,
+            getAllUsers:getAllUsers,
             getAllUserMegalitos: getAllUserMegalitos,
             getAllCoordenadas: getAllCoordenadas,
             getAllLugares: getAllLugares,
@@ -378,6 +397,7 @@ angular
             getCoordenadasMegalito: getCoordenadasMegalito,
             getAllImagesMegalito: getAllImagesMegalito,
             createMegalito: createMegalito,
+            countComentariosMegalitos:countComentariosMegalitos,
             createLugares: createLugares,
             createCoordenadas: createCoordenadas,
             createImagenes: createImagenes,
@@ -389,6 +409,7 @@ angular
             deleteCoordenadas: deleteCoordenadas,
             deleteImagenes: deleteImagenes,
             createComentarioMegalito: createComentarioMegalito,
+            getAllComentarios:getAllComentarios,
             getAllComentariosMegalito: getAllComentariosMegalito,
             getUser: getUser,
             getUserWithUsername: getUserWithUsername,

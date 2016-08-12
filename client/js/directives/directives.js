@@ -191,4 +191,14 @@ angular.module('app')
 
         };
 
+    }).directive('adminUsers', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/admin/admin-users.html',
+            controller: 'AdminUsersController'
+
+
+        };
+
     });

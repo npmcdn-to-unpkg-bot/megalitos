@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .controller('MegalitosController', ['$scope', '$rootScope', 'MegalitosService', 'amMoment','$state', function($scope, $rootScope, MegalitosService,
-        amMoment,$state) {
+    .controller('MegalitosController', ['$scope', '$rootScope', 'MegalitosService', 'amMoment', '$state', function($scope, $rootScope, MegalitosService,
+        amMoment, $state) {
 
         //var favoriteCookie = $cookies.get('myFavorite');
 
@@ -13,12 +13,40 @@ angular
         MegalitosService.getAllMegalitos()
             .then(function(megalitos) {
                     $scope.megalitos = megalitos;
+                    megalitos.forEach(function(megalito) {
+
+                    });
+
                 },
                 function(reason) {
                     //reason megalitos
                     console.log(reason);
 
                 });
+
+        $scope.countComentarios = [];
+        $scope.getComentario = function(megalito) {
+            MegalitosService.getUser(megalito.userId)
+                .then(function(user) {
+                        $scope.megalitoUser = user;
+                    },
+                    function(reason) {
+                        //reason megalitos
+                        console.log(reason);
+
+                    });
+            MegalitosService.countComentariosMegalitos(megalito.id)
+                .then(function(comentarios) {
+                    $scope.countComentarios.push(comentarios);
+                }, function(reason) {
+                    console.log(reason);
+                });
+
+
+        };
+
+
+
 
         $scope.images = [];
         $scope.getImages = function(megalito) {
@@ -35,8 +63,7 @@ angular
 
         };
         $scope.readMore = function(megalito) {
-            $state.go('megalito', {megalitoId: megalito.id});
-
+            $state.go('megalito', { megalitoId: megalito.id });
 
         };
 

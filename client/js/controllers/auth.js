@@ -3,7 +3,6 @@ angular
     .controller('AuthLoginController', ['$scope', '$rootScope', '$http', 'User', '$cookies', 'AuthService', '$state',
         function($scope, $rootScope, $http, User, $cookies, AuthService, $state) {
             $scope.loginAuto = function() {
-
                 if (window.localStorage.getItem("key")) {
                     console.log("beti");
                     userLocal = JSON.parse(window.localStorage.getItem("key"));
@@ -81,12 +80,13 @@ angular
             autosize($('.resizable_textarea'));
         });
 
-        $scope.user = {
+       /* $scope.user = {
             username: 'markelor',
             email: 'mendimarkel@gmail.com',
             password: 'jaijaijai',
             aboutYourself: 'ni informatikaria naiz'
         };
+        */
         $scope.register = function() {
             AuthService.register($scope.user.username, $scope.user.email, $scope.user.password, $scope.user.aboutYourself)
                 .then(function(user) {

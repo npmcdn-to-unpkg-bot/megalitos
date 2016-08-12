@@ -71,4 +71,13 @@ angular.module('app')
 
         };
 
+    }).directive('adminUsersBundle', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/bundle/admin-users-bundle.html'
+
+
+        };
+
     });

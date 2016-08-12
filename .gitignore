@@ -1,2 +1,2 @@
 node_modules
-server/datasources.local.json
+server/datasources.json

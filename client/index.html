@@ -20,7 +20,6 @@
     <!-- jVectorMap -->
     <!--<link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
     -->
-    
     <link href="lib/bootstrap-3.0.3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="lib/bootstrap-3.0.3/css/bootstrap-xxs.css" rel="stylesheet" />
     <link href="lib/bootstrap-3.0.3/css/bootstrap-theme.min.css" rel="stylesheet" />
@@ -30,10 +29,15 @@
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
     <link href="css/sidebar.css" rel="stylesheet" />
     <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css">
+    <link rel="stylesheet" href="bower_components/angular-datatables/dist/css/angular-datatables.min.css">
+    <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="bower_components/datatables-buttons/css/buttons.dataTables.css">
+
+    
 </head>
 
 <body class="nav-md footer_fixed" ng-controller="AuthLoginController" ng-init="loginAuto()">
-    <div ui-view="megalitos" ></div>
+    <div ui-view="megalitos"></div>
     <div ui-view="megalito"></div>
     <div ui-view="megalitos-comunidad"></div>
     <div ui-view="map"></div>
@@ -42,13 +46,19 @@
     <div ui-view="user"></div>
     <div ui-view="favourites"></div>
     <div ui-view="user-edit-megalito-upload"></div>
-    
+    <div ui-view="admin-users"></div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap-3.0.3/js/bootstrap.min.js"></script>
     <script src="vendor/angular.js"></script>
     <script src="vendor/ui-bootstrap-tpls-0.14.3.js"></script>
     <script src="vendor/angular-resource.js"></script>
     <script src="vendor/angular-ui-router.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+     <script src="bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+    
+      <script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js"></script>
+      <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.min.js"></script>
+
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-file-upload/dist/angular-file-upload.js"></script>
     <script src="bower_components/moment/moment.js"></script>
@@ -93,8 +103,7 @@
     <script src="js/services/auth.js"></script>
     <script src="js/services/megalitos.js"></script>
     <script src="js/filters/moment-filter.js"></script>
-
-    
+    <script src="js/controllers/admin-users.js"></script>
 </body>
 
 </html>

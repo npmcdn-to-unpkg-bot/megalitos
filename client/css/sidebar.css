@@ -5835,7 +5835,7 @@ button.reply:after {
 }
 
 .comments ul li header h4.author:after {
-    content: "Author";
+    content: "Autor";
     margin: 10px 0 10px 10px;
     padding: 0 5px;
     background: #9a3;
@@ -6184,3 +6184,13 @@ body,
         float: right;
     }
 }
+
+
+.login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:red;
+}
+
+
