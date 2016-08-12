@@ -7,7 +7,7 @@
     "host": "ds031995.mlab.com",
     "port": 31995,
     "database": "megalitos",
-    "password": "6wOjOdE2",
+    "password": "",
     "name": "MongoDB",
     "user": "markelor",
     "connector": "mongodb"
@@ -33,7 +33,7 @@
         },
         "auth": {
           "user": "megalitosinfo@gmail.com",
-          "pass": "6wOjOdE2"
+          "pass": ""
         }
       }
     ]
