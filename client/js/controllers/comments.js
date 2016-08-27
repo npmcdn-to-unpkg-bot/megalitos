@@ -185,6 +185,7 @@ angular
 
                 usuariosMencionados = $scope.newComment.content.match(/@(.*)@/).pop().replace(/@/g, '').replace(/ /g, '').split(',');
                 $scope.newComment.content = markdown($scope.newComment.content);
+                console.log(usuariosMencionados);
                 createComentarioWithResponse(usuariosMencionados);
 
             } catch (err) {

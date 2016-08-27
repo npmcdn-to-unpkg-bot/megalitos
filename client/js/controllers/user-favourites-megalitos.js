@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('UserFavouritesMegalitosController', ['$scope','$state', '$rootScope', 'MegalitosService', 'amMoment', function($scope,$state, $rootScope, MegalitosService,
         amMoment) {
-
+         var userLocal = window.localStorage.getItem("$LoopBack$currentUserId");
         //var favoriteCookie = $cookies.get('myFavorite');
         
         //userId = cookies.userId.split(':')[1].split('.')[0];
@@ -10,7 +10,7 @@ angular
         //$scope.userId=userId;
         //console.log($scope.token);
         //megalito guztiak ez, aldatzeko
-        MegalitosService.getAllUserMegalitos($scope.currentUser.id)
+        MegalitosService.getAllUserMegalitos(userLocal)
         .then(function(megalitos) {
                 $scope.megalitos = megalitos;
             },

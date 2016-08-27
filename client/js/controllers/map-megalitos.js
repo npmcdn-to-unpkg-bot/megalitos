@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .controller('MapMegalitosController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
-        amMoment, $stateParams, Lightbox) {
+    .controller('MapMegalitosController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', function($scope, MegalitosService,
+        amMoment, $stateParams) {
         var getImagesMegalito = function(megalitosId,megalitoMapa) {
             MegalitosService.getAllImagesMegalito(megalitosId)
                 .then(function(images) {
@@ -109,7 +109,6 @@ angular
             return ret;
         };
         $scope.pasarCoordenadas = function(coordenadas) {
-            console.log(coordenadas);
             var markers = [];
             for (var i = 0; i < $scope.megalitoMapa.length; i++) {
                 markers.push(createMarker(i, $scope.coordenadasMapa[i]));

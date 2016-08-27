@@ -7,6 +7,7 @@ angular
                 .find({})
                 .$promise;
         }
+
         function getAllUsers() {
             return User
                 .find({})
@@ -30,7 +31,7 @@ angular
                 .$promise;
         }
 
- function getMegalitoMapa(megalitoId,tipo) {
+        function getMegalitoMapa(megalitoId, tipo) {
             return Megalitos
                 .find({
                     filter: {
@@ -43,6 +44,7 @@ angular
                 })
                 .$promise;
         }
+
         function createMegalito(userId, nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
             return Megalitos
                 .create({
@@ -61,20 +63,22 @@ angular
             .$promise;
 
         }
+
         function countComentariosMegalitos(megalitoId) {
             return Comentarios.count({
-                    where: {
-                
-                        megalitosId: megalitoId
-                    }
-                    
+                where: {
+
+                    megalitosId: megalitoId
+                }
+
             }).$promise;
         }
 
-        function createLugares(comunidad, provincia,
+        function createLugares(pais, comunidad, provincia,
             pueblo, megalitoId) {
             return Megalitos.lugares
                 .create({ id: megalitoId }, {
+                    pais: pais,
                     comunidad: comunidad,
                     provincia: provincia,
                     pueblo: pueblo
@@ -122,10 +126,11 @@ angular
 
         }
 
-        function editLugares(lugarId, comunidad, provincia,
+        function editLugares(lugarId, pais,comunidad, provincia,
             pueblo) {
             return Lugares
                 .prototype$updateAttributes({ id: lugarId }, {
+                    pais:pais,
                     comunidad: comunidad,
                     provincia: provincia,
                     pueblo: pueblo
@@ -242,6 +247,7 @@ angular
             }).$promise;
 
         }
+
         function getAllComentarios() {
             return Comentarios.find({})
                 .$promise;
@@ -386,18 +392,18 @@ angular
         }
         return {
             getAllMegalitos: getAllMegalitos,
-            getAllUsers:getAllUsers,
+            getAllUsers: getAllUsers,
             getAllUserMegalitos: getAllUserMegalitos,
             getAllCoordenadas: getAllCoordenadas,
             getAllLugares: getAllLugares,
             getMegalito: getMegalito,
-            getMegalitoMapa:getMegalitoMapa,
+            getMegalitoMapa: getMegalitoMapa,
             getLugaresMegalito: getLugaresMegalito,
             getLugaresComunidad: getAllLugaresComunidad,
             getCoordenadasMegalito: getCoordenadasMegalito,
             getAllImagesMegalito: getAllImagesMegalito,
             createMegalito: createMegalito,
-            countComentariosMegalitos:countComentariosMegalitos,
+            countComentariosMegalitos: countComentariosMegalitos,
             createLugares: createLugares,
             createCoordenadas: createCoordenadas,
             createImagenes: createImagenes,
@@ -409,7 +415,7 @@ angular
             deleteCoordenadas: deleteCoordenadas,
             deleteImagenes: deleteImagenes,
             createComentarioMegalito: createComentarioMegalito,
-            getAllComentarios:getAllComentarios,
+            getAllComentarios: getAllComentarios,
             getAllComentariosMegalito: getAllComentariosMegalito,
             getUser: getUser,
             getUserWithUsername: getUserWithUsername,

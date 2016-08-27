@@ -1,13 +1,10 @@
-<form class="form-horizontal form-label-left" name="megalitosForm "  novalidate>
-    <span class="section">Personal Info</span>
+<form class="form-horizontal form-label-left" name="megalitosForm " novalidate>
     <!-- Nombre -->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
+   
         <label>Nombre</label>
-        <input class="form-control col-md-7 col-xs-12" type="text" name="nombre" ng-model="megalito.nombre" data-validate-length-range="2"  placeholder="both name(s) e.g Jon Doe" required="required">
+        <input class="form-control col-md-7 col-xs-12" type="text" name="nombre" ng-model="megalito.nombre" data-validate-length-range="2" placeholder="both name(s) e.g Jon Doe" required="required">
         <ul class="parsley-errors-list filled "></ul>
-    </div>
-    <!-- Tipo de megalito -->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
+        <!-- Tipo de megalito -->
         <label>Clase de megalito</label>
         <select class="form-control" name="tipoMegalito " ng-model="megalito.tipoMegalito" required="required">
             <option value="">-- Seleccione una clase--</option>
@@ -17,89 +14,76 @@
             <option value="Dolmen">Dolmen</option>
         </select>
         <ul class="parsley-errors-list filled " "></ul>
-    </div>
+   
     <!-- Estacion Megalitica -->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Estación Megalítica</label>
-        <input class="form-control col-md-7 col-xs-12" type="text" name="estacionMegalitica" ng-model="megalito.estacionMegalitica" placeholder="both name(s) e.g Jon Doe">
+        <input class="form-control col-md-7 col-xs-12 " type="text " name="estacionMegalitica " ng-model="megalito.estacionMegalitica " placeholder="both name(s) e.g Jon Doe ">
         <ul class="parsley-errors-list filled "></ul>
-    </div>
-    <div class="col-md-10 col-sm-10 col-xs-12 nopadding">
         <!-- pais -->
-        <!--<div class="form-group col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-left">
             <label>Pais</label>
-            <select class="form-control" name="paises" ng-model="megalito.selectedPaises" ng-change="selectedPais()" ng-options="c as c.pais for c in paises" required="required">
-                <option value=" ">-- SELECCIONE UN PUEBLO--</option>
+            <select class="form-control " name="paises " ng-model="megalito.selectedPaises " ng-change="selectedPais(megalito.selectedPaises) "  required="required ">
+            <option value="">-- SELECCIONE UN PAIS--</option>
+            <option value="espana">España</option>
+            <option value="portugal">Portugal</option>
+            <option value="reino unido ">Reino Unido</option>
             </select>
             <ul class="parsley-errors-list filled "></ul>
-        </div> -->
+        </div>
         <!-- comunidades o distritos -->
-        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-right">
             <label>Comunidad</label>
-            <select class="form-control" name="comunidades" ng-model="megalito.selectedComunidades" ng-change="selectedComunidad()" ng-options="c as c.comunidad for c in comunidades " required="required">
+            <select id="comunidades" class="form-control " name="comunidades" ng-model="megalito.selectedComunidades" ng-change="selectedComunidad() " ng-options="c as c.comunidad for c in comunidades " required="required " disabled>
                 <option value="">-- SELECCIONE UNA COMUNIDAD--</option>
             </select>
             <ul class="parsley-errors-list filled "></ul>
         </div>
-    </div>
-    <div class="col-md-10 col-sm-10 col-xs-12 nopadding">
         <!-- provincia -->
-        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-left">
             <label>Provincia</label>
-            <select id="provincias" class="form-control" name="provincias " ng-model="megalito.selectedProvincias " ng-options="c as c.provincia for c in provincias" ng-change="selectedProvincia()" required="required" disabled>
+            <select id="provincias" class="form-control " name="provincias" ng-model="megalito.selectedProvincias " ng-options="c as c.provincia for c in provincias " ng-change="selectedProvincia(megalito.selectedPaises) " required="required " disabled>
                 <option value="">-- SELECCIONE UNA PROVINCIA--</option>
             </select>
             <ul class="parsley-errors-list filled "></ul>
         </div>
         <!-- pueblo  -->
-        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-right">
             <label>Pueblo</label>
-            <select id="pueblos" class="form-control" name="pueblos " ng-model="megalito.selectedPueblos " ng-options="c as c.pueblo for c in pueblos " required="required" disabled>
+            <select id="pueblos" class="form-control " name="pueblos " ng-model="megalito.selectedPueblos " ng-options="c as c.pueblo for c in pueblos " required="required " disabled="true">
                 <option value="">-- SELECCIONE UN PUEBLO--</option>
             </select>
             <ul class="parsley-errors-list filled "></ul>
         </div>
-    </div>
     <!-- Coordenadas -->
-    <div class="col-md-10 col-sm-10 col-xs-12 nopadding">
-        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-left">
             <label>Coordenadas N-S (Lat)</label>
-            <input class="form-control col-md-7 col-xs-12" type="number" name="lat " ng-model="megalito.lat " placeholder="37° 1′ 28.51″ N " required="required">
+            <input class="form-control col-md-7 col-xs-12 " type="number " name="lat " ng-model="megalito.lat " placeholder="37° 1′ 28.51″ N " required="required ">
             <ul class="parsley-errors-list filled "></ul>
         </div>
-        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-right">
             <label>Coordenada E-O (Lng)</label>
-            <input class="form-control col-md-7 col-xs-12" type="number" name="lng " ng-model="megalito.lng " placeholder="4° 32′ 46.65″ W " required="required">
+            <input class="form-control col-md-7 col-xs-12 " type="number " name="lng " ng-model="megalito.lng " placeholder="4° 32′ 46.65″ W " required="required ">
             <ul class="parsley-errors-list filled "></ul>
         </div>
-    </div>
-
-   <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Comprueba</label>
        <map-megalito-upload></map-megalito-upload>
-    </div>
-    <div class="form-group col-md-10 col-sm-10 col-xs-12 text-center">
-            <button ng-disabled="" class="btn btn-success " ng-click="pasarCoordenadas(megalito.tipoMegalito,megalito.lat,megalito.lng)">Submit</button>
-        
-    </div>
+       </br>
+       <div class="text-center">
+            <button ng-disabled=" " class="btn btn-success" ng-click="pasarCoordenadas(megalito.tipoMegalito,megalito.lat,megalito.lng) ">Submit</button>
+        </div>
     <!-- Localizacion-->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Localizaón</label>
-        <textarea class="resizable_textarea form-control" name="localizacion " ng-model="megalito.localizacion" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..."  style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+        <textarea class="resizable_textarea form-control " name="localizacion " ng-model="megalito.localizacion " placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out... "  style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px; "></textarea>
         <ul class="parsley-errors-list filled "></ul>
-    </div>
     <!-- Descripción -->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Descripción</label>
-        <textarea class="resizable_textarea form-control" name="descripcion" ng-model="megalito.descripcion " placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." required="required" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+        <textarea class="resizable_textarea form-control " name="descripcion " ng-model="megalito.descripcion " placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out... " required="required " style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px; "></textarea>
         <ul class="parsley-errors-list filled "></ul>
-    </div>
     <!-- Imagenes -->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
         <label>Imagenes</label>
         <p>Queue length: {{ uploader.queue.length }}</p>
         <!-- 2. nv-file-select | nv-file-select="options " -->
-        <input nv-file-select valid-file type="file" ng-model="megalito.imagenes " uploader="uploader" accept="image/*" multiple="">
+        <input nv-file-select valid-file type="file" ng-model="megalito.imagenes" uploader="uploader" accept="image/* " multiple="">
         <br/>
         <!--<p>Queue length: {{ uploader.queue.length }}</p>-->
         <table class="table " ng-show="uploader.queue.length>0">
@@ -122,34 +106,25 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
-        <div>
-            <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length" disabled="disabled">
-                <span class="glyphicon glyphicon-trash"></span> Remove all
-            </button>
-        </div>
-    </div>
-    <!-- Observaciones-->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
-        <label>Obserbaciones</label>
-        <textarea class="resizable_textarea form-control" name="observaciones" ng-model="megalito.observaciones" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
-        <ul class="parsley-errors-list filled "></ul>
-    </div>
-    <!-- Descubrimiento -->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
-        <label>Descubrimiento</label>
-        <textarea class="resizable_textarea form-control" name="descubrimiento" ng-model="megalito.descubrimiento" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
-        <ul class="parsley-errors-list filled "></ul>
-    </div>
-    <!-- Bibliografia -->
-    <div class="form-group col-md-10 col-sm-10 col-xs-12">
-        <label>Bibliografia</label>
-        <textarea class="resizable_textarea form-control" name="bibliografia" ng-model="megalito.bibliografia" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
-        <ul class="parsley-errors-list filled "></ul>
-    </div>
-    <div class="ln_solid "></div>
-     <div class="form-group col-md-10 col-sm-10 col-xs-12 text-center">
+            </table>
+            <div>
+                <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length" disabled="disabled">
+                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                </button>
+            </div>
+            <!-- Observaciones-->
+            <label>Obserbaciones</label>
+            <textarea class="resizable_textarea form-control" name="observaciones" ng-model="megalito.observaciones" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+            <ul class="parsley-errors-list filled "></ul>
+            <!-- Descubrimiento -->
+            <label>Descubrimiento</label>
+            <textarea class="resizable_textarea form-control" name="descubrimiento" ng-model="megalito.descubrimiento" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+            <ul class="parsley-errors-list filled "></ul>
+            <!-- Bibliografia -->
+            <label>Bibliografia</label>
+            <textarea class="resizable_textarea form-control" name="bibliografia" ng-model="megalito.bibliografia" placeholder="This text area automatically resizes its height as you fill in more text courtesy of autosize-master it out..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 54px;"></textarea>
+            <ul class="parsley-errors-list filled "></ul>
+            <div class="text-center">
             <button ng-disabled="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Submit</button>
-        
-    </div>
+            </div>
 </form>

@@ -38,7 +38,21 @@ angular
                         $scope.user = null;
                         $state.go('megalitos');
                         window.location.reload();
+                    }, function(reason) {
+                        console.log(reason);
                     });
+            };
+            $scope.restartPassword = function(email) {
+                AuthService.restartPassword(email)
+                    .then(function() {
+
+                    }, function(reason) {
+                        console.log(reason);
+                    });
+
+            };
+            $scope.forgetPassword = function() {
+
             };
 
             /* if (AuthService.currentUser === null) {
@@ -80,13 +94,13 @@ angular
             autosize($('.resizable_textarea'));
         });
 
-       /* $scope.user = {
-            username: 'markelor',
-            email: 'mendimarkel@gmail.com',
-            password: 'jaijaijai',
-            aboutYourself: 'ni informatikaria naiz'
-        };
-        */
+        /* $scope.user = {
+             username: 'markelor',
+             email: 'mendimarkel@gmail.com',
+             password: 'jaijaijai',
+             aboutYourself: 'ni informatikaria naiz'
+         };
+         */
         $scope.register = function() {
             AuthService.register($scope.user.username, $scope.user.email, $scope.user.password, $scope.user.aboutYourself)
                 .then(function(user) {

@@ -1,9 +1,10 @@
 angular
     .module('app')
-    .controller('MegalitoController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope,
-        MegalitosService, amMoment, $stateParams, Lightbox) {
+    .controller('MegalitoController', ['$scope', '$rootScope', 'MegalitosService', 'amMoment', '$stateParams', function($scope, $rootScope,
+        MegalitosService, amMoment, $stateParams) {
         $scope.imagesMegalito = [];
         $scope.properties = [];
+        $scope.imagesShow = [];
         MegalitosService.getMegalito($stateParams.megalitoId)
             .then(function(megalito) {
                     $scope.megalito = megalito;
@@ -34,6 +35,7 @@ angular
         MegalitosService.getAllImagesMegalito($stateParams.megalitoId)
             .then(function(images) {
                     $scope.imagesMegalito.push(images[0]);
+                    $scope.openLightboxModal();
                 },
                 function(reason) {
                     //reason images
@@ -48,7 +50,9 @@ angular
                             .then(function(comment) {
                                     if (comment.megalitosId === $stateParams.megalitoId) {
                                         MegalitosService.updateUserResponse(message.id)
-                                            .then(function() {},
+                                            .then(function() {
+                                                    $scope.$emit("myEvent", {});
+                                                },
                                                 function(reason) {
                                                     //reason images
                                                     console.log(reason);
@@ -73,14 +77,11 @@ angular
 
                 });
 
-
         $scope.openLightboxModal = function() {
-            $scope.imagesMegalitoUrl = [];
+            $scope.imagesShow = [];
             $scope.imagesMegalito[0].imagenes.forEach(function(imagen) {
-                $scope.imagesMegalitoUrl.push("api/containers/img/download/" + imagen.name);
+                $scope.imagesShow.push({ thumb: "api/containers/img/download/" + imagen.name, img: "api/containers/img/download/" + imagen.name, downloadSrc: "api/containers/img/download/" + imagen.name });
             });
-
-            Lightbox.openModal($scope.imagesMegalitoUrl, 0);
         };
 
 

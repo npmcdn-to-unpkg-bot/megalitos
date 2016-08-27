@@ -1,11 +1,10 @@
 angular
     .module('app')
-    .controller('MapMegalitoController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
-        amMoment, $stateParams, Lightbox) {
+    .controller('MapMegalitoController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', function($scope, MegalitosService,
+        amMoment, $stateParams) {
         MegalitosService.getMegalito($stateParams.megalitoId)
             .then(function(megalitoMapa) {
                     $scope.megalitoMapa = megalitoMapa;
-                    console.log($scope.megalitoMapa);
                     //coordenada del megalito
                     MegalitosService.getCoordenadasMegalito($stateParams.megalitoId)
                         .then(function(coordenada) {
@@ -25,15 +24,6 @@ angular
 
                 });
 
-        MegalitosService.getAllImagesMegalito($stateParams.megalitoId)
-            .then(function(images) {
-                    $scope.images = images[0];
-                },
-                function(reason) {
-                    //reason images
-                    console.log(reason);
-
-                });
 
         $scope.map = {
             center: {
@@ -66,14 +56,12 @@ angular
             }
             var latitude = coordenada.lat;
             var longitude = coordenada.lng;
-            console.log($scope.megalitoMapa.tipoMegalito);
 
             var ret = {
                 latitude: latitude,
                 longitude: longitude,
                 icon: 'img/' + $scope.megalitoMapa.tipoMegalito + '.png',
                 title: $scope.megalitoMapa.nombre,
-                images: $scope.images.imagenes[0].name,
                 megalitoId: coordenada.megalitosId,
                 options: { labelClass: 'marker_labels', labelAnchor: '22 45', labelContent: $scope.megalitoMapa.nombre }
 
@@ -82,7 +70,7 @@ angular
             return ret;
         };
         $scope.pasarCoordenadas = function(coordenada) {
-             $scope.map.center =  {latitude: coordenada[0].lat,longitude:coordenada[0].lng};      
+             $scope.map.center =  {latitude: coordenada[0].lat,longitude:coordenada[0].lng};
                 var markers = [];
                 markers.push(createMarker(0, coordenada[0]));
                 $scope.megalitosMarkers = markers; 

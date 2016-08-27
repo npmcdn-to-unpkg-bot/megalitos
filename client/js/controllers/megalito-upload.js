@@ -1,10 +1,10 @@
 angular
     .module('app')
-    .controller('MegalitoUploadController', ['$scope','$rootScope', '$state','MegalitosService', '$http', '$q', 'FileUploader',
-        function($scope,$rootScope,$state, MegalitosService, $http, $q, FileUploader) {
+    .controller('MegalitoUploadController', ['$scope', '$rootScope', '$state', 'MegalitosService', '$http', '$q', 'FileUploader',
+        function($scope, $rootScope, $state, MegalitosService, $http, $q, FileUploader) {
             $(document).ready(function() {
-                    autosize($('.resizable_textarea'));
-                });
+                autosize($('.resizable_textarea'));
+            });
             // initialize the validator function
             validator.message.date = 'not a real date';
 
@@ -29,21 +29,40 @@ angular
                 ]
             });
             // ADDING FILTERS
-            console.log(angular.version);
             uploader.filters.push({
                 name: 'imageFilter',
                 fn: function(item, options) { // second user filter
+                    console.log(item);
                     var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
                     return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
                 }
             });
 
-            $http.get('/api/containers/comProv/download/comProv.json').success(function(data) {
-                $scope.comunidades = data;
 
-            });
             uploader.onAfterAddingFile = function(item) {
                 item.file.name = new Date().valueOf().toString() + "-" + item.file.name;
+            };
+            $scope.selectedPais = function(pais){
+                if (pais === undefined) {
+                    angular.element(document.getElementById('comunidades'))[0].disabled = true;
+                    angular.element(document.getElementById('provincias'))[0].disabled = true;
+                    angular.element(document.getElementById('pueblos'))[0].disabled = true;
+                    $scope.megalito.selectedComunidades = "-- SELECCIONE UNA COMUNIDAD--";
+                    $scope.megalito.selectedProvincias = "-- SELECCIONE UNA PROVINCIA--";
+                    $scope.megalito.selectedPueblos = "--SELECCIONE UN PUEBLO--";
+                } else {
+                    angular.element(document.getElementById('comunidades'))[0].disabled = false;
+                    angular.element(document.getElementById('provincias'))[0].disabled = true;
+                    angular.element(document.getElementById('pueblos'))[0].disabled = true;
+                    $scope.megalito.selectedProvincias = "-- SELECCIONE UNA PROVINCIA--";
+                    $scope.megalito.selectedPueblos = "--SELECCIONE UN PUEBLO--";
+                    $http.get("/api/containers/paises/download/" + pais + ".json").success(function(data) {
+                        $scope.comunidades = data;
+
+
+                    });
+                }
+
             };
 
             $scope.selectedComunidad = function() {
@@ -62,12 +81,12 @@ angular
 
 
             };
-            $scope.selectedProvincia = function() {
+            $scope.selectedProvincia = function(pais) {
                 angular.element(document.getElementById('pueblos'))[0].disabled = false;
                 ind = $scope.provincias.indexOf($scope.megalito.selectedProvincias);
                 if (ind !== -1) {
                     $scope.codigo = $scope.provincias[ind].codigo;
-                    url = "/api/containers/pueblos/download/" + $scope.codigo + ".json";
+                    url = "/api/containers/" + pais + "/download/" + $scope.codigo + ".json";
                     $http.get(url).success(function(data) {
                         $scope.pueblos = data;
                         // $scope.selectedComunidades = $scope.comunidades[0];
@@ -94,18 +113,16 @@ angular
                 uploader.uploadAll();
                 //crear megalito
                 uploader.onCompleteAll = function() {
-                    console.log("hemen");
                     createMegalito();
                 };
             };
 
             function createMegalito() {
-                MegalitosService.createMegalito($rootScope.currentUser.id,$scope.megalito.nombre, $scope.megalito.tipoMegalito, $scope.megalito.estacionMegalitica, $scope.megalito.localizacion,
+                MegalitosService.createMegalito($rootScope.currentUser.id, $scope.megalito.nombre, $scope.megalito.tipoMegalito, $scope.megalito.estacionMegalitica, $scope.megalito.localizacion,
                     $scope.megalito.descripcion, $scope.megalito.descubrimiento, $scope.megalito.observaciones, $scope.megalito.bibliografia)
 
                 .then(function(megalito) {
-                        console.log(megalito);
-                        MegalitosService.createLugares($scope.megalito.selectedComunidades.comunidad,
+                        MegalitosService.createLugares($scope.megalito.selectedPaises, $scope.megalito.selectedComunidades.comunidad,
                             $scope.megalito.selectedProvincias.provincia, $scope.megalito.selectedPueblos.pueblo, megalito.id)
 
                         .then(function(lugares) {

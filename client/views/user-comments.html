@@ -6,7 +6,7 @@
         </defs>
     </svg>
     <ul ng-if="comments.length ">
-    <li  ng-repeat="(key,value) in ufa  | groupBy: 'ordenar'">
+    <li  ng-repeat="(key,value) in userComents  | groupBy: 'ordenar'">
     <span > Group name: {{ megalito[key].nombre}}</span>
     <ul>
         <li ng-repeat="comment in value ">

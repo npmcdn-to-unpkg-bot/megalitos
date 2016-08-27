@@ -86,7 +86,6 @@ angular.module('app')
         };
     })
     .directive('mapMegalitos', function() {
-
         return {
             restrict: 'E',
             templateUrl: 'views/map-megalitos.html',
@@ -99,7 +98,7 @@ angular.module('app')
 
         return {
             restrict: 'E',
-            templateUrl: 'views/map-megalitos.html',
+            templateUrl: 'views/map-megalito.html',
             controller: 'MapMegalitoController'
 
 
@@ -109,7 +108,7 @@ angular.module('app')
 
         return {
             restrict: 'E',
-            templateUrl: 'views/map-megalitos.html',
+            templateUrl: 'views/map-megalito.html',
             controller: 'MapMegalitoUploadController'
 
 

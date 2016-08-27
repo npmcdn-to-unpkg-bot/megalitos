@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right" ng-show="currentUser">
+<ul class="nav navbar-nav navbar-right" ng-show="currentUser" ng-init="getMessages()">
     <li class="">
         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <img ng-src="{{currentUser.avatar}}" alt="">{{currentUser.username}}

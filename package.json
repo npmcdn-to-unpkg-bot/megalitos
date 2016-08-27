@@ -17,7 +17,7 @@
     "loopback": "^2.8.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.4.0",
-    "loopback-connector-mongodb": "^1.15.2",
+    "loopback-connector-mongodb": "^1.5.0",
     "loopback-datasource-juggler": "^2.7.0",
     "loopback-ds-timestamp-mixin": "~3.2.4",
     "serve-favicon": "^2.0.1"

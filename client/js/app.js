@@ -1,95 +1,56 @@
 angular
-    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'bootstrapLightbox', 'oc.lazyLoad', 'uiGmapgoogle-maps','ngImgCrop','720kb.socialshare','datatables','datatables.buttons'])
+    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'jkuri.gallery', 'oc.lazyLoad', 'uiGmapgoogle-maps', 'ngImgCrop', '720kb.socialshare', 'datatables', 'datatables.buttons','ngAnimate', 'toastr'])
     .config(['$stateProvider', '$urlRouterProvider', function(
         $stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('megalitos', {
                 url: '/megalitos',
-                
-                views: {
-                    "megalitos": {
-                        templateUrl: "/views/main/main-megalitos.html"
-                    }
-                }
+                templateUrl: "/views/bundle/megalitos-bundle.html",
+                controller: 'MegalitosController'
+
             }).state('megalito', {
                 url: '/megalitos/:megalitoId',
+                templateUrl: "/views/bundle/megalito-bundle.html",
                 authenticate: true,
-                views: {    
-                    "megalito": {
-                        templateUrl: "/views/main/main-megalito.html"
-                    }
-                }
             })
             .state('megalitos-comunidad', {
                 url: '/megalitos/comunidad/:comunidad',
-                views: {
-                    "megalitos-comunidad": {
-                        templateUrl: "/views/main/main-megalitos-comunidad.html"
-                    }
-                }
+               templateUrl: "/views/bundle/megalitos-bundle.html",
+               controller: 'MegalitosComunidadController'
             })
             .state('map', {
                 url: '/map/:clase',
-                views: {
-                    "map": {
-                        templateUrl: "/views/main/main-map.html"
-                    }
-                }
+                templateUrl: "/views/bundle/map-bundle.html"
+               
             })
             .state('megalito-upload', {
                 url: '/megalito-upload',
-               // authenticate: true,
-               
-                views: {
-                    "megalito-upload": {
-                        templateUrl: "/views/main/main-megalito-upload.html"
-                    }
-
-                }
+                templateUrl: "/views/bundle/megalito-upload-bundle.html"
+                // authenticate: true,
 
             })
             .state('sign-up', {
                 url: '/sign-up',
-                
-                views: {
-                    "sign-up": {
-                        templateUrl: "views/main/main-sign-up.html"
-                    }
-                }
+                templateUrl: "views/bundle/sign-up-bundle.html"
             })
             .state('user', {
                 url: '/usuario',
-                views: {
-                    "user": {
-                        templateUrl: "views/main/main-user-config.html"
-                    }
-                }
+                templateUrl: "views/bundle/user-config-bundle.html"
             })
             .state('favourites', {
                 url: '/favoritos',
-                views: {
-                    "favourites": {
-                        templateUrl: "views/main/main-favourites.html"
-                    }
-                }
+                templateUrl: "views/bundle/favourites-bundle.html"
             })
-           .state('user-edit-megalito-upload', {
+            .state('user-edit-megalito-upload', {
                 url: '/usuario/editar/:megalitoId',
+                templateUrl: "/views/bundle/user-edit-megalito-upload-bundle.html",
                 authenticate: true,
-                views: {    
-                    "user-edit-megalito-upload": {
-                        templateUrl: "/views/main/main-user-edit-megalito-upload.html"
-                    }
-                }
             })
-           .state('admin-users', {
+            .state('admin-users', {
                 url: '/usuarios',
+                templateUrl: "/views/bundle/admin-users-bundle.html"
                 //authenticate: true,
-                views: {    
-                    "admin-users": {
-                        templateUrl: "/views/main/main-admin-users.html"
-                    }
-                }
+               
             });
         $urlRouterProvider.otherwise('megalitos');
     }])
@@ -97,7 +58,7 @@ angular
 .run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function(event, next) {
         // redirect to login page if not logged in
-        
+
 
         if (next.authenticate && !$rootScope.currentUser) {
             event.preventDefault(); //prevent current page from loading

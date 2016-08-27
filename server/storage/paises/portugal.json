@@ -1,0 +1,1197 @@
+[{
+        "comunidad": "Aveiro",
+        "provincias": [{
+            "codigo": "agueda",
+            "provincia": "Águeda "
+        }, {
+            "codigo": "albergaria-a-velha",
+            "provincia": "Albergaria-A-Velha"
+
+        }, {
+            "codigo": "anadia",
+            "provincia": "Anadia"
+
+        }, {
+            "codigo": "arouca",
+            "provincia": "Arouca"
+
+        }, {
+            "codigo": "aveiro",
+            "provincia": "Aveiro"
+
+        }, {
+            "codigo": "castelo de paiva",
+            "provincia": "Castelo de Paiva"
+
+        }, {
+            "codigo": "espinho",
+            "provincia": "Espinho"
+
+        }, {
+            "codigo": "estarreja",
+            "provincia": "Estarreja"
+
+        }, {
+            "codigo": "ilhavo",
+            "provincia": "Ílhavo"
+        }, {
+            "codigo": "mealhada",
+            "provincia": "Mealhada"
+
+        }, {
+            "codigo": "murtosa",
+            "provincia": "Murtosa"
+
+        }, {
+            "codigo": "oliveira de azemeis",
+            "provincia": "Oliveira de Azeméis"
+
+        }, {
+            "codigo": "oliveira do bairro",
+            "provincia": "Oliveira do Bairro"
+
+        }, {
+            "codigo": "ovar",
+            "provincia": "Ovar"
+
+        }, {
+            "codigo": "santa maria da feira",
+            "provincia": "Santa Maria da Feira"
+
+        }, {
+            "codigo": "sao joao da madeira",
+            "provincia": "São João da Madeira"
+
+        }, {
+            "codigo": "sever do vouga",
+            "provincia": "Sever do Vouga"
+
+        }, {
+            "codigo": "vagos",
+            "provincia": "Vagos"
+
+        }, {
+            "codigo": "vale de cambra",
+            "provincia": "Vale de Cambra"
+
+        }]
+
+    }, {
+        "comunidad": "Azores",
+        "provincias": [{
+            "codigo": "angra do heroismo",
+            "provincia": "Angra do Heroísmo "
+        }, {
+            "codigo": "calheta de são jorge",
+            "provincia": "Calheta de São Jorge"
+
+        }, {
+            "codigo": "corvo",
+            "provincia": "Corvo"
+
+        }, {
+            "codigo": "horta",
+            "provincia": "Horta "
+
+        }, {
+            "codigo": "lagoa-azores",
+            "provincia": "Lagoa"
+
+        }, {
+            "codigo": "lajes das flores",
+            "provincia": "Lajes Das Flores"
+
+        }, {
+            "codigo": "lajes do pico",
+            "provincia": "Lajes do Pico"
+
+        }, {
+            "codigo": "madalena",
+            "provincia": "Madalena"
+
+        }, {
+            "codigo": "nordeste",
+            "provincia": "Nordeste"
+
+        }, {
+            "codigo": "ponta delgada",
+            "provincia": "Ponta Delgada"
+
+        }, {
+            "codigo": "povoacao",
+            "provincia": "Povoação"
+
+        }, {
+            "codigo": "praia da vitoria",
+            "provincia": "Praia da Vitória"
+
+        }, {
+            "codigo": "ribeira grande",
+            "provincia": "Ribeira Grande"
+
+        }, {
+            "codigo": "santa cruz da graciosa",
+            "provincia": "Santa Cruz da Graciosa"
+
+        }, {
+            "codigo": "santa cruz das flores",
+            "provincia": "Santa Cruz Das Flores"
+
+        }, {
+            "codigo": "sao roque do pico",
+            "provincia": "São Roque do Pico"
+
+        }, {
+            "codigo": "velas",
+            "provincia": "Velas"
+
+        }, {
+            "codigo": "vila do porto",
+            "provincia": "Vila do Porto"
+
+        }, {
+            "codigo": "vila franca do campo",
+            "provincia": "Vila Franca do Campo"
+
+        }]
+
+    }, {
+        "comunidad": "Beja",
+        "provincias": [{
+            "codigo": "aljustrel",
+            "provincia": "Aljustrel"
+        }, {
+            "codigo": "almodovar",
+            "provincia": "Almodôvar"
+
+        }, {
+            "codigo": "alvito",
+            "provincia": "Alvito"
+
+        }, {
+            "codigo": "barrancos",
+            "provincia": "Barrancos"
+
+        }, {
+            "codigo": "beja",
+            "provincia": "Beja"
+
+        }, {
+            "codigo": "castro verde",
+            "provincia": "Castro Verde"
+
+        }, {
+            "codigo": "cuba",
+            "provincia": "Cuba"
+
+        }, {
+            "codigo": "ferreira do alentejo",
+            "provincia": "Ferreira do Alentejo"
+
+        }, {
+            "codigo": "mertola",
+            "provincia": "Mértola"
+
+        }, {
+            "codigo": "moura",
+            "provincia": "Moura"
+
+        }, {
+            "codigo": "odemira",
+            "provincia": "Odemira"
+
+        }, {
+            "codigo": "ourique",
+            "provincia": "Ourique"
+
+        }, {
+            "codigo": "serpa",
+            "provincia": "Serpa"
+
+        }, {
+            "codigo": "vidigueira",
+            "provincia": "Vidigueira"
+
+        }]
+
+    }, {
+        "comunidad": "Braga",
+        "provincias": [{
+            "codigo": "amares",
+            "provincia": "Amares"
+
+        }, {
+            "codigo": "barcelos",
+            "provincia": "Barcelos"
+
+        }, {
+            "codigo": "braga",
+            "provincia": "Braga"
+
+        }, {
+            "codigo": "cabeceiras de basto",
+            "provincia": "Cabeceiras de Basto"
+
+        }, {
+            "codigo": "celorico de basto",
+            "provincia": "Celorico de Basto"
+
+        }, {
+            "codigo": "esposende",
+            "provincia": "Esposende"
+
+        }, {
+            "codigo": "fafe",
+            "provincia": "Fafe"
+
+        }, {
+            "codigo": "guimaraes",
+            "provincia": "Guimarães"
+
+        }, {
+            "codigo": "povoa de lanhoso",
+            "provincia": "Póvoa de Lanhoso"
+
+        }, {
+            "codigo": "terras de bouro",
+            "provincia": "Terras de Bouro"
+
+        }, {
+            "codigo": "vieira do minho",
+            "provincia": "Vieira do Minho"
+
+        }, {
+            "codigo": "vila nova de famalicao",
+            "provincia": "Vila Nova de Famalicão"
+
+        }, {
+            "codigo": "vila verde",
+            "provincia": "Vila Verde"
+
+        }, {
+            "codigo": "vizela",
+            "provincia": "Vizela"
+
+        }]
+
+    }, {
+        "comunidad": "Bragança",
+        "provincias": [{
+            "codigo": "alfandega da fe",
+            "provincia": "Alfândega da Fé"
+        }, {
+            "codigo": "braganca municipalit",
+            "provincia": "Bragança Municipalit"
+        }, {
+            "codigo": "carrazeda de ansiaes",
+            "provincia": "Carrazeda de Ansiães"
+        }, {
+            "codigo": "freixo de espada a c",
+            "provincia": "Freixo de Espada À C"
+        }, {
+            "codigo": "macedo de cavaleiros",
+            "provincia": "Macedo de Cavaleiros"
+        }, {
+            "codigo": "miranda do douro",
+            "provincia": "Miranda do Douro"
+        }, {
+            "codigo": "mirandela",
+            "provincia": "Mirandela"
+        }, {
+            "codigo": "mogadouro",
+            "provincia": "Mogadouro"
+        }, {
+            "codigo": "torre de moncorvo",
+            "provincia": "Torre de Moncorvo"
+        }, {
+            "codigo": "vila flor",
+            "provincia": "Vila Flor"
+        }, {
+            "codigo": "vimioso",
+            "provincia": "Vimioso"
+        }, {
+            "codigo": "vinhais",
+            "provincia": "Vinhais"
+        }]
+
+    }, {
+        "comunidad": "Castelo Branco",
+        "provincias": [{
+            "codigo": "belmonte",
+            "provincia": "Belmonte"
+        }, {
+            "codigo": "castelo branco",
+            "provincia": "Castelo Branco"
+
+        }, {
+            "codigo": "covilha",
+            "provincia": "Covilhã"
+        }, {
+            "codigo": "fundao",
+            "provincia": "Fundão"
+
+        }, {
+            "codigo": "idanha-a-nova",
+            "provincia": "Idanha-A-Nova"
+        }, {
+            "codigo": "oleiros",
+            "provincia": "Oleiros"
+
+        }, {
+            "codigo": "penamacor",
+            "provincia": "Penamacor"
+        }, {
+            "codigo": "proenca-a-nova",
+            "provincia": "Proença-A-Nova"
+
+        }, {
+            "codigo": "serta",
+            "provincia": "Sertã"
+        }, {
+            "codigo": "vila de rei",
+            "provincia": "Vila de Rei"
+
+        }, {
+            "codigo": "vila velha de rodao",
+            "provincia": "Vila Velha de Ródão"
+        }]
+
+    }, {
+        "comunidad": "Coimbra",
+        "provincias": [{
+            "codigo": "arganil",
+            "provincia": "Arganil"
+        }, {
+            "codigo": "cantanhede",
+            "provincia": "Cantanhede"
+        }, {
+            "codigo": "coimbra",
+            "provincia": "Coimbra"
+        }, {
+            "codigo": "condeixa-a-nova",
+            "provincia": "Condeixa-A-Nova"
+        }, {
+            "codigo": "figueira da foz",
+            "provincia": "Figueira da Foz"
+        }, {
+            "codigo": "gois",
+            "provincia": "Góis"
+        }, {
+            "codigo": "lousa",
+            "provincia": "Lousã"
+        }, {
+            "codigo": "mira",
+            "provincia": "Mira"
+        }, {
+            "codigo": "miranda do corvo",
+            "provincia": "Miranda do Corvo"
+        }, {
+            "codigo": "montemor-o-velho",
+            "provincia": "Montemor-O-Velho"
+        }, {
+            "codigo": "oliveira do hospital",
+            "provincia": "Oliveira do Hospital"
+        }, {
+            "codigo": "pampilhosa da serra",
+            "provincia": "Pampilhosa da Serra"
+        }, {
+            "codigo": "penacova",
+            "provincia": "Penacova"
+        }, {
+            "codigo": "penela",
+            "provincia": "Penela"
+        }, {
+            "codigo": "soure",
+            "provincia": "Soure"
+        }, {
+            "codigo": "tabua",
+            "provincia": "Tábua"
+        }, {
+            "codigo": "vila nova de poiares",
+            "provincia": "Vila Nova de Poiares"
+        }]
+
+    }, {
+        "comunidad": "Évora",
+        "provincias": [{
+            "codigo": "alandroal",
+            "provincia": "Alandroal"
+        }, {
+            "codigo": "arraiolos",
+            "provincia": "Arraiolos"
+
+        }, {
+            "codigo": "borba",
+            "provincia": "Borba"
+
+        }, {
+            "codigo": "estremoz",
+            "provincia": "Estremoz"
+
+        }, {
+            "codigo": "evora",
+            "provincia": "Évora"
+
+        },{
+            "codigo": "montemor-o-novo",
+            "provincia": "Montemor-O-Novo"
+        },{
+            "codigo": "mora",
+            "provincia": "Mora"
+        },{
+            "codigo": "mourao",
+            "provincia": "Mourão"
+        },{
+            "codigo": "portel",
+            "provincia": "Portel"
+        },{
+            "codigo": "redondo",
+            "provincia": "Redondo"
+        },{
+            "codigo": "reguengos de monsaraz",
+            "provincia": "Reguengos de Monsaraz"
+        },{
+            "codigo": "vendas novas",
+            "provincia": "Vendas Novas"
+        },{
+            "codigo": "viana do alentejo",
+            "provincia": "Viana do Alentejo"
+        },{
+            "codigo": "vila vicosa",
+            "provincia": "Vila Vicosa"
+        }]
+
+    }, {
+        "comunidad": "Faro",
+        "provincias": [{
+            "codigo": "albufeira",
+            "provincia": "Albufeira"
+        }, {
+            "codigo": "alcoutim",
+            "provincia": "Alcoutim"
+
+        }, {
+            "codigo": "aljezur",
+            "provincia": "Aljezur"
+
+        }, {
+            "codigo": "castro marim",
+            "provincia": "Castro Marim"
+
+        }, {
+            "codigo": "faro",
+            "provincia": "Faro"
+
+        }, {
+            "codigo": "lagoa-faro",
+            "provincia": "Lagoa"
+
+        }, {
+            "codigo": "lagos",
+            "provincia": "Lagos"
+
+        }, {
+            "codigo": "loule",
+            "provincia": "Loulé"
+
+        }, {
+            "codigo": "monchique",
+            "provincia": "Monchique"
+
+        }, {
+            "codigo": "olhao",
+            "provincia": "Olhão"
+
+        }, {
+            "codigo": "portimao",
+            "provincia": "Portimão"
+
+        }, {
+            "codigo": "sao bras de alportel",
+            "provincia": "São Brás de Alportel"
+
+        }, {
+            "codigo": "silves",
+            "provincia": "Silves"
+
+        }, {
+            "codigo": "tavira",
+            "provincia": "Tavira"
+
+        }, {
+            "codigo": "vila do bispo",
+            "provincia": "Vila do Bispo"
+
+        }, {
+            "codigo": "vila real de santo antonio",
+            "provincia": "Vila Real de Santo António"
+
+        }]
+
+    }, {
+        "comunidad": "Guarda",
+        "provincias": [{
+            "codigo": "aguiar da beira",
+            "provincia": "Aguiar da Beira"
+        }, {
+            "codigo": "almeida",
+            "provincia": "Almeida"
+
+        }, {
+            "codigo": "celorico da beira",
+            "provincia": "Celorico da Beira"
+
+        }, {
+            "codigo": "figueira de castelo rodrigo",
+            "provincia": "Figueira de Castelo Rodrigo"
+
+        }, {
+            "codigo": "fornos de algodres",
+            "provincia": "Fornos de Algodres"
+
+        }, {
+            "codigo": "gouveia",
+            "provincia": "Gouveia"
+
+        }, {
+            "codigo": "guarda",
+            "provincia": "Guarda"
+
+        }, {
+            "codigo": "manteigas",
+            "provincia": "Manteigas"
+
+        }, {
+            "codigo": "meda",
+            "provincia": "Mêda"
+
+        }, {
+            "codigo": "pinhel",
+            "provincia": "Pinhel"
+
+        }, {
+            "codigo": "sabugal",
+            "provincia": "Sabugal"
+
+        }, {
+            "codigo": "seia",
+            "provincia": "Seia"
+
+        }, {
+            "codigo": "trancoso",
+            "provincia": "Trancoso"
+
+        }, {
+            "codigo": "vila nova de foz coa",
+            "provincia": "Vila Nova de Foz Côa"
+
+        }
+    ]
+
+    }, {
+        "comunidad": "Leiria",
+        "provincias": [{
+            "codigo": "alcobaca",
+            "provincia": "Alcobaça"
+        }, {
+            "codigo": "alvaiazere",
+            "provincia": "Alvaiázere"
+
+        }, {
+            "codigo": "ansiao",
+            "provincia": "Ansião"
+
+        }, {
+            "codigo": "batalha",
+            "provincia": "Batalha"
+
+        }, {
+            "codigo": "bombarral",
+            "provincia": "Bombarral"
+
+        }, {
+            "codigo": "caldas da rainha",
+            "provincia": "Caldas da Rainha"
+
+        }, {
+            "codigo": "castanheira de pera",
+            "provincia": "Castanheira de Pêra"
+
+        }, {
+            "codigo": "figueiro dos vinhos",
+            "provincia": "Figueiró Dos Vinhos"
+
+        }, {
+            "codigo": "leiria",
+            "provincia": "Leiria"
+
+        }, {
+            "codigo": "marinha grande",
+            "provincia": "Marinha Grande"
+
+        }, {
+            "codigo": "nazare",
+            "provincia": "Nazaré"
+
+        }, {
+            "codigo": "obidos",
+            "provincia": "Óbidos"
+
+        }, {
+            "codigo": "pedrogao grande",
+            "provincia": "Pedrógão Grande"
+
+        }, {
+            "codigo": "peniche",
+            "provincia": "Peniche"
+
+        }, {
+            "codigo": "pombal",
+            "provincia": "Pombal"
+
+        }, {
+            "codigo": "porto de mos",
+            "provincia": "Porto de Mós"
+
+        }]
+
+    }, {
+        "comunidad": "Lisbon",
+        "provincias": [{
+            "codigo": "alenquer",
+            "provincia": "Alenquer"
+        }, {
+            "codigo": "amadora",
+            "provincia": "Amadora"
+
+        }, {
+            "codigo": "arruda dos vinhos",
+            "provincia": "Arruda Dos Vinhos"
+
+        }, {
+            "codigo": "azambuja",
+            "provincia": "Azambuja"
+
+        }, {
+            "codigo": "cadaval",
+            "provincia": "Cadaval"
+
+        }, {
+            "codigo": "cascais",
+            "provincia": "Cascais"
+
+        }, {
+            "codigo": "lisbon",
+            "provincia": "Lisbon"
+
+        }, {
+            "codigo": "loures",
+            "provincia": "Loures"
+
+        }, {
+            "codigo": "lourinha",
+            "provincia": "Lourinhã"
+
+        }, {
+            "codigo": "mafra",
+            "provincia": "Mafra"
+
+        }, {
+            "codigo": "odivelas",
+            "provincia": "Odivelas"
+
+        }, {
+            "codigo": "oeiras",
+            "provincia": "Oeiras"
+
+        }, {
+            "codigo": "sintra",
+            "provincia": "Sintra"
+
+        }, {
+            "codigo": "sobral de monte agraco",
+            "provincia": "Sobral de Monte Agraço"
+
+        }, {
+            "codigo": "torres vedras",
+            "provincia": "Torres Vedras"
+
+        }, {
+            "codigo": "vila franca de xira",
+            "provincia": "Vila Franca de Xira"
+
+        }]
+
+    }, {
+        "comunidad": "Madeira",
+        "provincias": [{
+            "codigo": "calheta",
+            "provincia": "Calheta"
+        }, {
+            "codigo": "camara de lobos",
+            "provincia": "Camara de Lobos"
+
+        }, {
+            "codigo": "funchal",
+            "provincia": "Funchal"
+
+        }, {
+            "codigo": "machico",
+            "provincia": "Machico"
+
+        }, {
+            "codigo": "ponta do sol",
+            "provincia": "Ponta do Sol"
+
+        }, {
+            "codigo": "porto moniz",
+            "provincia": "Porto Moniz"
+
+        }, {
+            "codigo": "porto santo",
+            "provincia": "Porto Santo"
+
+        }, {
+            "codigo": "ribeira brava",
+            "provincia": "Ribeira Brava"
+
+        }, {
+            "codigo": "santa cruz",
+            "provincia": "Santa Cruz"
+
+        }, {
+            "codigo": "santana",
+            "provincia": "Santana"
+
+        }, {
+            "codigo": "sao vicente",
+            "provincia": "São Vicente"
+
+        }]
+
+    },  {
+        "comunidad": "Portalegre",
+        "provincias": [{
+            "codigo": "alter do chao",
+            "provincia": "Alter do Chão"
+        }, {
+            "codigo": "arronches",
+            "provincia": "Arronches"
+
+        }, {
+            "codigo": "avis",
+            "provincia": "Avis"
+
+        }, {
+            "codigo": "campo maior",
+            "provincia": "Campo Maior"
+
+        }, {
+            "codigo": "castelo de vide",
+            "provincia": "Castelo de Vide"
+
+        }, {
+            "codigo": "crato",
+            "provincia": "Crato"
+
+        }, {
+            "codigo": "elvas",
+            "provincia": "Elvas"
+
+        }, {
+            "codigo": "fronteira",
+            "provincia": "Fronteira"
+
+        }, {
+            "codigo": "gaviao",
+            "provincia": "Gavião"
+
+        }, {
+            "codigo": "marvao",
+            "provincia": "Marvão"
+
+        }, {
+            "codigo": "monforte",
+            "provincia": "Monforte"
+
+        }, {
+            "codigo": "nisa",
+            "provincia": "Nisa"
+
+        }, {
+            "codigo": "ponte de sor",
+            "provincia": "Ponte de Sor"
+
+        }, {
+            "codigo": "portalegre",
+            "provincia": "Portalegre"
+
+        }, {
+            "codigo": "sousel",
+            "provincia": "Sousel"
+
+        }]
+
+    },{
+        "comunidad": "Porto",
+        "provincias": [{
+            "codigo": "amarante",
+            "provincia": "Amarante"
+        },{
+            "codigo": "baiao",
+            "provincia": "Baião"
+        },{
+            "codigo": "felgueiras",
+            "provincia": "Felgueiras"
+        },{
+            "codigo": "gondomar",
+            "provincia": "Gondomar"
+        },{
+            "codigo": "lousada",
+            "provincia": "Lousada"
+        },{
+            "codigo": "maia",
+            "provincia": "Maia"
+        },{
+            "codigo": "marco de canaveses",
+            "provincia": "Marco de Canaveses"
+        },{
+            "codigo": "matosinhos",
+            "provincia": "Matosinhos"
+        },{
+            "codigo": "pacos de ferreira",
+            "provincia": "Paços de Ferreira"
+        },{
+            "codigo": "paredes",
+            "provincia": "Paredes"
+        },{
+            "codigo": "penafiel",
+            "provincia": "Penafiel"
+        },{
+            "codigo": "porto",
+            "provincia": "Porto"
+        },{
+            "codigo": "povoa de varzim",
+            "provincia": "Póvoa de Varzim"
+        },{
+            "codigo": "santo tirso",
+            "provincia": "Santo Tirso"
+        },{
+            "codigo": "trofa",
+            "provincia": "Trofa"
+        },{
+            "codigo": "valongo",
+            "provincia": "Valongo"
+        },{
+            "codigo": "vila do conde",
+            "provincia": "Vila do Conde"
+        },{
+            "codigo": "vila nova de gaia",
+            "provincia": "Vila Nova de Gaia"
+        }]
+
+    }, {
+        "comunidad": "Santarém",
+        "provincias": [{
+            "codigo": "abrantes",
+            "provincia": "Abrantes"
+        },{
+            "codigo": "alcanena",
+            "provincia": "Alcanena"
+        },{
+            "codigo": "almeirim",
+            "provincia": "Almeirim"
+        },{
+            "codigo": "alpiarca",
+            "provincia": "Alpiarça"
+        },{
+            "codigo": "benavente",
+            "provincia": "Benavente"
+        },{
+            "codigo": "cartaxo",
+            "provincia": "Cartaxo"
+        },{
+            "codigo": "chamusca",
+            "provincia": "Chamusca"
+        },{
+            "codigo": "constancia",
+            "provincia": "Constância"
+        },{
+            "codigo": "coruche",
+            "provincia": "Coruche"
+        },{
+            "codigo": "entroncamento",
+            "provincia": "Entroncamento"
+        },{
+            "codigo": "ferreira do zezere",
+            "provincia": "Ferreira do Zêzere"
+        },{
+            "codigo": "golega",
+            "provincia": "Golegã"
+        },{
+            "codigo": "macao",
+            "provincia": "Mação"
+        },{
+            "codigo": "ourem",
+            "provincia": "Ourém"
+        },{
+            "codigo": "rio maior",
+            "provincia": "Rio Maior"
+        },{
+            "codigo": "salvaterra de magos",
+            "provincia": "Salvaterra de Magos"
+        },{
+            "codigo": "santarem",
+            "provincia": "Santarém"
+        },{
+            "codigo": "sardoal",
+            "provincia": "Sardoal"
+        },{
+            "codigo": "tomar",
+            "provincia": "Tomar"
+        },{
+            "codigo": "torres novas",
+            "provincia": "Torres Novas"
+        },{
+            "codigo": "vila nova da barquinha",
+            "provincia": "Vila Nova da Barquinha"
+        }]
+
+    }, {
+        "comunidad": "Setúbal",
+        "provincias": [{
+            "codigo": "alcacer do sal",
+            "provincia": "Alcácer do Sal"
+        },{
+            "codigo": "alcochete",
+            "provincia": "Alcochete"
+        },{
+            "codigo": "almada",
+            "provincia": "Almada"
+        },{
+            "codigo": "barreiro",
+            "provincia": "Barreiro"
+        },{
+            "codigo": "grandola",
+            "provincia": "Grândola"
+        },{
+            "codigo": "moita",
+            "provincia": "Moita"
+        },{
+            "codigo": "montijo",
+            "provincia": "Montijo"
+        },{
+            "codigo": "palmela",
+            "provincia": "Palmela"
+        },{
+            "codigo": "santiago do cacem",
+            "provincia": "Santiago do Cacém"
+        },{
+            "codigo": "seixal",
+            "provincia": "Seixal"
+        },{
+            "codigo": "sesimbra",
+            "provincia": "Sesimbra"
+        },{
+            "codigo": "setubal",
+            "provincia": "Setúbal"
+        },{
+            "codigo": "sines",
+            "provincia": "Sines"
+        }]
+
+    }, {
+        "comunidad": "Viana do Castelo",
+        "provincias": [{
+            "codigo": "arcos de valdevez",
+            "provincia": "Arcos de Valdevez"
+        },{
+            "codigo": "caminha",
+            "provincia": "Caminha"
+        },{
+            "codigo": "melgaco",
+            "provincia": "Melgaço"
+        },{
+            "codigo": "moncao",
+            "provincia": "Monção"
+        },{
+            "codigo": "paredes de coura",
+            "provincia": "Paredes de Coura"
+        },{
+            "codigo": "ponte da barca",
+            "provincia": "Ponte da Barca"
+        },{
+            "codigo": "ponte de lima",
+            "provincia": "Ponte de Lima"
+        },{
+            "codigo": "valenca",
+            "provincia": "Valença"
+        },{
+            "codigo": "viana do castelo",
+            "provincia": "Viana do Castelo"
+        },{
+            "codigo": "vila nova de cerveira",
+            "provincia": "Vila Nova de Cerveira"
+        }]
+
+    }, {
+        "comunidad": "Vila Real",
+        "provincias": [{
+            "codigo": "alijo",
+            "provincia": "Alijó"
+        }, {
+            "codigo": "boticas",
+            "provincia": "Boticas"
+
+        }, {
+            "codigo": "chaves",
+            "provincia": "Chaves"
+
+        }, {
+            "codigo": "mesao frio",
+            "provincia": "Mesão Frio"
+
+        }, {
+            "codigo": "mondim de basto",
+            "provincia": "Mondim de Basto"
+
+        }, {
+            "codigo": "montalegre",
+            "provincia": "Montalegre"
+
+        }, {
+            "codigo": "murca",
+            "provincia": "Murça"
+
+        }, {
+            "codigo": "peso da regua",
+            "provincia": "Peso da Régua"
+
+        }, {
+            "codigo": "ribeira de pena",
+            "provincia": "Ribeira de Pena"
+
+        }, {
+            "codigo": "sabrosa",
+            "provincia": "Sabrosa"
+
+        }, {
+            "codigo": "santa marta de penaguiao",
+            "provincia": "Santa Marta de Penaguião"
+
+        }, {
+            "codigo": "valpacos",
+            "provincia": "Valpaços"
+
+        }, {
+            "codigo": "vila pouca de aguiar",
+            "provincia": "Vila Pouca de Aguiar"
+
+        }, {
+            "codigo": "vila real",
+            "provincia": "Vila Real"
+
+        }]
+
+    }, {
+        "comunidad": "Viseu",
+        "provincias": [{
+            "codigo": "armamar",
+            "provincia": "Armamar"
+        }, {
+            "codigo": "carregal do sal",
+            "provincia": "Carregal do Sal"
+
+        }, {
+            "codigo": "castro daire",
+            "provincia": "Castro Daire"
+
+        }, {
+            "codigo": "cinfaes",
+            "provincia": "Cinfães"
+
+        }, {
+            "codigo": "lamego",
+            "provincia": "Lamego"
+
+        }, {
+            "codigo": "mangualde",
+            "provincia": "Mangualde"
+
+        }, {
+            "codigo": "moimenta da beira",
+            "provincia": "Moimenta da Beira"
+
+        }, {
+            "codigo": "mortagua",
+            "provincia": "Mortágua"
+
+        }, {
+            "codigo": "nelas",
+            "provincia": "Nelas"
+
+        }, {
+            "codigo": "oliveira de frades",
+            "provincia": "Oliveira de Frades"
+
+        }, {
+            "codigo": "penalva do castelo",
+            "provincia": "Penalva do Castelo"
+
+        }, {
+            "codigo": "penedono",
+            "provincia": "Penedono"
+
+        }, {
+            "codigo": "resende",
+            "provincia": "Resende"
+
+        }, {
+            "codigo": "santa comba dao",
+            "provincia": "Santa Comba Dão"
+
+        }, {
+            "codigo": "sao joao da pesqueira",
+            "provincia": "São João da Pesqueira"
+
+        }, {
+            "codigo": "sao pedro do sul",
+            "provincia": "São Pedro do Sul"
+
+        }, {
+            "codigo": "satao",
+            "provincia": "Sátão"
+
+        }, {
+            "codigo": "sernancelhe",
+            "provincia": "Sernancelhe"
+
+        }, {
+            "codigo": "tabuaco",
+            "provincia": "Tabuaço"
+
+        }, {
+            "codigo": "tarouca",
+            "provincia": "Tarouca"
+
+        }, {
+            "codigo": "tondela",
+            "provincia": "Tondela"
+
+        }, {
+            "codigo": "vila nova de paiva",
+            "provincia": "Vila Nova de Paiva"
+
+        }, {
+            "codigo": "viseu",
+            "provincia": "Viseu"
+
+        }, {
+            "codigo": "vouzela",
+            "provincia": "Vouzela"
+
+        }]
+
+    }
+
+]

@@ -1,80 +1,93 @@
-<div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-    <div class="profile_img">
-        <!-- end of image cropping -->
-        <div id="crop-avatar">
-            <!-- Current avatar -->
-            <img class="img-responsive avatar-view" ng-src="{{currentUser.avatar}}" alt="Avatar" title="Change the avatar">
-        </div>
-    </div>
-    <h3>{{currentUser.username}}</h3>
-    <ul class="list-unstyled user_data">
-        <li><i class="fa fa-map-marker user-profile-icon"></i> {{currentUser.email}}
-        </li>
-        <li>
-            <i class="fa fa-briefcase user-profile-icon"></i> {{currentUser.aboutYourself}}
-        </li>
-        <li class="m-top-xs">
-            <i class="fa fa-external-link user-profile-icon"></i>
-            <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
-        </li>
-    </ul>
-    <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
-    <br>
-</div>
-<div class="col-md-9 col-sm-9 col-xs-12">
-    <div class="" role="tabpanel" data-example-id="togglable-tabs">
-        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-            <li ng-init="selectTab(1)" role="presentation" class="active"><a href ng-click="selectTab(1)" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Comentarios</a>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Megalitos</h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
-            <li role="presentation" class=""><a href ng-click="selectTab(2)" role="tab" data-toggle="tab" aria-expanded="false">Megalitos</a>
-            </li>
-            <li role="presentation" class=""><a href ng-click="selectTab(3)" role="tab" data-toggle="tab" aria-expanded="false">Datos Personales</a>
-            </li>
-            <li role="presentation" class=""><a href ng-click="selectTab(4)" role="tab" data-toggle="tab" aria-expanded="false">Rutas</a>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
             </li>
         </ul>
-        <div id="myTabContent" class="tab-content">
-            <div ng-show="isSelected(1)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                <user-comments></user-comments>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+            <div class="profile_img">
+                <!-- end of image cropping -->
+                <div id="crop-avatar">
+                    <!-- Current avatar -->
+                    <img class="img-responsive avatar-view" ng-src="{{currentUser.avatar}}" alt="Avatar" title="Change the avatar">
+                </div>
             </div>
-           
-            <div ng-show="isSelected(2)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                <user-megalitos></user-megalitos>
-            </div>
-             <div ng-show="isSelected(3)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab" ng-init="chargeImages()">
-                <!-- start recent activity -->
-                <form name="megalitosForm " novalidate>
-                    <h3>Seleccione imagenes</h3>
-                    <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
-                    <div ng-repeat="item in uploader.queue">
-                        <br/>
-                        <strong>{{ item.file.name }}</strong>
-                        <div class="cropArea img-responsive ">
-                            <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
-                        </div>
-                        <h4>Imagen Recortada:</h4>
-                        <div><img class="img-thumbnail" ng-src="{{item.croppedImage}}" /></div>
+            <h3>{{currentUser.username}}</h3>
+            <ul class="list-unstyled user_data">
+                <li><i class="fa fa-map-marker user-profile-icon"></i> {{currentUser.email}}
+                </li>
+                <li>
+                    <i class="fa fa-briefcase user-profile-icon"></i> {{currentUser.aboutYourself}}
+                </li>
+                <li class="m-top-xs">
+                    <i class="fa fa-external-link user-profile-icon"></i>
+                    <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                </li>
+            </ul>
+            <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+            <br>
+        </div>
+        <div class="col-md-9 col-sm-9 col-xs-12">
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                    <li ng-init="selectTab(1)" role="presentation" class="active"><a href ng-click="selectTab(1)" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Comentarios</a>
+                    </li>
+                    <li role="presentation" class=""><a href ng-click="selectTab(2)" role="tab" data-toggle="tab" aria-expanded="false">Megalitos</a>
+                    </li>
+                    <li role="presentation" class=""><a href ng-click="selectTab(3)" role="tab" data-toggle="tab" aria-expanded="false">Datos Personales</a>
+                    </li>
+                    <li role="presentation" class=""><a href ng-click="selectTab(4)" role="tab" data-toggle="tab" aria-expanded="false">Rutas</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div ng-show="isSelected(1)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                        <user-comments></user-comments>
                     </div>
-                    </br>
-                    <div class="form-group ">
-                        <button ng-hide="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Guardar Imagen</button>
-                        <h4>Imagenes Guardadas:</h4>
+                    <div ng-show="isSelected(2)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                        <user-megalitos></user-megalitos>
                     </div>
-                    <div class="row">
-                        <div class="col-md-55" ng-repeat="file in files">
-                            <div class="image view ">
-                                <img ng-class="{ selected : activeImage===$index}" class="img-thumbnail" style="width: 100%;  display: block;" ng-src="/api/containers/profile/download/{{file.name}}" alt="image" ng-click="setActive($index)" />
+                    <div ng-show="isSelected(3)" role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab" ng-init="chargeImages()">
+                        <!-- start recent activity -->
+                        <form name="megalitosForm " novalidate>
+                            <h3>Seleccione imagenes</h3>
+                            <input class="img-responsive" type="file" nv-file-select="" uploader="uploader" ng-click="uploader.clearQueue()" />
+                            <div ng-repeat="item in uploader.queue">
+                                <br/>
+                                <strong>{{ item.file.name }}</strong>
+                                <div class="cropArea img-responsive ">
+                                    <img-crop image="item.image" result-image="item.croppedImage" result-image-size="160"></img-crop>
+                                </div>
+                                <h4>Imagen Recortada:</h4>
+                                <div><img class="img-thumbnail" ng-src="{{item.croppedImage}}" /></div>
                             </div>
-                            <!--<div class="caption">
+                            </br>
+                            <div class="form-group ">
+                                <button ng-hide="megalitosForm.$invalid||uploader.queue.length ==0" type="submit" class="btn btn-success" ng-click="submitForm($event)">Guardar Imagen</button>
+                                <h4>Imagenes Guardadas:</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-55" ng-repeat="file in files">
+                                    <div class="image view ">
+                                        <img ng-class="{ selected : activeImage===$index}" class="img-thumbnail" style="width: 100%;  display: block;" ng-src="/api/containers/profile/download/{{file.name}}" alt="image" ng-click="setActive($index)" />
+                                    </div>
+                                    <!--<div class="caption">
                 <p>Snow and Ice Incoming for the South</p>
             </div>-->
-                        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button ng-hide="activeImage===$index" type="submit" class="btn btn-success" ng-click="stablishImage()">Establecer Imagen</button>
+                            </div>
+                        </form>
+                        <!-- end recent activity -->
                     </div>
-                    <div class="form-group">
-                        <button ng-hide="activeImage===$index" type="submit" class="btn btn-success" ng-click="stablishImage()">Establecer Imagen</button>
-                    </div>
-                </form>
-                <!-- end recent activity -->
+                </div>
             </div>
         </div>
     </div>

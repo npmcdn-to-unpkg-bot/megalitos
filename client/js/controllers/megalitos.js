@@ -12,8 +12,35 @@ angular
         //megalito guztiak ez, aldatzeko
         MegalitosService.getAllMegalitos()
             .then(function(megalitos) {
-                    $scope.megalitos = megalitos;
+                $scope.megalitos = megalitos;
                     megalitos.forEach(function(megalito) {
+                        MegalitosService.getAllImagesMegalito(megalito.id)
+                            .then(function(images) {
+                                    megalito.images = images[0];
+                                },
+                                function(reason) {
+                                    //reason megalitos
+                                    console.log(reason);
+
+                                });
+                        MegalitosService.getUser(megalito.userId)
+                            .then(function(user) {
+                                    //$scope.megalitoUser = user;
+                                    megalito.username=user;
+                                },
+                                function(reason) {
+                                    //reason megalitos
+                                    console.log(reason);
+
+                                });
+                        MegalitosService.countComentariosMegalitos(megalito.id)
+                            .then(function(comentarios) {
+                                megalito.countComentarios=comentarios;
+                                
+                               // $scope.countComentarios.push(comentarios);
+                            }, function(reason) {
+                                console.log(reason);
+                            });
 
                     });
 
@@ -24,44 +51,7 @@ angular
 
                 });
 
-        $scope.countComentarios = [];
-        $scope.getComentario = function(megalito) {
-            MegalitosService.getUser(megalito.userId)
-                .then(function(user) {
-                        $scope.megalitoUser = user;
-                    },
-                    function(reason) {
-                        //reason megalitos
-                        console.log(reason);
-
-                    });
-            MegalitosService.countComentariosMegalitos(megalito.id)
-                .then(function(comentarios) {
-                    $scope.countComentarios.push(comentarios);
-                }, function(reason) {
-                    console.log(reason);
-                });
-
-
-        };
-
-
-
-
-        $scope.images = [];
-        $scope.getImages = function(megalito) {
-            MegalitosService.getAllImagesMegalito(megalito.id)
-                .then(function(images) {
-                        megalito.images = images[0];
-                    },
-                    function(reason) {
-                        //reason megalitos
-                        console.log(reason);
-
-                    });
-
-
-        };
+        
         $scope.readMore = function(megalito) {
             $state.go('megalito', { megalitoId: megalito.id });
 

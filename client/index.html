@@ -8,22 +8,12 @@
     <meta name="description" content="A Bootstrap Blog Template">
     <meta name="author" content="Vijaya Anand">
     <title>Home</title>
-    <!-- Bootstrap CSS file -->
-    <!-- Bootstrap -->
-    <!--<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <!--<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- iCheck -->
-    <!--<link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <!--<link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- jVectorMap -->
-    <!--<link href="css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
-    -->
     <link href="lib/bootstrap-3.0.3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="lib/bootstrap-3.0.3/css/bootstrap-xxs.css" rel="stylesheet" />
     <link href="lib/bootstrap-3.0.3/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
+   <!-- <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">-->
+   <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/screen.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/ngGallery/src/css/ngGallery.css">
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
@@ -32,21 +22,26 @@
     <link rel="stylesheet" href="bower_components/angular-datatables/dist/css/angular-datatables.min.css">
     <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="bower_components/datatables-buttons/css/buttons.dataTables.css">
-
-    
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
 </head>
 
 <body class="nav-md footer_fixed" ng-controller="AuthLoginController" ng-init="loginAuto()">
-    <div ui-view="megalitos"></div>
-    <div ui-view="megalito"></div>
-    <div ui-view="megalitos-comunidad"></div>
-    <div ui-view="map"></div>
-    <div ui-view="megalito-upload"></div>
-    <div ui-view="sign-up"></div>
-    <div ui-view="user"></div>
-    <div ui-view="favourites"></div>
-    <div ui-view="user-edit-megalito-upload"></div>
-    <div ui-view="admin-users"></div>
+    <div class="container body">
+        <div class="main_container">
+            <sidebar></sidebar>
+            <top-navigation></top-navigation>
+            <main ui-view></main>
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+    
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap-3.0.3/js/bootstrap.min.js"></script>
     <script src="vendor/angular.js"></script>
@@ -54,11 +49,9 @@
     <script src="vendor/angular-resource.js"></script>
     <script src="vendor/angular-ui-router.js"></script>
     <script src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-     <script src="bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
-    
-      <script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js"></script>
-      <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.min.js"></script>
-
+    <script src="bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/colvis/angular-datatables.colvis.min.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-file-upload/dist/angular-file-upload.js"></script>
     <script src="bower_components/moment/moment.js"></script>
@@ -66,16 +59,21 @@
     <script src="bower_components/angular-moment/angular-moment.js"></script>
     <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
     <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
+    <!--<script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>-->
+    <script type="text/javascript" src="bower_components/ngGallery/src/js/ngGallery.js"></script>
     <script src='bower_components/lodash/dist/lodash.js'></script>
     <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.js'></script>
     <script src='bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
     <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
     <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
     <script src="bower_components/angular-socialshare/lib/angular-socialshare.js"></script>
+    <script type="text/javascript" src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="vendor/validator.js"></script>
     <script src="vendor/autosize.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/controllers/auth.js"></script>
+    <script src="js/services/auth.js"></script>
     <script src="js/controllers/sidebar.js"></script>
     <script src="js/controllers/messages.js"></script>
     <script src="js/controllers/megalitos.js"></script>
@@ -96,11 +94,8 @@
     <script src="js/controllers/favourites.js"></script>
     <script src="js/controllers/user-edit-megalito-upload.js"></script>
     <script src="js/directives/directives.js"></script>
-    <script src="js/directives/bundle-directives.js"></script>
-    <script src="js/controllers/auth.js"></script>
     <script src="js/controllers/review.js"></script>
     <script src="js/services/lb-services.js"></script>
-    <script src="js/services/auth.js"></script>
     <script src="js/services/megalitos.js"></script>
     <script src="js/filters/moment-filter.js"></script>
     <script src="js/controllers/admin-users.js"></script>

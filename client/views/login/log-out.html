@@ -10,22 +10,35 @@
                     <div class="col-md-12">
                         <form class="form-horizontal form-label-left" name="loginForm " novalidate>
                             <!-- Email -->
-                            <div class="form-group">
+                            <div class="form-group " ng-show="!showDetails">
                                 <label>Email</label>
-                                <input class="form-control col-md-7 col-xs-12" type="text" name="email" ng-model="user.email" placeholder="email" required="required">
+                                <input class="form-control col-md-7 col-xs-12" type="text" name="email" ng-model="user.email" placeholder="Email" required="required">
                                 <ul class="parsley-errors-list filled "></ul>
                             </div>
                             <!-- Contraseña -->
-                            <div class="form-group">
+                            <div class="form-group" ng-show="!showDetails">
                                 <label>Contraseña</label>
                                 <input class="form-control col-md-7 col-xs-12" type="password" name="password" ng-model="user.password" placeholder="Password" required="required">
                                 <ul class="parsley-errors-list filled "></ul>
-                                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                                 <div class="help-block text-right"><a href="#/sign-up">Registrate</a></div>
+                                <div class="help-block text-right" ng-click="showDetails = ! showDetails"><a href="">Olvide la contraseña ?</a></div>
                             </div>
-                            <div class="form-group ">
+                            <!-- Recuperar Contraseña -->
+                            <div class="form-group" ng-show="showDetails">
+                                <label>Email</label>
+                                <input class="form-control col-md-7 col-xs-12" type="text" name="email" ng-model="user.email" placeholder="Email" required="required">
+                                <ul class="parsley-errors-list filled "></ul>
+                                <div class="help-block text-right"><a href="#/sign-up">Registrate</a></div>
+                                <div class="help-block text-right" ng-click="showDetails = ! showDetails"><a href="">Login</a></div>
+                            </div>
+                            <div class="form-group " ng-show="showDetails">
                                 <div class="col-md-6 col-md-offset-3 ">
-                                    <button ng-disabled="loginForm.$invalid" type="submit" class="btn btn-success" ng-click="login()">Submit</button>
+                                    <button ng-disabled="!user.email" type="submit" class="btn btn-success" ng-click="restartPassword(user.email)">Enviar</button>
+                                </div>
+                            </div>
+                            <div class="form-group " ng-show="!showDetails">
+                                <div class="col-md-6 col-md-offset-3 ">
+                                    <button ng-disabled="loginForm.$invalid" type="submit" class="btn btn-success" ng-click="login()">Entrar</button>
                                 </div>
                             </div>
                         </form>
@@ -35,4 +48,3 @@
         </ul>
     </li>
 </ul>
-

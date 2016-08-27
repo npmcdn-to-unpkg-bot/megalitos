@@ -52,7 +52,7 @@ angular
                     comentarios.forEach(function(comentario, index) {
                         MegalitosService.getMegalito(comentario.megalitosId)
                             .then(function(megalito) {
-                                    $scope.coments(index).nombre=megalito.nombre;                       
+                                    $scope.coments(index).nombre = megalito.nombre;
 
                                 },
                                 function(reason) {

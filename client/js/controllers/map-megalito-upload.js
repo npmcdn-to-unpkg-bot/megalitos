@@ -1,27 +1,13 @@
 angular
     .module('app')
-    .controller('MapMegalitoUploadController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', 'Lightbox', function($scope, MegalitosService,
-        amMoment, $stateParams, Lightbox) {
+    .controller('MapMegalitoUploadController', ['$scope', 'MegalitosService', 'amMoment', '$stateParams', function($scope, MegalitosService,
+        amMoment, $stateParams) {
         $scope.map = {
             center: {
                 latitude: 40.418889,
                 longitude: -3.691944
             },
             zoom: 6,
-            markersEvents: {
-                click: function(marker, eventName, model) {
-                    $scope.map.window.model = model;
-                    $scope.map.window.show = true;
-                }
-            },
-            window: {
-                marker: {},
-                show: false,
-                closeClick: function() {
-                    this.show = false;
-                },
-                options: {}
-            },
             bounds: {}
         };
         $scope.options = {

@@ -4,8 +4,10 @@ angular
         MegalitosService, amMoment, $stateParams, $filter) {
         //ver respuestas para este usuario
         $scope.comments = [];
-        MegalitosService.getUserAllCommentsFavourite($scope.currentUser.id)
+        var userLocal = window.localStorage.getItem("$LoopBack$currentUserId");
+        MegalitosService.getUserAllCommentsFavourite(userLocal)
             .then(function(responses) {
+                console.log(responses);
                 responses.forEach(function(response, index) {
                         MegalitosService.getComment(response.comentariosId)
                             .then(function(comment) {
@@ -48,29 +50,9 @@ angular
 
                                             }
                                         }
-                                        $scope.ufa = $scope.comments;
+                                        $scope.favourites = $scope.comments;
                                         //corazones
-                                        $scope.ufa.forEach(function(comentario, index) {
-                                            MegalitosService.getCommentFavourite(comentario.id, $rootScope.currentUser.id)
-                                                .then(function(commentarioFavourite) {
-                                                    try {
-                                                        if (commentarioFavourite[0].favourite) {
-                                                            $scope.ufa[index].loved = true;
-                                                        }
-
-                                                    } catch (err) {
-
-                                                    }
-
-
-                                                }, function(reason) {
-
-                                                    //reason images
-                                                    console.log(reason);
-
-                                                });
-
-                                        });
+                                        $scope.corazones($scope.favourites);
 
                                     }
 
@@ -89,10 +71,14 @@ angular
 
                     });
 
-
-
-
             });
+        $scope.corazones = function(favourites) {
+            $scope.favourites.forEach(function(comentario, index) {
+                $scope.favourites[index].loved = true;
+            });
+
+
+        };
 
 
         $scope.setAuthor = function(comment) {
@@ -155,12 +141,12 @@ angular
                     } else {
                         favourite = false;
                     }
-                    MegalitosService.getCommentFavourite(commentId, $rootScope.currentUser.id)
+                    MegalitosService.getCommentFavourite(commentId, userLocal)
                         .then(function(commentarioFavourite) {
                             if (commentarioFavourite.length === 0) {
                                 id = commentarioFavourite;
                                 //añadir favourite
-                                MegalitosService.upsertCommentFavourite(id, commentId, favourite, $rootScope.currentUser.id)
+                                MegalitosService.upsertCommentFavourite(id, commentId, favourite, userLocal)
                                     .then(function(comentarios) {}, function(reason) {
                                         //reason images
                                         console.log(reason);
@@ -170,14 +156,15 @@ angular
                             } else {
                                 id = commentarioFavourite[0].id;
                                 //eliminar favourite
-                                $scope.ufa.forEach(function(comentariofavorito, index) {
-                                    if(commentId===comentariofavorito.id){
-                                        $scope.ufa.splice(index);
+                                $scope.favourites.forEach(function(comentariofavorito, index) {
+                                    if (commentId === comentariofavorito.id) {
+                                        $scope.favourites.splice(index,1);
                                     }
-                                    
+
                                 });
                                 MegalitosService.deleteCommentFavourite(id)
                                     .then(function() {
+                                        //$state.go($state.current, {}, { reload: true });
 
                                     }, function(reason) {
                                         //reason images
@@ -226,7 +213,7 @@ angular
 
 
 
-            MegalitosService.createComentarioMegalito($stateParams.megalitoId, $rootScope.currentUser.id, $rootScope.currentUser.username, $scope.newComment.content)
+            MegalitosService.createComentarioMegalito($stateParams.megalitoId, userLocal, $rootScope.currentUser.username, $scope.newComment.content)
                 .then(function(comentarios) {
                         $state.go($state.current, {}, { reload: true });
                     },

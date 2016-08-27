@@ -45,10 +45,11 @@ angular
                 });
         }
 
-        function restartPassword() {
+        function restartPassword(email) {
             return User
                 .resetPassword({
-                    email: $rootScope.currentUser.email
+                    email: email
+
                 })
                 .$promise;
         }
