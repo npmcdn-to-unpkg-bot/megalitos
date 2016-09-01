@@ -35,9 +35,12 @@ angular
             ret[idKey] = i;
             return ret;
         };
-        $scope.coordenadasMapa = [];
+        
         $scope.pasarCoordenadas = function(tipoMegalito, lat, lng) {
+            $scope.coordenadasMapa = [];
             if (lat && lng && tipoMegalito) {
+                console.log("egiten");
+                console.log(tipoMegalito);
                 $scope.megalitosMarkers = [];
                 $scope.map.center =  {latitude: lat,longitude:lng};
                 $scope.coordenadasMapa.push({

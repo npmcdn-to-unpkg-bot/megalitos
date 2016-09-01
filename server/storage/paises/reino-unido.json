@@ -1,0 +1,448 @@
+[{
+        "comunidad": "England",
+        "provincias": [{ "codigo": "bath and north east somerset", "provincia": "Bath and North East Somerset" },
+            { "codigo": "bedford", "provincia": "Bedford" },
+            { "codigo": "borough of barnsley", "provincia": "Borough of Barnsley" },
+            { "codigo": "borough of blackburn with darwen", "provincia": "Borough of Blackburn with Darwen" },
+            { "codigo": "borough of blackpool", "provincia": "Borough of Blackpool" },
+            { "codigo": "borough of bolton", "provincia": "Borough of Bolton" },
+            { "codigo": "borough of bournemouth", "provincia": "Borough of Bournemouth" },
+            { "codigo": "borough of bracknell forest", "provincia": "Borough of Bracknell Forest" },
+            { "codigo": "borough of brighton and hove", "provincia": "Borough of Brighton and Hove" },
+            { "codigo": "borough of bury", "provincia": "Borough of Bury" },
+            { "codigo": "borough of calderdale", "provincia": "Borough of Calderdale" },
+            { "codigo": "borough of darlington", "provincia": "Borough of Darlington" },
+            { "codigo": "borough of doncaster", "provincia": "Borough of Doncaster" },
+            { "codigo": "borough of dudley", "provincia": "Borough of Dudley" },
+            { "codigo": "borough of halton", "provincia": "Borough of Halton" },
+            { "codigo": "borough of hartlepool", "provincia": "Borough of Hartlepool" },
+            { "codigo": "borough of kirklees", "provincia": "Borough of Kirklees" },
+            { "codigo": "borough of knowsley", "provincia": "Borough of Knowsley" },
+            { "codigo": "borough of luton", "provincia": "Borough of Luton" },
+            { "codigo": "borough of medway", "provincia": "Borough of Medway" },
+            { "codigo": "borough of middlesbrought", "provincia": "Borough of Middlesbrought" },
+            { "codigo": "borough of milton keynes", "provincia": "Borough of Milton Keynes" },
+            { "codigo": "borough of north tyneside", "provincia": "Borough of North Tyneside" },
+            { "codigo": "borough of oldham", "provincia": "Borough of Oldham" },
+            { "codigo": "borough of poole", "provincia": "Borough of Poole" },
+            { "codigo": "borough of reading", "provincia": "Borough of Reading" },
+            { "codigo": "borough of redcar and cleveland", "provincia": "Borough of Redcar and Cleveland" },
+            { "codigo": "borough of rochdale", "provincia": "Borough of Rochdale" },
+            { "codigo": "borough of rotherham", "provincia": "Borough of Rotherham" },
+            { "codigo": "borough of sandwell", "provincia": "Borough of Sandwell" },
+            { "codigo": "borough of sefton", "provincia": "Borough of Sefton" },
+            { "codigo": "borough of solihull", "provincia": "Borough of Solihull" },
+            { "codigo": "borough of south tyneside", "provincia": "Borough of South Tyneside" },
+            { "codigo": "borough of southend-on-sea", "provincia": "Borough of Southend-on-Sea" },
+            { "codigo": "borough of st. helens", "provincia": "Borough of St. Helens" },
+            { "codigo": "borough of stockport", "provincia": "Borough of Stockport" },
+            { "codigo": "borough of stockton-on-tees", "provincia": "Borough of Stockton-on-Tees" },
+            { "codigo": "borough of swindon", "provincia": "Borough of Swindon" },
+            { "codigo": "borough of tameside", "provincia": "Borough of Tameside" },
+            { "codigo": "borough of thurrock", "provincia": "Borough of Thurrock" },
+            { "codigo": "borough of torbay", "provincia": "Borough of Torbay" },
+            { "codigo": "borough of trafford", "provincia": "Borough of Trafford" },
+            { "codigo": "borough of walsall", "provincia": "Borough of Walsall" },
+            { "codigo": "borough of warrington", "provincia": "Borough of Warrington" },
+            { "codigo": "borough of wigan", "provincia": "Borough of Wigan" },
+            { "codigo": "borough of wolverhampton", "provincia": "Borough of Wolverhampton" },
+            { "codigo": "buckinghamshire", "provincia": "Buckinghamshire" },
+            { "codigo": "cambridgeshire", "provincia": "Cambridgeshire" },
+            { "codigo": "central bedfordshire", "provincia": "Central Bedfordshire" },
+            { "codigo": "cheshire east", "provincia": "Cheshire East" },
+            { "codigo": "cheshire west and chester", "provincia": "Cheshire West and Chester" },
+            { "codigo": "city and borough of birmingham", "provincia": "City and Borough of Birmingham" },
+            { "codigo": "city and borough of bradford", "provincia": "City and Borough of Bradford" },
+            { "codigo": "city and borough of coventry", "provincia": "City and Borough of Coventry" },
+            { "codigo": "city and borough of leeds", "provincia": "City and Borough of Leeds" },
+            { "codigo": "city and borough of liverpool", "provincia": "City and Borough of Liverpool" },
+            { "codigo": "city and borough of manchester", "provincia": "City and Borough of Manchester" },
+            { "codigo": "city and borough of newcastle upon tyne", "provincia": "City and Borough of Newcastle Upon Tyne" },
+            { "codigo": "city and borough of salford", "provincia": "City and Borough of Salford" },
+            { "codigo": "city and borough of sheffield", "provincia": "City and Borough of Sheffield" },
+            { "codigo": "city and borough of sunderland", "provincia": "City and Borough of Sunderland" },
+            { "codigo": "city and borough of wakefield", "provincia": "City and Borough of Wakefield" },
+            { "codigo": "city of bristol", "provincia": "City of Bristol" },
+            { "codigo": "city of derby", "provincia": "City of Derby" },
+            { "codigo": "city of kingston upon hull", "provincia": "City of Kingston Upon Hull" },
+            { "codigo": "city of leicester", "provincia": "City of Leicester" },
+            { "codigo": "city of nottingham", "provincia": "City of Nottingham" },
+            { "codigo": "city of peterborough", "provincia": "City of Peterborough" },
+            { "codigo": "city of plymouth", "provincia": "City of Plymouth" },
+            { "codigo": "city of portsmouth", "provincia": "City of Portsmouth" },
+            { "codigo": "city of southampton", "provincia": "City of Southampton" },
+            { "codigo": "city of stoke-on-trent", "provincia": "City of Stoke-on-Trent" },
+            { "codigo": "city of york", "provincia": "City of York" },
+            { "codigo": "cornwall", "provincia": "Cornwall" },
+            { "codigo": "county durham", "provincia": "County Durham" },
+            { "codigo": "cumbria", "provincia": "Cumbria" },
+            { "codigo": "derbyshire", "provincia": "Derbyshire" },
+            { "codigo": "devon", "provincia": "Devon" },
+            { "codigo": "district of rutland", "provincia": "District of Rutland" },
+            { "codigo": "district of telford and wrekin", "provincia": "District of Telford and Wrekin" },
+            { "codigo": "district of wokingham", "provincia": "District of Wokingham" },
+            { "codigo": "dorset", "provincia": "Dorset" },
+            { "codigo": "east riding of yorkshire", "provincia": "East Riding of Yorkshire" },
+            { "codigo": "east sussex", "provincia": "East Sussex" },
+            { "codigo": "essex", "provincia": "Essex" },
+            { "codigo": "gateshead", "provincia": "Gateshead" },
+            { "codigo": "gloucestershire", "provincia": "Gloucestershire" },
+            { "codigo": "greater london", "provincia": "Greater London" },
+            { "codigo": "hampshire", "provincia": "Hampshire" },
+            { "codigo": "herefordshire", "provincia": "Herefordshire" },
+            { "codigo": "hertfordshire", "provincia": "Hertfordshire" },
+            { "codigo": "isle of wight", "provincia": "Isle of Wight" },
+            { "codigo": "isles of scilly", "provincia": "Isles of Scilly" },
+            { "codigo": "kent", "provincia": "Kent" },
+            { "codigo": "lancashire", "provincia": "Lancashire" },
+            { "codigo": "leicestershire", "provincia": "Leicestershire" },
+            { "codigo": "lincolnshire", "provincia": "Lincolnshire" },
+            { "codigo": "metropolitan borough of wirral", "provincia": "Metropolitan Borough of Wirral" },
+            { "codigo": "norfolk", "provincia": "Norfolk" },
+            { "codigo": "north east lincolnshire", "provincia": "North East Lincolnshire" },
+            { "codigo": "north incolnshire", "provincia": "North Lincolnshire" },
+            { "codigo": "north somerset", "provincia": "North Somerset" },
+            { "codigo": "north yorkshire", "provincia": "North Yorkshire" },
+            { "codigo": "northamptonshire", "provincia": "Northamptonshire" },
+            { "codigo": "northumberland", "provincia": "Northumberland" },
+            { "codigo": "nottinghamshire", "provincia": "Nottinghamshire" },
+            { "codigo": "oxfordshire", "provincia": "Oxfordshire" },
+            { "codigo": "royal borough of windsor and maidenhead", "provincia": "Royal Borough of Windsor and Maidenhead" },
+            { "codigo": "shropshire", "provincia": "Shropshire" },
+            { "codigo": "slough", "provincia": "Slough" },
+            { "codigo": "somerset", "provincia": "Somerset" },
+            { "codigo": "south gloucestershire", "provincia": "South Gloucestershire" },
+            { "codigo": "staffordshire", "provincia": "Staffordshire" },
+            { "codigo": "suffolk", "provincia": "Suffolk" },
+            { "codigo": "surrey", "provincia": "Surrey" },
+            { "codigo": "warwickshire", "provincia": "Warwickshire" },
+            { "codigo": "west berkshire", "provincia": "West Berkshire" },
+            { "codigo": "west sussex", "provincia": "West Sussex" },
+            { "codigo": "wiltshire", "provincia": "Wiltshire" },
+            { "codigo": "worcestershire", "provincia": "Worcestershire" }
+        ]
+
+    }, {
+        "comunidad": "N Ireland",
+        "provincias": [{
+            "codigo": "antrim borough",
+            "provincia": "Antrim Borough"
+        }, {
+            "codigo": "ards district",
+            "provincia": "Ards District"
+
+        }, {
+            "codigo": "armagh district",
+            "provincia": "Armagh District"
+        }, {
+            "codigo": "ballymena district",
+            "provincia": "Ballymena District"
+
+        }, {
+            "codigo": "ballymoney district",
+            "provincia": "Ballymoney District"
+
+        }, {
+            "codigo": "banbridge district",
+            "provincia": "Banbridge District"
+        }, {
+            "codigo": "carrickfergus district",
+            "provincia": "Carrickfergus District"
+
+        }, {
+            "codigo": "castlereagh district",
+            "provincia": "Castlereagh District"
+
+        }, {
+            "codigo": "city of belfast",
+            "provincia": "City of Belfast"
+        }, {
+            "codigo": "city of derry",
+            "provincia": "City of Derry"
+
+        }, {
+            "codigo": "coleraine district",
+            "provincia": "Coleraine District"
+
+        }, {
+            "codigo": "cookstown district",
+            "provincia": "Cookstown District"
+        }, {
+            "codigo": "craigavon district",
+            "provincia": "Craigavon District"
+
+        }, {
+            "codigo": "down district",
+            "provincia": "Down District"
+
+        }, {
+            "codigo": "dungannon district",
+            "provincia": "Dungannon District"
+        }, {
+            "codigo": "fermanagh district",
+            "provincia": "Fermanagh District"
+
+        }, {
+            "codigo": "larne district",
+            "provincia": "Larne District"
+
+        }, {
+            "codigo": "limavady district",
+            "provincia": "Limavady District"
+        }, {
+            "codigo": "lisburn district",
+            "provincia": "Lisburn District"
+
+        }, {
+            "codigo": "magherafelt district",
+            "provincia": "Magherafelt District"
+
+        }, {
+            "codigo": "moyle district",
+            "provincia": "Moyle District"
+        }, {
+            "codigo": "newry and mourne district",
+            "provincia": "Newry and Mourne District"
+
+        }, {
+            "codigo": "newtownabbey district",
+            "provincia": "Newtownabbey District"
+
+        }, {
+            "codigo": "north down district",
+            "provincia": "North Down District"
+        }, {
+            "codigo": "omagh district",
+            "provincia": "Omagh District"
+
+        }, {
+            "codigo": "strabane district",
+            "provincia": "Strabane District"
+        }]
+
+    }, {
+        "comunidad": "Scotland",
+        "provincias": [{
+            "codigo": "aberdeen city",
+            "provincia": "Aberdeen City"
+
+        }, {
+            "codigo": "aberdeenshire",
+            "provincia": "Aberdeenshire"
+
+        }, {
+            "codigo": "angus",
+            "provincia": "Angus"
+
+        }, {
+            "codigo": "argyll and bute",
+            "provincia": "Argyll and Bute"
+
+        }, {
+            "codigo": "city of edinburgh",
+            "provincia": "City of Edinburgh"
+
+        }, {
+            "codigo": "clackmannanshire",
+            "provincia": "Clackmannanshire"
+
+        }, {
+            "codigo": "dumfries and galloway",
+            "provincia": "Dumfries and Galloway"
+
+        }, {
+            "codigo": "dundee city",
+            "provincia": "Dundee City"
+
+        }, {
+            "codigo": "east ayrshire",
+            "provincia": "East Ayrshire"
+
+        }, {
+            "codigo": "east dunbartonshire",
+            "provincia": "East Dunbartonshire"
+
+        }, {
+            "codigo": "east lothian",
+            "provincia": "East Lothian"
+
+        }, {
+            "codigo": "east renfrewshire",
+            "provincia": "East Renfrewshire"
+
+        }, {
+            "codigo": "eilean siar",
+            "provincia": "Eilean Siar"
+
+        }, {
+            "codigo": "falkirk",
+            "provincia": "Falkirk"
+
+        }, {
+            "codigo": "fife",
+            "provincia": "Fife"
+
+        }, {
+            "codigo": "glasgow city",
+            "provincia": "Glasgow City"
+
+        }, {
+            "codigo": "highland",
+            "provincia": "Highland"
+
+        }, {
+            "codigo": "inverclyde",
+            "provincia": "Inverclyde"
+
+        }, {
+            "codigo": "midlothian",
+            "provincia": "Midlothian"
+
+        }, {
+            "codigo": "moray",
+            "provincia": "Moray"
+
+        }, {
+            "codigo": "north ayrshire",
+            "provincia": "North Ayrshire"
+
+        }, {
+            "codigo": "north lanarkshire",
+            "provincia": "North Lanarkshire"
+
+        }, {
+            "codigo": "orkney islands",
+            "provincia": "Orkney Islands"
+
+        }, {
+            "codigo": "perth and kinross",
+            "provincia": "Perth and Kinross"
+
+        }, {
+            "codigo": "renfrewshire",
+            "provincia": "Renfrewshire"
+
+        }, {
+            "codigo": "shetland islands",
+            "provincia": "Shetland Islands"
+
+        }, {
+            "codigo": "south ayrshire",
+            "provincia": "South Ayrshire"
+
+        }, {
+            "codigo": "south lanarkshire",
+            "provincia": "South Lanarkshire"
+
+        }, {
+            "codigo": "stirling",
+            "provincia": "Stirling"
+
+        }, {
+            "codigo": "the scottish borders",
+            "provincia": "The Scottish Borders"
+
+        }, {
+            "codigo": "west dunbartonshire",
+            "provincia": "West Dunbartonshire"
+
+        }, {
+            "codigo": "west lothian",
+            "provincia": "West Lothian"
+
+        }]
+
+    }, {
+        "comunidad": "Wales",
+        "provincias": [{
+            "codigo": "anglesey",
+            "provincia": "Anglesey"
+        }, {
+            "codigo": "blaenau gwent",
+            "provincia": "Blaenau Gwent"
+
+        }, {
+            "codigo": "bridgend county borought",
+            "provincia": "Bridgend County Borought"
+
+        }, {
+            "codigo": "carmarthenshire",
+            "provincia": "Carmarthenshire"
+
+        }, {
+            "codigo": "city and county of cardiff",
+            "provincia": "City and County of Cardiff"
+
+        }, {
+            "codigo": "city and county of swansea",
+            "provincia": "City and County of Swansea"
+
+        }, {
+            "codigo": "city of newport",
+            "provincia": "City of Newport"
+
+        }, {
+            "codigo": "conwy",
+            "provincia": "Conwy"
+
+        }, {
+            "codigo": "county borough of caerphilly",
+            "provincia": "County Borough of Caerphilly"
+
+        }, {
+            "codigo": "county borough of merthyr tydfil",
+            "provincia": "County Borough of Merthyr Tydfil"
+
+        }, {
+            "codigo": "county borough of torfaen",
+            "provincia": "County Borough of Torfaen"
+
+        }, {
+            "codigo": "county of ceredigion",
+            "provincia": "County of Ceredigion"
+
+        }, {
+            "codigo": "county of flintshire",
+            "provincia": "County of Flintshire"
+
+        }, {
+            "codigo": "denbighshire",
+            "provincia": "Denbighshire"
+
+        }, {
+            "codigo": "gwynedd",
+            "provincia": "Gwynedd"
+
+        }, {
+            "codigo": "monmouthshire",
+            "provincia": "Monmouthshire"
+
+        }, {
+            "codigo": "neath port talbot",
+            "provincia": "Neath Port Talbot"
+
+        }, {
+            "codigo": "pembrokeshire",
+            "provincia": "Pembrokeshire"
+
+        }, {
+            "codigo": "rhondda cynon taff",
+            "provincia": "Rhondda Cynon Taff"
+
+        }, {
+            "codigo": "sir powys",
+            "provincia": "Sir Powys"
+
+        }, {
+            "codigo": "vale of glamorgan",
+            "provincia": "Vale of Glamorgan"
+
+        }, {
+            "codigo": "wrexham",
+            "provincia": "Wrexham"
+
+        }]
+
+    }
+
+]

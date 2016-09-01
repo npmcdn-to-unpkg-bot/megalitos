@@ -18,13 +18,14 @@
         <input class="form-control col-md-7 col-xs-12 " type="text " name="estacionMegalitica " ng-model="megalito.estacionMegalitica " placeholder="both name(s) e.g Jon Doe ">
         <ul class="parsley-errors-list filled "></ul>
         <!-- pais -->
+        <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
        <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-left">
             <label>Pais</label>
             <select class="form-control " name="paises " ng-model="megalito.selectedPaises " ng-change="selectedPais(megalito.selectedPaises)"  required="required ">
             <option value="">-- SELECCIONE UN PAIS--</option>
             <option value="espana">España</option>
             <option value="portugal">Portugal</option>
-            <option value="reino unido ">Reino Unido</option>
+            <option value="reino-unido">Reino Unido</option>
             </select>
             <ul class="parsley-errors-list filled "></ul>
         </div>
@@ -36,6 +37,8 @@
             </select>
             <ul class="parsley-errors-list filled "></ul>
         </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 nopadding">
             <!-- provincia -->
             <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-left">
                 <label>Provincia</label>
@@ -51,6 +54,7 @@
                     <option value="">-- SELECCIONE UN PUEBLO--</option>
                 </select>
                 <ul class="parsley-errors-list filled "></ul>
+            </div>
             </div>
     <!-- Coordenadas -->
         <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding-left ">
