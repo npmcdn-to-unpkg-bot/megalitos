@@ -6,15 +6,6 @@
             </li>
             <li ng-show="showCollapse"><a class="collapse-link" ng-click="showCollapse = !showCollapse"><i class="fa fa-chevron-down"></i> </a>
             </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Settings 1</a>
-                    </li>
-                    <li><a href="#">Settings 2</a>
-                    </li>
-                </ul>
-            </li>
             <li><a class="close-link" ng-click="showAll = !showAll"><i class="fa fa-close"></i></a>
             </li>
         </ul>
@@ -36,9 +27,9 @@
             </div>
             <div class="post-footer">
                 <div class="postauthor">
-                    </br>
                     <div class="form-group">
-                        <button ng-hide="activeImage===$index" type="submit" class="btn btn-success" ng-click="editMegalito(megalito)">Editar Megalito</button>
+                        <button  type="submit" class="btn btn-success" ng-click="editMegalito(megalito)">Editar Megalito</button>
+                        <button  type="submit" class="btn btn-success" ng-click="showConfirm(megalito.id)">Eliminar Megalito</button>
                     </div>
                 </div>
             </div>

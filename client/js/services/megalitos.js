@@ -158,16 +158,25 @@ angular
                 .$promise;
 
         }
+        //delete
+        function deleteMegalito(megalitoId, nombre, tipoMegalito, estacionMegalitica, localizacion, descripcion, descubrimiento, observaciones, bibliografia) {
+            return Megalitos
+                .deleteById({ id: megalitoId })
+            .$promise;
+
+        }
 
         function deleteLugares(lugaresId) {
-            return Megalitos.lugares
+            console.log(lugaresId);
+            return Lugares
                 .deleteById({ id: lugaresId })
                 .$promise;
 
         }
 
         function deleteCoordenadas(coordenadasId) {
-            return Megalitos.coordenadas
+            console.log(coordenadasId);
+            return Coordenadas
                 .deleteById({ id: coordenadasId })
                 .$promise;
 
@@ -175,7 +184,8 @@ angular
         }
 
         function deleteImagenes(imagesId) {
-            return Megalitos.imagenes
+            console.log(imagesId);
+            return Imagenes
                 .deleteById({ id: imagesId })
                 .$promise;
 
@@ -235,8 +245,6 @@ angular
                 }
             }).$promise;
         }
-
-
 
         function createComentarioMegalito(megalitoId, userId, username, message) {
             return Comentarios.create({
@@ -311,6 +319,11 @@ angular
                     comentariosId: comentarioId,
                     usuarioMencionado: usuarioMencionado
                 }).$promise;
+
+        }
+        function getAllResponses(userId) {
+            return MencionadoComentario.find({})
+                .$promise;
 
         }
 
@@ -411,6 +424,7 @@ angular
             editLugares: editLugares,
             editCoordenadas: editCoordenadas,
             editImagenes: editImagenes,
+            deleteMegalito:deleteMegalito,
             deleteLugares: deleteLugares,
             deleteCoordenadas: deleteCoordenadas,
             deleteImagenes: deleteImagenes,
@@ -423,6 +437,7 @@ angular
             getComment: getComment,
             createComentarioResponse: createComentarioResponse,
             updateUser: updateUser,
+            getAllResponses:getAllResponses,
             getAllUserResponses: getAllUserResponses,
             getAllUserResponsesWithoutRead: getAllUserResponsesWithoutRead,
             updateUserResponse: updateUserResponse,

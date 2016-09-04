@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .factory('AuthService', ['$q', '$rootScope', 'User', '$cookies', function($q,
-        $rootScope, User, $cookies) {
+    .factory('AuthService', ['$q', '$rootScope', 'User', function($q,
+        $rootScope, User) {
         function login(email, password) {
             return User
                 .login({ email: email, password: password })
@@ -17,7 +17,6 @@ angular
                         avatar: response.user.avatar,
                         aboutYourself: response.user.aboutYourself
                     };
-                    $cookies.key = JSON.stringify($rootScope.currentUser);
                     window.localStorage.setItem("key", JSON.stringify({ username: $rootScope.currentUser.username, email: $rootScope.currentUser.email, password: password }));
                 });
         }

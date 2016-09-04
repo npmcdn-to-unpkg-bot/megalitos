@@ -200,4 +200,14 @@ angular.module('app')
 
         };
 
+    }).directive('adminMegalitos', function() {
+
+        return {
+            restrict: 'E',
+            templateUrl: 'views/admin/admin-megalitos.html',
+            controller: 'AdminMegalitosController'
+
+
+        };
+
     });

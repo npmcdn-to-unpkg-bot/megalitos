@@ -12,8 +12,8 @@ module.exports = function(User) {
             template: path.resolve(__dirname, '../../server/views/verify.ejs'),
             redirect: '/verified',
             user: User,
-            host : 'megalitos.eu-gb.mybluemix.net',
-            port:80
+           // host : 'megalitos.eu-gb.mybluemix.net',
+           // port:80
         };
 
         User.verify(options, function(err, response) {
@@ -39,10 +39,10 @@ module.exports = function(User) {
 
     //send password reset link when requested
     User.on('resetPasswordRequest', function(info) {
-        var url = 'http://' + 'megalitos.eu-gb.mybluemix.net' + ':' + '80'+ '/reset-password';
-        var html = 'Click <a href="' + url + '?access_token=' +
-            info.accessToken.id + '">here</a> to reset your password';
-
+         var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var html = 'Click <a href="' + url + '?access_token=' +
+        info.accessToken.id + '">here</a> to reset your password';
+        //var url = 'http://' + 'megalitos.eu-gb.mybluemix.net' + ':' + '80'+ '/reset-password';
         User.app.models.Email.send({
             to: info.email,
             from: info.email,

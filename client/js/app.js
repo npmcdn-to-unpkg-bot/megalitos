@@ -1,5 +1,5 @@
 angular
-    .module('app', ['ui.router', 'lbServices', 'ngCookies', 'angularFileUpload', 'angularMoment', 'angular.filter', 'jkuri.gallery', 'oc.lazyLoad', 'uiGmapgoogle-maps', 'ngImgCrop', '720kb.socialshare', 'datatables', 'datatables.buttons','ngAnimate', 'toastr'])
+    .module('app', ['ui.router', 'lbServices', 'angularFileUpload', 'angularMoment', 'angular.filter', 'jkuri.gallery', 'oc.lazyLoad', 'uiGmapgoogle-maps', 'ngImgCrop', '720kb.socialshare', 'datatables', 'datatables.buttons','ngAnimate', 'ngMaterial','toastr','angularValidator'])
     .config(['$stateProvider', '$urlRouterProvider', function(
         $stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -49,6 +49,11 @@ angular
             .state('admin-users', {
                 url: '/usuarios',
                 templateUrl: "/views/bundle/admin-users-bundle.html"
+                //authenticate: true,
+               
+            }).state('admin-megalitos', {
+                url: '/admin-megalitos',
+                templateUrl: "/views/bundle/admin-megalitos-bundle.html"
                 //authenticate: true,
                
             });
