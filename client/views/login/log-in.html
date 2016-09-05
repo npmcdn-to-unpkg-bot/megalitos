@@ -13,21 +13,21 @@
     <li role="presentation" class="dropdown">
         <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-envelope-o"></i>
-            <span ng-show="messages.length" class="badge bg-green">{{messages.length}}
-        <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-            <li  ng-repeat="message in messages" >
-                <a ng-click="goToMegalito(message)">
-                    <span ng-init="setAvatar(message)" class="image"><img ng-src="{{message.avatar}}" alt="Profile Image" /></span>
-                    <span>
+            <span ng-show="messagesNoRead" class="badge bg-green">messagesNoRead
+            </span>
+            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                <li ng-repeat="message in messages">
+                    <a ng-click="goToMegalito(message)">
+                        <span ng-init="setAvatar(message)" class="image"><img ng-src="{{message.avatar}}" alt="Profile Image" /></span>
+                        <span>
                           <span>{{message.username}}</span>
-                    <span class="time">
-                    {{message.createdAt | amCalendar:referenceTime:formats|capitalize }}</span>
+                        <span class="time">
+                        {{message.createdAt | amCalendar:referenceTime:formats|capitalize }}</span>
+                        </span>
+                        <span class="message" ng-bind-html="parseContent(message.comment)">
                     </span>
-                    <span class="message" ng-bind-html="parseContent(message.comment)">
-                    </span>
-                </a>
-            </li>
-            
-        </ul>
+                    </a>
+                </li>
+            </ul>
     </li>
 </ul>

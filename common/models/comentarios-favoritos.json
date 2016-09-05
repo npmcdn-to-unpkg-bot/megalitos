@@ -1,25 +1,28 @@
 {
-  "name": "comentariosFavoritos",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "options": {
-    "validateUpsert": true
-  },
-  "properties": {
-    "favourite": {
-      "type": "boolean",
-      "required": true,
-      "default": false
-    }
-  },
-  "validations": [],
-  "relations": {
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {}
+    "name": "comentariosFavoritos",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "mixins": {
+        "TimeStamp": true
+    },
+    "properties": {
+        "favourite": {
+            "type": "boolean",
+            "required": true,
+            "default": false
+        }
+    },
+    "validations": [],
+    "relations": {
+        "user": {
+            "type": "belongsTo",
+            "model": "user",
+            "foreignKey": ""
+        }
+    },
+    "acls": [],
+    "methods": {}
 }

@@ -5,11 +5,14 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "TimeStamp": true
+  },
   "properties": {
     "leido": {
       "type": "string",
       "required": true,
-      "default": "false"
+      "default": false
     },
     "usuarioMencionado": {
       "type": "string",

@@ -16,10 +16,8 @@ angular
                             responses.forEach(function(response, index) {
                                     MegalitosService.getComment(response.comentariosId)
                                         .then(function(comment) {
-                                                if(comment.userId!== userLocal)
-                                                $scope.comments.push(comment);
-                                                console.log(index);
-                                                console.log(responses.length);
+                                                if (comment.userId !== userLocal)
+                                                    $scope.comments.push(comment);
                                                 if (index === responses.length - 1) {
                                                     //ordenar array
                                                     $scope.comments.sort(function(x, y) {
@@ -36,11 +34,11 @@ angular
                                                     });
                                                     //titulo para el grupo
                                                     $scope.megalito = [];
-                                                    uniqueArray.forEach(function(megalitoId) {
-                                                        MegalitosService.getMegalito(megalitoId)
+                                                    $scope.comments.forEach(function(comment, index) {
+                                                        MegalitosService.getMegalito(comment.megalitosId)
                                                             .then(function(megalito) {
-                                                                $scope.megalito.push(megalito);
-                                                                console.log(megalito);
+                                                                $scope.comments[index].megalitoNombre = megalito.nombre;
+
 
                                                             }, function(reason) {
 

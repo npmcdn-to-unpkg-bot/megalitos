@@ -332,22 +332,9 @@ angular
                     filter: {
                         where: {
                             usuarioMencionado: userId
-                        }
+                        },
+                        order: 'createdAt DESC'
 
-                    }
-                })
-                .$promise;
-
-        }
-
-        function getAllUserResponsesWithoutRead(userId) {
-            return MencionadoComentario.find({
-                    filter: {
-                        where: {
-                            and: [{ usuarioMencionado: userId },
-                                { leido: 'false' }
-                            ]
-                        }
                     }
                 })
                 .$promise;
@@ -356,7 +343,7 @@ angular
 
         function updateUserResponse(mencionadoComentarioId) {
             return MencionadoComentario
-                .prototype$updateAttributes({ id: mencionadoComentarioId }, { leido: 'true' }).$promise;
+                .prototype$updateAttributes({ id: mencionadoComentarioId }, { leido: true }).$promise;
 
         }
 
@@ -367,7 +354,8 @@ angular
                         and: [{ userId: userId },
                             { favourite: true }
                         ]
-                    }
+                    },
+                        order: 'createdAt DESC'
                 }
             }).$promise;
         }
@@ -439,7 +427,6 @@ angular
             updateUser: updateUser,
             getAllResponses:getAllResponses,
             getAllUserResponses: getAllUserResponses,
-            getAllUserResponsesWithoutRead: getAllUserResponsesWithoutRead,
             updateUserResponse: updateUserResponse,
             getCommentFavourite: getCommentFavourite,
             upsertCommentFavourite: upsertCommentFavourite,

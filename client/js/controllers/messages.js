@@ -6,16 +6,22 @@ angular
             $scope.getMessages();
         });
         var userLocal = window.localStorage.getItem("$LoopBack$currentUserId");
-        $scope.getMessages=function(){
-            MegalitosService.getAllUserResponsesWithoutRead(userLocal)
-            .then(function(responses) {
-                    $scope.messages = responses;
-                },
-                function(reason) {
-                    //reason images
-                    console.log(reason);
+        $scope.getMessages = function() {
+            MegalitosService.getAllUserResponses(userLocal)
+                .then(function(responses) {
+                        $scope.messages = responses;
+                        $scope.messagesNoRead=0;
+                        responses.forEach(function(response) {
+                            if (response.leido === false) {
+                                $scope.messagesNoRead= $scope.messagesNoRead+1;
+                            }
+                        });
+                    },
+                    function(reason) {
+                        //reason images
+                        console.log(reason);
 
-                });
+                    });
 
         };
         $scope.setAvatar = function(message) {

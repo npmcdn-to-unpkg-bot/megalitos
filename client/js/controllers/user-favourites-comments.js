@@ -4,15 +4,17 @@ angular
         MegalitosService, amMoment, $stateParams, $filter) {
         //ver respuestas para este usuario
         $scope.comments = [];
+        var ind = 0;
         var userLocal = window.localStorage.getItem("$LoopBack$currentUserId");
         MegalitosService.getUserAllCommentsFavourite(userLocal)
             .then(function(responses) {
                 console.log(responses);
-                responses.forEach(function(response, index) {
+                responses.forEach(function(response) {
                         MegalitosService.getComment(response.comentariosId)
                             .then(function(comment) {
                                     $scope.comments.push(comment);
-                                    if (index === responses.length - 1) {
+                                    ind = ind + 1;
+                                    if (ind === responses.length) {
                                         //ordenar array
                                         $scope.comments.sort(function(x, y) {
                                             return new Date(y.createdAt) - new Date(x.createdAt);
@@ -28,11 +30,11 @@ angular
                                         });
                                         //titulo para el grupo
                                         $scope.megalito = [];
-                                        uniqueArray.forEach(function(megalitoId) {
-                                            MegalitosService.getMegalito(megalitoId)
+                                        $scope.comments.forEach(function(comment, index) {
+                                            MegalitosService.getMegalito(comment.megalitosId)
                                                 .then(function(megalito) {
-                                                    $scope.megalito.push(megalito);
-                                                    console.log(megalito);
+                                                    $scope.comments[index].megalitoNombre = megalito.nombre;
+
 
                                                 }, function(reason) {
 
@@ -42,20 +44,21 @@ angular
                                                 });
 
                                         });
-
                                         for (var j = 0; j < $scope.comments.length; j++) {
                                             for (var z = 0; z < uniqueArray.length; z++) {
                                                 if ($scope.comments[j].megalitosId === uniqueArray[z])
                                                     $scope.comments[j].ordenar = z;
 
                                             }
+
                                         }
+
                                         $scope.favourites = $scope.comments;
+                                        console.log($scope.favourites);
                                         //corazones
                                         $scope.corazones($scope.favourites);
 
                                     }
-
 
                                 },
                                 function(reason) {
@@ -158,7 +161,7 @@ angular
                                 //eliminar favourite
                                 $scope.favourites.forEach(function(comentariofavorito, index) {
                                     if (commentId === comentariofavorito.id) {
-                                        $scope.favourites.splice(index,1);
+                                        $scope.favourites.splice(index, 1);
                                     }
 
                                 });
